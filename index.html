@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects & Courses Hub</title>
+    <title>ClassesWithMe - Data Analytics Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #6366f1;
@@ -26,9 +22,7 @@
             --text-muted: #94a3b8;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -38,13 +32,10 @@
             line-height: 1.6;
         }
 
-        /* Animated Background */
         .bg-animation {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: -1;
             background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #1e1b4b 100%);
         }
@@ -52,10 +43,8 @@
         .bg-animation::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
                         radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 40%),
                         radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
@@ -68,13 +57,10 @@
             66% { transform: translate(-20px, 20px) rotate(-1deg); }
         }
 
-        /* Floating Particles */
         .particles {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
@@ -82,8 +68,7 @@
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 4px; height: 4px;
             background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             animation: floatUp linear infinite;
@@ -96,11 +81,9 @@
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
@@ -143,21 +126,14 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
 
         .mobile-menu-btn {
             display: none;
@@ -168,13 +144,8 @@
             cursor: pointer;
         }
 
-        /* Sections */
-        section {
-            padding: 6rem 5%;
-            position: relative;
-        }
+        section { padding: 6rem 5%; position: relative; }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -184,9 +155,7 @@
             padding-top: 80px;
         }
 
-        .hero-content {
-            max-width: 900px;
-        }
+        .hero-content { max-width: 900px; }
 
         .hero-badge {
             display: inline-flex;
@@ -203,8 +172,7 @@
         }
 
         .live-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background: #ef4444;
             border-radius: 50%;
             animation: pulse 2s infinite;
@@ -285,7 +253,6 @@
             transform: translateY(-3px);
         }
 
-        /* Stats Bar */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -326,7 +293,6 @@
             margin-top: 0.3rem;
         }
 
-        /* Section Headers */
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
@@ -352,7 +318,6 @@
             margin: 0 auto;
         }
 
-        /* Glass Cards */
         .glass-card {
             background: var(--glass);
             backdrop-filter: blur(20px);
@@ -362,22 +327,21 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
         }
 
         .glass-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
             transition: left 0.5s ease;
         }
 
-        .glass-card:hover::before {
-            left: 100%;
-        }
+        .glass-card:hover::before { left: 100%; }
 
         .glass-card:hover {
             transform: translateY(-8px);
@@ -385,20 +349,14 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .project-card {
-            composes: glass-card;
-        }
-
         .project-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -414,10 +372,12 @@
         .project-icon.green { background: linear-gradient(135deg, #10b981, #34d399); }
         .project-icon.red { background: linear-gradient(135deg, #ef4444, #f87171); }
         .project-icon.blue { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+        .project-icon.yellow { background: linear-gradient(135deg, #eab308, #facc15); }
 
         .project-card h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            color: var(--text);
         }
 
         .project-card p {
@@ -441,22 +401,16 @@
             color: var(--primary-light);
         }
 
-        /* Courses Section */
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
-        .course-card {
-            composes: glass-card;
-            display: flex;
-            flex-direction: column;
-        }
+        .course-card { composes: glass-card; }
 
         .course-image {
-            width: 100%;
-            height: 200px;
+            width: 100%; height: 200px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 16px;
             margin-bottom: 1.5rem;
@@ -471,10 +425,8 @@
         .course-image::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
@@ -486,11 +438,8 @@
             color: var(--text-muted);
         }
 
-        .course-meta i {
-            color: var(--primary-light);
-        }
+        .course-meta i { color: var(--primary-light); }
 
-        /* 365 Videos Section */
         .videos-highlight {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
             border-radius: 30px;
@@ -504,10 +453,8 @@
         .videos-highlight::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
             animation: rotate 20s linear infinite;
         }
@@ -537,7 +484,6 @@
             z-index: 1;
         }
 
-        /* Membership Section */
         .membership-section {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
         }
@@ -564,8 +510,7 @@
         .membership-card.featured::after {
             content: 'BEST VALUE';
             position: absolute;
-            top: -12px;
-            left: 50%;
+            top: -12px; left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -576,8 +521,7 @@
         }
 
         .membership-icon {
-            width: 80px;
-            height: 80px;
+            width: 80px; height: 80px;
             border-radius: 24px;
             display: flex;
             align-items: center;
@@ -621,13 +565,8 @@
             gap: 0.8rem;
         }
 
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-
-        .features-list i {
-            color: #10b981;
-        }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list i { color: #10b981; }
 
         .difficulty-tags {
             display: flex;
@@ -647,10 +586,7 @@
         .diff-medium { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
         .diff-hard { background: rgba(239, 68, 68, 0.2); color: #f87171; }
 
-        /* Live Stream Section */
-        .live-section {
-            text-align: center;
-        }
+        .live-section { text-align: center; }
 
         .live-card {
             max-width: 800px;
@@ -673,9 +609,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .live-indicator .live-dot {
-            animation: pulse 1.5s infinite;
-        }
+        .live-indicator .live-dot { animation: pulse 1.5s infinite; }
 
         .live-card h3 {
             font-size: 2rem;
@@ -684,16 +618,26 @@
 
         .schedule-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .schedule-item {
             background: var(--glass);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 16px;
             border: 1px solid var(--glass-border);
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .schedule-item i {
@@ -702,7 +646,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Upcoming Projects */
         .upcoming-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -735,29 +678,6 @@
             font-size: 0.9rem;
         }
 
-        .add-project-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            cursor: pointer;
-            border: 2px dashed var(--glass-border);
-            background: transparent;
-        }
-
-        .add-project-btn:hover {
-            border-color: var(--primary-light);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .add-project-btn i {
-            font-size: 2.5rem;
-            color: var(--primary-light);
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
         footer {
             background: rgba(15, 23, 42, 0.8);
             border-top: 1px solid var(--glass-border);
@@ -778,8 +698,7 @@
         }
 
         .social-links a {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             border-radius: 50%;
             background: var(--glass);
             border: 1px solid var(--glass-border);
@@ -804,7 +723,6 @@
             font-size: 0.9rem;
         }
 
-        /* Scroll Animations */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -816,36 +734,21 @@
             transform: translateY(0);
         }
 
-        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 100%;
-                left: 0;
+                top: 100%; left: 0;
                 width: 100%;
                 background: rgba(15, 23, 42, 0.95);
                 flex-direction: column;
@@ -853,46 +756,20 @@
                 gap: 1.5rem;
                 border-bottom: 1px solid var(--glass-border);
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .membership-card.featured {
-                transform: scale(1);
-            }
-
-            .videos-highlight {
-                padding: 2rem 1rem;
-            }
-
-            section {
-                padding: 4rem 5%;
-            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .membership-card.featured { transform: scale(1); }
+            .videos-highlight { padding: 2rem 1rem; }
+            section { padding: 4rem 5%; }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--darker);
-        }
-
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--darker); }
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, var(--primary), var(--secondary));
             border-radius: 5px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(180deg, var(--primary-light), var(--secondary));
         }
@@ -900,15 +777,11 @@
 <base target="_blank">
 </head>
 <body>
-    <!-- Background Animation -->
     <div class="bg-animation"></div>
-
-    <!-- Floating Particles -->
     <div class="particles" id="particles"></div>
 
-    <!-- Navigation -->
     <nav id="navbar">
-        <div class="logo">DevHub</div>
+        <div class="logo">ClassesWithMe</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -923,24 +796,22 @@
         </button>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="live-dot"></span>
                 Live Streaming Daily
             </div>
-            <h1>Building <span>Amazing Projects</span> Every Day</h1>
-            <p>Join my journey of creating 365+ projects, courses, and live coding sessions. Free projects available for everyone!</p>
+            <h1>Master <span>Data Analytics</span> With Me</h1>
+            <p>Join ClassesWithMe for SQL, Python, Power BI, Data Science & more. Free projects, courses & daily live coding sessions!</p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> Explore Projects
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-youtube"></i> Visit Channel
                 </a>
                 <a href="#live" class="btn btn-secondary">
                     <i class="fas fa-play-circle"></i> Watch Live
                 </a>
             </div>
-
             <div class="stats-bar">
                 <div class="stat-card">
                     <div class="stat-number">7</div>
@@ -962,153 +833,159 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <div class="section-header animate-on-scroll">
             <h2>My <span>Projects</span></h2>
-            <p>7 curated playlists covering a wide range of topics and difficulty levels</p>
+            <p>7 curated project playlists covering SQL, Python, Power BI, Excel & Data Science</p>
         </div>
         <div class="projects-grid">
-            <div class="glass-card animate-on-scroll">
-                <div class="project-icon purple"><i class="fas fa-code"></i></div>
-                <h3>Web Development Basics</h3>
-                <p>Fundamental projects to get started with HTML, CSS, and JavaScript</p>
+            <a href="https://youtu.be/kjTWeQfT6sk" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon purple"><i class="fas fa-chart-bar"></i></div>
+                <h3>Power BI + SQL Project</h3>
+                <p>Combine Power BI visualization with SQL queries for powerful data analytics dashboards</p>
                 <div class="project-tags">
-                    <span class="tag">Beginner</span>
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">JS</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Dashboard</span>
                 </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
-                <div class="project-icon pink"><i class="fas fa-mobile-alt"></i></div>
-                <h3>Responsive Design</h3>
-                <p>Mobile-first projects with modern CSS Grid and Flexbox techniques</p>
-                <div class="project-tags">
-                    <span class="tag">Intermediate</span>
-                    <span class="tag">CSS Grid</span>
-                    <span class="tag">Flexbox</span>
-                </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
+            </a>
+            <a href="https://youtu.be/eVQAooQ5u60" target="_blank" class="glass-card project-card animate-on-scroll">
                 <div class="project-icon cyan"><i class="fas fa-database"></i></div>
-                <h3>Backend Projects</h3>
-                <p>Server-side applications with databases and API development</p>
+                <h3>SQL Project Video</h3>
+                <p>Hands-on SQL project covering queries, joins, subqueries and real-world database scenarios</p>
                 <div class="project-tags">
-                    <span class="tag">Intermediate</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">MongoDB</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Queries</span>
                 </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
-                <div class="project-icon orange"><i class="fas fa-brain"></i></div>
-                <h3>AI & Machine Learning</h3>
-                <p>Projects exploring artificial intelligence and data science concepts</p>
+            </a>
+            <a href="https://youtu.be/pgIZVhz3oyk" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon yellow"><i class="fab fa-python"></i></div>
+                <h3>Python Project Video</h3>
+                <p>Complete Python project for data analytics with real datasets and practical use cases</p>
                 <div class="project-tags">
-                    <span class="tag">Advanced</span>
                     <span class="tag">Python</span>
-                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Analytics</span>
                 </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
-                <div class="project-icon green"><i class="fas fa-gamepad"></i></div>
-                <h3>Game Development</h3>
-                <p>Interactive games built with various frameworks and engines</p>
+            </a>
+            <a href="https://youtu.be/eQtBm-_ILSk" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon green"><i class="fas fa-chart-line"></i></div>
+                <h3>Python Visualization Project</h3>
+                <p>Create stunning data visualizations using Matplotlib, Seaborn and Plotly in Python</p>
                 <div class="project-tags">
-                    <span class="tag">Intermediate</span>
-                    <span class="tag">Unity</span>
-                    <span class="tag">Canvas</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">Seaborn</span>
                 </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
-                <div class="project-icon red"><i class="fas fa-shopping-cart"></i></div>
-                <h3>E-Commerce Projects</h3>
-                <p>Full-stack shopping platforms with payment integration</p>
+            </a>
+            <a href="https://youtu.be/pua8Bjwdvew" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon green"><i class="fas fa-file-excel"></i></div>
+                <h3>Excel Project For DA</h3>
+                <p>Excel-based data analytics project with pivot tables, formulas, and dashboard creation</p>
                 <div class="project-tags">
-                    <span class="tag">Advanced</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Stripe</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Pivot Tables</span>
+                    <span class="tag">Dashboard</span>
                 </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
-                <div class="project-icon blue"><i class="fas fa-cloud"></i></div>
-                <h3>Cloud & DevOps</h3>
-                <p>Deployment, CI/CD, and cloud infrastructure projects</p>
+            </a>
+            <a href="https://youtu.be/iUkT5OeUf-4" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon purple"><i class="fas fa-chart-pie"></i></div>
+                <h3>Power BI Project</h3>
+                <p>Interactive Power BI dashboard project with DAX measures and data modeling techniques</p>
                 <div class="project-tags">
-                    <span class="tag">Advanced</span>
-                    <span class="tag">AWS</span>
-                    <span class="tag">Docker</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Data Modeling</span>
                 </div>
-            </div>
+            </a>
+            <a href="https://youtu.be/1QIbzJfmerM" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon blue"><i class="fas fa-heartbeat"></i></div>
+                <h3>Power BI (Healthcare + Finance)</h3>
+                <p>Industry-specific Power BI project covering Healthcare and Finance domain analytics</p>
+                <div class="project-tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Healthcare</span>
+                    <span class="tag">Finance</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLjx_MccGVovyveQEDieLoctGRFRKplT-B" target="_blank" class="glass-card project-card animate-on-scroll">
+                <div class="project-icon pink"><i class="fas fa-brain"></i></div>
+                <h3>Data Science Project</h3>
+                <p>Complete Data Science project playlist with ML models, data preprocessing and predictions</p>
+                <div class="project-tags">
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Python</span>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Courses Section -->
     <section id="courses">
         <div class="section-header animate-on-scroll">
             <h2>Premium <span>Courses</span></h2>
-            <p>2 comprehensive course playlists designed to take you from beginner to pro</p>
+            <p>2 comprehensive course playlists designed to take you from beginner to pro in Data Analytics</p>
         </div>
         <div class="courses-grid">
-            <div class="glass-card animate-on-scroll">
-                <div class="course-image"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Full-Stack Development Masterclass</h3>
+            <a href="https://www.youtube.com/playlist?list=PLjx_MccGVovxDDoj8-PufsaGp1RnQJuL0" target="_blank" class="glass-card course-card animate-on-scroll">
+                <div class="course-image"><i class="fas fa-database"></i></div>
+                <h3>SQL Course 2026</h3>
                 <div class="course-meta">
-                    <span><i class="fas fa-clock"></i> 40+ Hours</span>
-                    <span><i class="fas fa-video"></i> 120 Lessons</span>
-                    <span><i class="fas fa-users"></i> 5K+ Students</span>
+                    <span><i class="fas fa-video"></i> Full Playlist</span>
+                    <span><i class="fas fa-signal"></i> Beginner to Advanced</span>
                 </div>
-                <p>Complete guide to building modern web applications from scratch. Covers frontend, backend, database, and deployment.</p>
+                <p>Master SQL from scratch to advanced level. Covers MySQL, PostgreSQL, queries, joins, stored procedures and real-world database design.</p>
                 <div class="project-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
                     <span class="tag">PostgreSQL</span>
+                    <span class="tag">Database Design</span>
                 </div>
-            </div>
-            <div class="glass-card animate-on-scroll">
-                <div class="course-image" style="background: linear-gradient(135deg, #ec4899, #f97316);"><i class="fas fa-fire"></i></div>
-                <h3>Advanced JavaScript Patterns</h3>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLjx_MccGVovxi3zs9vNLAKemCPoPFb9YA" target="_blank" class="glass-card course-card animate-on-scroll">
+                <div class="course-image" style="background: linear-gradient(135deg, #ec4899, #f97316);"><i class="fas fa-calculator"></i></div>
+                <h3>Maths For Data Domain</h3>
                 <div class="course-meta">
-                    <span><i class="fas fa-clock"></i> 25+ Hours</span>
-                    <span><i class="fas fa-video"></i> 80 Lessons</span>
-                    <span><i class="fas fa-users"></i> 3K+ Students</span>
+                    <span><i class="fas fa-video"></i> Full Playlist</span>
+                    <span><i class="fas fa-signal"></i> All Levels</span>
                 </div>
-                <p>Deep dive into advanced JavaScript concepts, design patterns, performance optimization, and modern ES6+ features.</p>
+                <p>Essential mathematics for data analytics and data science. Statistics, probability, linear algebra and calculus made easy for data professionals.</p>
                 <div class="project-tags">
-                    <span class="tag">ES6+</span>
-                    <span class="tag">Design Patterns</span>
-                    <span class="tag">Performance</span>
+                    <span class="tag">Statistics</span>
+                    <span class="tag">Probability</span>
+                    <span class="tag">Linear Algebra</span>
+                    <span class="tag">Calculus</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <!-- 365 Videos Section -->
     <section id="videos">
         <div class="section-header animate-on-scroll">
             <h2>The <span>365 Challenge</span></h2>
-            <p>One video every single day for a full year of learning</p>
+            <p>One video every single day for a full year of learning SQL, Python & Maths for Data Analytics</p>
         </div>
         <div class="videos-highlight animate-on-scroll">
             <div class="videos-number">365</div>
             <div class="videos-label">Videos & Counting</div>
             <p style="margin-top: 1.5rem; color: var(--text-muted); max-width: 500px; margin-left: auto; margin-right: auto;">
-                A massive playlist covering everything from basic concepts to advanced techniques. 
+                A massive playlist covering SQL, Python, and Mathematics for Data Analytics. 
                 New content added daily!
             </p>
-            <a href="#" class="btn btn-primary" style="margin-top: 2rem;">
+            <a href="https://www.youtube.com/playlist?list=PLjx_MccGVovxBinDN-JQAE3XUHfpYqr0V" target="_blank" class="btn btn-primary" style="margin-top: 2rem;">
                 <i class="fab fa-youtube"></i> Watch Playlist
             </a>
         </div>
     </section>
 
-    <!-- Membership Section -->
     <section id="membership" class="membership-section">
         <div class="section-header animate-on-scroll">
             <h2>Upgrade to <span>Membership</span></h2>
             <p>Love the free projects? Get access to premium, high-quality projects with maximum learning value</p>
         </div>
         <div class="membership-cards">
-            <div class="glass-card animate-on-scroll">
+            <div class="glass-card membership-card animate-on-scroll">
                 <div class="membership-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
                     <i class="fas fa-seedling"></i>
                 </div>
@@ -1116,20 +993,21 @@
                 <div class="price">Free</div>
                 <p style="color: var(--text-muted); margin-bottom: 1rem;">Access to basic projects</p>
                 <ul class="features-list">
-                    <li><i class="fas fa-check"></i> 7 Project Playlists</li>
+                    <li><i class="fas fa-check"></i> All Free Projects</li>
                     <li><i class="fas fa-check"></i> Community Support</li>
                     <li><i class="fas fa-check"></i> Basic Source Code</li>
                     <li><i class="fas fa-check"></i> Weekly Updates</li>
                 </ul>
-                <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                    <i class="fab fa-youtube"></i> Get Started
+                </a>
             </div>
-
-            <div class="glass-card featured animate-on-scroll">
+            <div class="glass-card membership-card featured animate-on-scroll">
                 <div class="membership-icon" style="background: linear-gradient(135deg, #6366f1, #ec4899);">
                     <i class="fas fa-crown"></i>
                 </div>
                 <h3>Pro Member</h3>
-                <div class="price">$29<span>/month</span></div>
+                <div class="price">Membership</div>
                 <p style="color: var(--text-muted); margin-bottom: 1rem;">Best quality projects</p>
                 <ul class="features-list">
                     <li><i class="fas fa-check"></i> Everything in Free</li>
@@ -1147,14 +1025,13 @@
                 <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
                     Maximum number of scenarios at every difficulty level
                 </p>
-                <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                <a href="https://www.youtube.com/channel/UC23Ae14UR3bU9ywZ7Wm7f0A/join" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">
                     <i class="fas fa-crown"></i> Join Pro
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Live Stream Section -->
     <section id="live" class="live-section">
         <div class="section-header animate-on-scroll">
             <h2>Live <span>Coding</span></h2>
@@ -1163,112 +1040,73 @@
         <div class="live-card animate-on-scroll">
             <div class="live-indicator">
                 <span class="live-dot"></span>
-                <span>Streaming Now</span>
+                <span>Streaming Daily</span>
             </div>
             <h3>Daily Live Coding Sessions</h3>
             <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">
-                Watch me build projects from scratch, solve coding challenges, and answer your questions in real-time.
+                Watch me build projects from scratch, solve coding challenges, and answer your questions in real-time on YouTube.
             </p>
             <div class="schedule-grid">
-                <div class="schedule-item">
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="schedule-item">
                     <i class="fas fa-sun"></i>
-                    <div style="font-weight: 600; margin-top: 0.5rem;">Morning</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);">9:00 AM IST</div>
-                </div>
-                <div class="schedule-item">
+                    <div style="font-weight: 600; margin-top: 0.5rem;">Morning Session</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">12:00 PM - 6:00 PM IST</div>
+                </a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="schedule-item">
                     <i class="fas fa-moon"></i>
-                    <div style="font-weight: 600; margin-top: 0.5rem;">Evening</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);">7:00 PM IST</div>
-                </div>
-                <div class="schedule-item">
-                    <i class="fas fa-calendar-check"></i>
-                    <div style="font-weight: 600; margin-top: 0.5rem;">Weekends</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);">Special Sessions</div>
-                </div>
+                    <div style="font-weight: 600; margin-top: 0.5rem;">Evening Session</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">7:00 PM - 10:00 PM IST</div>
+                </a>
             </div>
-            <a href="#" class="btn btn-primary" style="margin-top: 2rem;">
+            <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="btn btn-primary" style="margin-top: 2rem;">
                 <i class="fab fa-youtube"></i> Subscribe & Watch
             </a>
         </div>
     </section>
 
-    <!-- Upcoming Projects Section -->
     <section id="upcoming">
         <div class="section-header animate-on-scroll">
             <h2>Upcoming <span>Projects</span></h2>
             <p>New projects added every month. Here's what's coming next!</p>
         </div>
         <div class="upcoming-grid">
-            <div class="glass-card upcoming-card animate-on-scroll">
+            <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="glass-card upcoming-card animate-on-scroll">
                 <span class="month-badge">July 2026</span>
-                <h4>AI Chatbot Application</h4>
-                <p>Build a smart conversational AI with natural language processing</p>
+                <h4>New Project Coming Soon</h4>
+                <p>Stay tuned for the latest data analytics project releasing this month</p>
                 <div class="project-tags" style="margin-top: 1rem;">
-                    <span class="tag">OpenAI API</span>
-                    <span class="tag">React</span>
+                    <span class="tag">Coming Soon</span>
                 </div>
-            </div>
-            <div class="glass-card upcoming-card animate-on-scroll">
-                <span class="month-badge">July 2026</span>
-                <h4>Real-Time Dashboard</h4>
-                <p>Analytics dashboard with live data visualization and WebSockets</p>
-                <div class="project-tags" style="margin-top: 1rem;">
-                    <span class="tag">D3.js</span>
-                    <span class="tag">Socket.io</span>
-                </div>
-            </div>
-            <div class="glass-card upcoming-card animate-on-scroll">
+            </a>
+            <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank" class="glass-card upcoming-card animate-on-scroll">
                 <span class="month-badge">August 2026</span>
-                <h4>Social Media App</h4>
-                <p>Full-featured social platform with posts, likes, and real-time notifications</p>
+                <h4>New Project Coming Soon</h4>
+                <p>Another exciting project on data analytics releasing next month</p>
                 <div class="project-tags" style="margin-top: 1rem;">
-                    <span class="tag">MERN Stack</span>
-                    <span class="tag">Redis</span>
+                    <span class="tag">Coming Soon</span>
                 </div>
-            </div>
-            <div class="glass-card upcoming-card animate-on-scroll add-project-btn" onclick="alert('To add a new project: Duplicate any project card above and update the content!')">
-                <i class="fas fa-plus-circle"></i>
-                <span style="color: var(--text-muted);">Add New Project</span>
-                <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Click for instructions</span>
-            </div>
-        </div>
-
-        <div class="glass-card animate-on-scroll" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <h3 style="margin-bottom: 1rem;"><i class="fas fa-lightbulb" style="color: var(--primary-light);"></i> How to Add New Projects Monthly</h3>
-            <div style="color: var(--text-muted); line-height: 2;">
-                <p><strong>1.</strong> Open this HTML file in any code editor (VS Code, Notepad++, etc.)</p>
-                <p><strong>2.</strong> Find the <code style="background: rgba(99,102,241,0.2); padding: 0.2rem 0.5rem; border-radius: 4px;">&lt;div class="upcoming-grid"&gt;</code> section</p>
-                <p><strong>3.</strong> Copy any existing project card (the div with class "glass-card upcoming-card")</p>
-                <p><strong>4.</strong> Paste it before the "Add New Project" button card</p>
-                <p><strong>5.</strong> Update the month badge, title, description, and tags</p>
-                <p><strong>6.</strong> Save the file and commit to GitHub - your site updates automatically!</p>
-            </div>
-            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; border-left: 4px solid #10b981;">
-                <strong style="color: #34d399;">Pro Tip:</strong> You can also add new projects to the "Projects" section the same way. Just duplicate a card and customize it!
-            </div>
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="logo" style="margin-bottom: 1rem;">DevHub</div>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Building the future, one project at a time.</p>
+            <div class="logo" style="margin-bottom: 1rem;">ClassesWithMe</div>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Building the future of Data Analytics education, one project at a time.</p>
             <div class="social-links">
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
             <div class="copyright">
-                <p> 2026 DevHub. All projects crafted with passion.</p>
+                <p> 2026 ClassesWithMe. All projects crafted with passion.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Generate floating particles
         const particlesContainer = document.getElementById('particles');
         for (let i = 0; i < 50; i++) {
             const particle = document.createElement('div');
@@ -1280,69 +1118,37 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
 
-        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu on link click
+        mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Live dot animation enhancement
         setInterval(() => {
             document.querySelectorAll('.live-dot').forEach(dot => {
                 dot.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.6)';
-                setTimeout(() => {
-                    dot.style.boxShadow = 'none';
-                }, 500);
+                setTimeout(() => { dot.style.boxShadow = 'none'; }, 500);
             });
         }, 2000);
     </script>
