@@ -168,7 +168,7 @@ section{ padding:6rem 6%; position:relative; }
 @keyframes scrollX{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
 /* stats */
-.stats-bar{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1100px; margin:0 auto; padding:3.4rem 6% 0; }
+.stats-bar{ display:grid; grid-template-columns:repeat(5,1fr); gap:1.2rem; max-width:1250px; margin:0 auto; padding:3.4rem 6% 0; }
 .stat-card{
   background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:1.6rem 1.2rem; text-align:center;
   transition:all 0.3s ease;
@@ -337,7 +337,7 @@ footer{ border-top:1px solid var(--line); padding:3rem 6%; text-align:center; }
   .nav-links li{ width:100%; }
   .nav-links a{ display:block; padding:0.9rem 1.5rem; border-bottom:1px solid var(--line-soft); }
   .mobile-menu-btn{ display:block; }
-  .stats-bar{ grid-template-columns:repeat(2,1fr); }
+  .stats-bar{ grid-template-columns:repeat(3,1fr); }
   section{ padding:4rem 5%; }
   .schedule-grid{ grid-template-columns:1fr; max-width:340px; }
   .heatmap-grid{ grid-template-columns:repeat(20,1fr); }
@@ -345,6 +345,7 @@ footer{ border-top:1px solid var(--line); padding:3rem 6%; text-align:center; }
 @media (max-width:480px){
   .hero-buttons{ flex-direction:column; }
   .hero-buttons .btn{ width:100%; justify-content:center; }
+  .stats-bar{ grid-template-columns:repeat(2,1fr); }
   .heatmap-grid{ grid-template-columns:repeat(15,1fr); }
   .heatmap-wrap{ padding:1.6rem; }
 }
@@ -359,6 +360,7 @@ footer{ border-top:1px solid var(--line); padding:3rem 6%; text-align:center; }
   <ul class="nav-links" id="navLinks">
     <li><a href="#home">Home</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#case-studies">Case Studies</a></li>
     <li><a href="#courses">Courses</a></li>
     <li><a href="#videos">365</a></li>
     <li><a href="#membership">Membership</a></li>
@@ -422,6 +424,7 @@ footer{ border-top:1px solid var(--line); padding:3rem 6%; text-align:center; }
 
 <div class="stats-bar">
   <div class="stat-card"><div class="stat-number" data-target="8">0</div><div class="stat-label">Project playlists</div></div>
+  <div class="stat-card"><div class="stat-number" data-target="2">0</div><div class="stat-label">Case studies</div></div>
   <div class="stat-card"><div class="stat-number" data-target="2">0</div><div class="stat-label">Course playlists</div></div>
   <div class="stat-card"><div class="stat-number" data-target="365" data-suffix="+">0</div><div class="stat-label">Video tutorials</div></div>
   <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Live streams</div></div>
@@ -442,6 +445,18 @@ footer{ border-top:1px solid var(--line); padding:3rem 6%; text-align:center; }
     <a href="https://youtu.be/iUkT5OeUf-4" class="file-card"><div class="file-head"><i class="fas fa-chart-pie"></i> power_bi_project.pbix</div><div class="file-body"><h3>Power BI Project</h3><p>Interactive Power BI dashboard project with DAX measures and data modeling techniques.</p><div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data Modeling</span></div></div></a>
     <a href="https://youtu.be/1QIbzJfmerM" class="file-card"><div class="file-head"><i class="fas fa-heartbeat"></i> healthcare_finance.pbix</div><div class="file-body"><h3>Power BI: Healthcare + Finance</h3><p>Industry-specific Power BI project covering healthcare and finance domain analytics.</p><div class="project-tags"><span class="tag">Power BI</span><span class="tag">Healthcare</span><span class="tag">Finance</span></div></div></a>
     <a href="https://www.youtube.com/playlist?list=PLjx_MccGVovyveQEDieLoctGRFRKplT-B" class="file-card"><div class="file-head"><i class="fas fa-brain"></i> data_science_project.ipynb</div><div class="file-body"><h3>Data Science Project</h3><p>Complete data science playlist with ML models, preprocessing and predictions.</p><div class="project-tags"><span class="tag">Data Science</span><span class="tag">Machine Learning</span><span class="tag">Python</span></div></div></a>
+  </div>
+</section>
+
+<section id="case-studies">
+  <div class="section-header animate-on-scroll">
+    <div class="eyebrow">-- case studies</div>
+    <h2>Case studies</h2>
+    <p>Real, end-to-end case studies — the full thought process from problem to solution.</p>
+  </div>
+  <div class="projects-grid">
+    <a href="#" class="file-card"><div class="file-head"><i class="fas fa-magnifying-glass-chart"></i> case_study_01.sql</div><div class="file-body"><h3>Case Study 1</h3><p>Replace this with your first case study's title, description and YouTube link.</p><div class="project-tags"><span class="tag">Case Study</span></div></div></a>
+    <a href="#" class="file-card"><div class="file-head"><i class="fas fa-magnifying-glass-chart"></i> case_study_02.sql</div><div class="file-body"><h3>Case Study 2</h3><p>Replace this with your second case study's title, description and YouTube link.</p><div class="project-tags"><span class="tag">Case Study</span></div></div></a>
   </div>
 </section>
 
