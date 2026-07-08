@@ -183,6 +183,34 @@ section{ padding:6rem 6%; position:relative; }
 .section-header h2{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.8rem,3.4vw,2.6rem); margin-bottom:0.7rem; }
 .section-header p{ color:var(--muted); font-size:clamp(0.95rem,1.6vw,1.05rem); }
 
+/* ============ TODAY / MONTHLY HIGHLIGHT ============ */
+.today-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; max-width:1000px; margin:0 auto; }
+.today-card{
+  background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  text-decoration:none; color:var(--paper); display:block; transition:all 0.3s ease;
+}
+.today-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.35); }
+.today-card.daily:hover{ border-color:var(--teal); }
+.today-card.monthly:hover{ border-color:var(--amber); }
+.today-head{
+  display:flex; align-items:center; justify-content:space-between; gap:0.6rem; padding:0.9rem 1.2rem;
+  background:var(--panel-2); border-bottom:1px solid var(--line);
+}
+.fresh-badge{ font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.03em; display:inline-flex; align-items:center; gap:0.45rem; }
+.fresh-badge .dot{ width:7px; height:7px; border-radius:50%; }
+.today-card.daily .fresh-badge{ color:var(--teal); }
+.today-card.daily .fresh-badge .dot{ background:var(--teal); animation:pulse 1.8s infinite; }
+.today-card.monthly .fresh-badge{ color:var(--amber); }
+.today-card.monthly .fresh-badge .dot{ background:var(--amber); animation:pulse 1.8s infinite; }
+.today-date{ font-family:var(--font-mono); font-size:0.7rem; color:var(--muted); }
+.today-body{ padding:1.6rem 1.4rem; }
+.today-eyebrow{ font-family:var(--font-mono); font-size:0.72rem; color:var(--muted); text-transform:uppercase; margin-bottom:0.5rem; }
+.today-body h3{ font-family:var(--font-display); font-size:1.3rem; margin-bottom:0.6rem; }
+.today-body p{ color:var(--muted); font-size:0.9rem; margin-bottom:1.1rem; line-height:1.55; }
+.today-cta{ display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--font-mono); font-size:0.8rem; color:var(--paper); }
+.today-card.daily .today-cta{ color:var(--teal); }
+.today-card.monthly .today-cta{ color:var(--amber); }
+
 /* ============ PROJECTS ============ */
 .projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.3rem; max-width:1300px; margin:0 auto; }
 .file-card{
@@ -430,6 +458,57 @@ footer{ border-top:1px solid var(--line); padding:3rem 6%; text-align:center; }
   <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Live streams</div></div>
 </div>
 
+<section id="today">
+  <div class="section-header animate-on-scroll">
+    <div class="eyebrow">-- right now</div>
+    <h2>Today's topic &amp; this month's project</h2>
+    <p>The two links you'll update most — everything else on the page stays the same.</p>
+  </div>
+  <div class="today-grid">
+ 
+    <!-- ============================================================
+         DAILY — EDIT THIS EVERY DAY
+         1) Change the href below to today's video/stream link
+         2) Change "Window Functions in SQL" to today's topic title
+         3) Change the one-line description
+         4) Change "8 July 2026" to today's date
+         ============================================================ -->
+    <a href="#" class="today-card daily animate-on-scroll">
+      <div class="today-head">
+        <span class="fresh-badge"><span class="dot"></span>Today's topic</span>
+        <span class="today-date">8 July 2026</span>
+      </div>
+      <div class="today-body">
+        <div class="today-eyebrow">updated daily</div>
+        <h3>Window Functions in SQL</h3>
+        <p>Replace this with today's topic title, link and a one-line description.</p>
+        <span class="today-cta"><i class="fas fa-play"></i> Watch today's video</span>
+      </div>
+    </a>
+ 
+    <!-- ============================================================
+         MONTHLY — EDIT THIS ONCE A MONTH
+         1) Change the href below to this month's project link
+         2) Change "SQL + Python Case Study" to this month's project title
+         3) Change the one-line description
+         4) Change "July 2026" to the current month
+         ============================================================ -->
+    <a href="#" class="today-card monthly animate-on-scroll">
+      <div class="today-head">
+        <span class="fresh-badge"><span class="dot"></span>Monthly project</span>
+        <span class="today-date">July 2026</span>
+      </div>
+      <div class="today-body">
+        <div class="today-eyebrow">updated monthly</div>
+        <h3>SQL + Python Case Study</h3>
+        <p>Replace this with this month's featured project title, link and description.</p>
+        <span class="today-cta"><i class="fas fa-play"></i> Watch this month's project</span>
+      </div>
+    </a>
+ 
+  </div>
+</section>
+ 
 <section id="projects">
   <div class="section-header animate-on-scroll">
     <div class="eyebrow">-- projects</div>
