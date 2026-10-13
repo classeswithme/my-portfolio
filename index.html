@@ -49,11 +49,32 @@ canvas#life{width:100%;aspect-ratio:2/1;display:block;image-rendering:pixelated;
 .stack{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
 #slots{display:flex;gap:.3rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}#slots span{font:600 .62rem var(--mono);padding:.15rem .5rem;border:1px solid var(--line);color:var(--mut);transition:.2s}#slots span.on{color:#fff;border-color:transparent}
 .hero .side{display:grid;gap:1rem}
+.gw{position:relative}#qz{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;gap:.5rem;padding:.7rem;background:color-mix(in srgb,var(--card) 96%,transparent);border:1px solid #dc2626;font:.72rem var(--mono);z-index:2}
+#qz.on{display:flex}#qz .qt{color:#dc2626;font-weight:600}#qz .qq{font:600 .85rem/1.35 var(--sans)}
+#qz .qo{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}#qz button{font:500 .72rem var(--mono);padding:.5rem;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer}
+#qz button:hover{background:var(--ink);color:var(--bg)}#qz button.ok{background:#16a34a;border-color:#16a34a;color:#fff}#qz button.no{background:#dc2626;border-color:#dc2626;color:#fff}#qz .qf{min-height:1.2em;color:var(--mut)}
 /* tax / spectrum */
-.spec{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:2.5rem}
-.spec div{padding:1.4rem;border-right:1px solid var(--line);font:.8rem var(--mono)}
-.spec div:last-child{border:0}.spec b{display:block;font:600 1.1rem var(--sans);margin-bottom:.4rem}.spec span{color:var(--mut)}
-@media(max-width:800px){.spec{grid-template-columns:1fr 1fr}.spec div{border-bottom:1px solid var(--line)}}
+.sk{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:1rem;margin-top:2.5rem}
+.sk .t{--c:var(--ink);position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);padding:1.3rem 1.2rem 1.4rem;display:flex;flex-direction:column;gap:.55rem;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.sk .t:before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:var(--c)}
+.sk .t:after{content:attr(data-g);position:absolute;right:-.05em;bottom:-.25em;font:700 7rem/1 var(--sans);color:var(--c);opacity:.08;pointer-events:none;transition:.4s}
+.sk .t:hover{transform:translateY(-6px);border-color:var(--c);box-shadow:0 22px 40px -22px var(--c)}
+.sk .t:hover:after{opacity:.18;transform:rotate(-8deg) scale(1.08)}
+.sk .n{font:500 .68rem var(--mono);color:var(--mut);display:flex;justify-content:space-between}
+.sk .ic{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);font:700 1.2rem var(--mono)}
+.sk h3{font:650 1.35rem var(--sans);letter-spacing:-.03em}
+.sk p{color:var(--mut);font-size:.86rem;max-width:34ch}
+.sk .ch{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:auto;padding-top:.6rem}
+.sk .ch span{font:.64rem var(--mono);padding:.2rem .5rem;border-radius:99px;background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--c)}
+.sk .core{grid-column:1/-1;--c:var(--acc);background:radial-gradient(circle at 85% 20%,color-mix(in srgb,var(--acc) 22%,transparent),transparent 55%),var(--card);display:grid;grid-template-columns:1.1fr 1fr;gap:1.5rem;align-items:center;padding:2rem 1.8rem}
+.sk .core h3{font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-.05em}
+.sk .core .ic{width:56px;height:56px;font-size:1.6rem}
+.sk .core:after{font-size:15rem}
+.sk .eq{font:500 clamp(.85rem,1.5vw,1.05rem)/2 var(--mono);color:var(--ink);border-left:2px solid var(--acc);padding-left:1rem}
+.sk .eq i{font-style:normal;color:var(--acc)}
+.sk .core .tag{display:inline-block;font:600 .66rem var(--mono);background:var(--acc);color:#fff;padding:.25rem .6rem;width:max-content;letter-spacing:.06em}
+@media(max-width:900px){.sk{grid-template-columns:1fr 1fr}.sk .core{grid-template-columns:1fr}}
+@media(max-width:520px){.sk{grid-template-columns:1fr}}
 /* big stats */
 .big{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:1px solid var(--ink)}
 .big div{padding:2rem 1rem;text-align:center}
@@ -100,9 +121,18 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 .cell{position:relative;overflow:hidden}.cell>*{position:relative}
 .cell:before{content:'';position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--acc) 38%,transparent),transparent 62%);opacity:0;transition:opacity .3s;pointer-events:none}.cell:hover:before{opacity:1}
 .art{display:block;width:100%;height:56px;border-bottom:1px solid var(--line)}
-.tick{overflow:hidden;border-bottom:1px solid var(--line);padding:1.4rem 0;background:var(--card)}
-.tick div{display:flex;width:max-content;gap:2.5rem;animation:tk 32s linear infinite;font:600 clamp(2rem,5vw,4rem) var(--sans);letter-spacing:-.04em;white-space:nowrap}
-.tick span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--ink)}.tick span.s{color:var(--acc);-webkit-text-stroke:0}
+.ribbons{position:relative;height:clamp(150px,20vw,230px);overflow:hidden;display:grid;place-items:center}
+.rb{position:absolute;left:-5%;width:110%;overflow:hidden;padding:.9rem 0;box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
+.rb.a{background:var(--acc);color:#fff;transform:rotate(-3deg);z-index:2}
+.rb.b{background:var(--ink);color:var(--bg);transform:rotate(2.5deg)}
+.rb .tr{display:flex;width:max-content;align-items:center;animation:tk 38s linear infinite}
+.rb.b .tr{animation-direction:reverse;animation-duration:46s}
+.rb:hover .tr{animation-play-state:paused}
+.rb .it{display:inline-flex;align-items:baseline;gap:.7rem;padding:0 1.6rem;white-space:nowrap}
+.rb .w{font:700 clamp(1.5rem,3.6vw,2.9rem) var(--sans);letter-spacing:-.04em}
+.rb .w.o{color:transparent;-webkit-text-stroke:1.4px currentColor}
+.rb .c{font:500 .72rem var(--mono);padding:.25rem .55rem;border:1px solid currentColor;border-radius:99px;opacity:.85;transform:translateY(-.4em)}
+.rb .st{font-size:1.1rem;opacity:.8}
 @keyframes tk{to{transform:translateX(-50%)}}
 .pro{animation:glow 2.6s ease-in-out infinite}
 @keyframes glow{50%{box-shadow:inset 0 0 0 2px var(--acc),0 0 50px color-mix(in srgb,var(--acc) 40%,transparent)}}
@@ -125,14 +155,21 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 <div class="widget"><div class="cap"><span>Query 1.1</span><span>classeswithme.sql</span></div><div class="bd"><div class="term" id="typed"></div><div id="res" style="opacity:0;transition:.4s">
 <div class="rrow"><span>SQL</span><i><b data-w="92"></b></i><span>92</span></div><div class="rrow"><span>Python</span><i><b data-w="85"></b></i><span>85</span></div><div class="rrow"><span>Power BI</span><i><b data-w="78"></b></i><span>78</span></div><div class="rrow"><span>Excel</span><i><b data-w="70"></b></i><span>70</span></div></div></div></div>
 <div class="stack"><div class="widget"><div class="cap"><span>Upload Timer 1.1</span><span>1st / month</span></div><div class="bd"><div class="mono" style="font-size:.7rem;color:var(--mut)">NEXT PROJECT DROPS IN</div><div class="clock" id="clock" style="font-size:1.7rem;margin:.3rem 0">--d --:--:--</div><div class="mono" style="font-size:.7rem;color:var(--mut)" id="date"></div></div></div>
-<div class="widget"><div class="cap"><span>Data Glider 1.1</span><span id="score">score 0 · best 0</span></div><div class="bd" style="padding:.5rem"><canvas id="life" width="200" height="100" tabindex="0"></canvas><div class="mono" id="hint" style="font-size:.65rem;color:var(--mut);margin-top:.4rem;text-align:center">COLLECT SQL · PY · XL · BI · ∑ — DODGE NULL, NAN, #REF, ÷0</div><div id="slots"></div></div></div></div>
+<div class="widget"><div class="cap"><span>Data Glider 1.1</span><span id="score">score 0 · best 0</span></div><div class="bd" style="padding:.5rem"><div class="gw"><canvas id="life" width="200" height="100" tabindex="0"></canvas><div id="qz"><div class="qt" id="qt"></div><div class="qq" id="qq"></div><div class="qo" id="qo"></div><div class="qf" id="qf"></div></div></div><div class="mono" id="hint" style="font-size:.65rem;color:var(--mut);margin-top:.4rem;text-align:center">COLLECT SQL · PY · XL · BI · ∑ — HIT AN ERROR = QUIZ · 3 LIVES</div><div id="slots"></div></div></div></div>
 </div></section>
 
 <div class="sep">∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆</div>
 
-<div class="tick"><div id="tk"></div></div>
-<section class="rv"><div class="label">the stack</div><h2>Four tools. One core skill.</h2><p class="lead">We took the project-first direction: not slides, not theory dumps. You watch real queries and dashboards get built.</p>
-<div class="spec"><div><b>SQL</b><span>querying · joins · CTEs</span></div><div><b>Python</b><span>pandas · viz · ML</span></div><div><b>Power BI</b><span>DAX · modeling</span></div><div><b>Excel</b><span>pivots · dashboards</span></div></div>
+<div class="ribbons"><div class="rb b"><div class="tr" id="tk2"></div></div><div class="rb a"><div class="tr" id="tk"></div></div></div>
+<section class="rv"><div class="label">the stack</div><h2>Four tools. One core skill.</h2><p class="lead">Tools change, maths doesn't. We took the project-first direction: not slides, not theory dumps. You watch real queries and dashboards get built, with the maths explained underneath.</p>
+<div class="sk">
+<div class="t core" data-g="∑"><div style="display:flex;flex-direction:column;gap:.7rem"><span class="tag">THE CORE SKILL</span><div class="ic">∑</div><h3>Maths</h3><p>The thinking behind every query, chart and model: knowing what the numbers actually mean.</p><div class="ch"><span>Statistics</span><span>Probability</span><span>Linear Algebra</span><span>Calculus</span></div></div>
+<div class="eq">x̄ = <i>Σx</i> / n<br>σ = √( <i>Σ(x − x̄)²</i> / n )<br>P(A|B) = <i>P(B|A)·P(A)</i> / P(B)<br>ŷ = β₀ + <i>β₁x</i> + ε</div></div>
+<div class="t" data-g="⌕" style="--c:#3b82f6"><div class="n"><span>01 / tool</span><span>.sql</span></div><div class="ic">⌕</div><h3>SQL</h3><p>Ask any question of a database and get a clean answer back.</p><div class="ch"><span>Joins</span><span>CTEs</span><span>Window fns</span></div></div>
+<div class="t" data-g="λ" style="--c:#d99a00"><div class="n"><span>02 / tool</span><span>.py</span></div><div class="ic">λ</div><h3>Python</h3><p>Clean, explore and model data at any scale.</p><div class="ch"><span>pandas</span><span>Viz</span><span>ML</span></div></div>
+<div class="t" data-g="▥" style="--c:#a855f7"><div class="n"><span>03 / tool</span><span>.pbix</span></div><div class="ic">▥</div><h3>Power BI</h3><p>Turn models into interactive dashboards people use.</p><div class="ch"><span>DAX</span><span>Modeling</span><span>Reports</span></div></div>
+<div class="t" data-g="⊞" style="--c:#16a34a"><div class="n"><span>04 / tool</span><span>.xlsx</span></div><div class="ic">⊞</div><h3>Excel</h3><p>The fastest way to prototype an analysis.</p><div class="ch"><span>Pivots</span><span>XLOOKUP</span><span>Dashboards</span></div></div>
+</div>
 <div class="b64" id="b64">[b.64] </div></section>
 
 <section class="rv" style="padding-top:0"><div class="big" id="big"></div></section>
@@ -140,22 +177,11 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 <section id="today" class="today rv"><div class="label">right now</div><h2>Today's topic &amp; this month's project</h2><p class="lead">Both sections are updated with the latest topic and project.</p>
 <div class="grid two">
 <!-- DAILY: edit href, title, description, date -->
-<!------------------------------------------------------------------------------------------------------------------->
-<!---------------------------- Daily edit topic --------------------------------------------------------------------->
 <a class="cell" href="https://youtu.be/-3xE-axN3Sg"><div class="cap"><span><i class="live-dot"></i>Today's topic</span> · 09 October 2026</div><div class="bd"><div class="mono mut" style="font-size:.7rem;margin-bottom:.6rem">UPDATED DAILY</div><h3>Mode Explained: When Most Common Value Matters</h3><p>Learn how math helps Data Analysts understand data, find patterns, and make better decisions.</p><div class="tags"><span>▶ Watch today's video</span></div></div></a>
-<!------------------------------------------------------------------------------------------------------------------->
-<!---------------------------- Daily edit topic --------------------------------------------------------------------->
-
-  
 <!-- MONTHLY: edit href, title, description, month -->
-<!--------------------------------------------------------------------------------------------------------------------->
-<!---------------------------- monthly edit topic --------------------------------------------------------------------->
 <a class="cell" href="https://youtu.be/MGD3GuuHbo4"><div class="cap"><span><i class="live-dot"></i>Monthly project</span> · October 2026</div><div class="bd"><div class="mono mut" style="font-size:.7rem;margin-bottom:.6rem">UPDATED MONTHLY</div><h3>SQL Case Study</h3><p>Analyze real-world data and solve business problems using SQL and Python.</p><div class="tags"><span>▶ Watch this month's project</span></div></div></a>
 </div></section>
 
-<!--------------------------------------------------------------------------------------------------------------------->
-<!---------------------------- monthly edit topic --------------------------------------------------------------------->
-  
 <section id="projects" class="rv"><div class="label">projects</div><h2>Free project playlists</h2><p class="lead">Eight hands-on builds across SQL, Python, Power BI and Excel — real datasets, real dashboards.</p><div class="grid" id="pg"></div></section>
 <section id="case-studies" class="rv"><div class="label">case studies</div><h2>Problem to solution, end to end.</h2><p class="lead">Real case studies — the full thought process.</p><div class="grid" id="cg"></div></section>
 <section id="courses" class="rv"><div class="label">courses</div><h2>Full-length courses</h2><p class="lead">Two deep, structured playlists from first query to production-ready skills.</p><div class="grid two" id="kg"></div></section>
@@ -168,19 +194,12 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 <div class="cell"><div class="cap">starter.plan</div><div class="bd mem"><h3>Starter</h3><p>Access to every basic project</p><div class="price" style="margin-top:1rem">Free</div><ul><li>All free projects</li><li>Community support</li><li>Basic source code</li><li>Weekly updates</li></ul><a class="btn" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Get started ↗</a></div></div>
 <div class="cell pro"><div class="cap">pro.plan · best value</div><div class="bd mem"><span class="badge">₹60/- only</span><h3>Pro Member</h3><p>The highest-quality projects, every difficulty</p><div class="price" style="margin-top:1rem">Membership</div><div class="tags"><span>Easy</span><span>Intermediate</span><span>Hard</span><span>11 projects · 4 case studies</span></div><ul><li>Everything in Starter</li><li>Premium project source</li><li>Step-by-step tutorials</li><li>Priority support</li><li>Downloadable resources</li><li>FAANG level case study</li></ul><a class="btn p" href="https://www.youtube.com/channel/UC23Ae14UR3bU9ywZ7Wm7f0A/join">Join Pro ↗</a></div></div>
 </div></section>
-  
-<!------------------------------------------------------------------------------------------------------------>
-<!----------------------------LIVE STREAM--------------------------------------------------------------------->
-  
+
 <section id="live" class="rv"><div class="label"><b>●</b> live</div><h2>Live coding, daily.</h2><p class="lead">Two sessions a day — morning and evening — building real projects and answering your questions on YouTube.</p>
 <div class="sched"><a class="widget" href="https://youtube.com/live/zV9H-uGgvJY?feature=share"><div class="cap"><span>Session 01</span><span>Morning</span></div><div class="bd"><div class="clock" style="font-size:1.3rem">12:00 PM – 6:00 PM</div><div class="mono mut" style="font-size:.72rem">IST</div></div></a>
 <a class="widget" href="https://youtube.com/live/Dne1Dp-D_0Y?feature=share"><div class="cap"><span>Session 02</span><span>Evening</span></div><div class="bd"><div class="clock" style="font-size:1.3rem">7:00 PM – 10:00 PM</div><div class="mono mut" style="font-size:.72rem">IST</div></div></a></div>
 <a class="btn p" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Subscribe &amp; watch ↗</a></section>
 
-<!------------------------------------------------------------------------------------------------------------>
-<!----------------------------LIVE STREAM--------------------------------------------------------------------->
-
-  
 <section id="upcoming" class="rv"><div class="label">upcoming</div><h2>What's shipping next.</h2><p class="lead">New projects land every month.</p>
 <div class="grid two">
 <a class="cell" href="https://youtu.be/MGD3GuuHbo4"><div class="cap">October 2026</div><div class="bd"><h3>SQL Case Study</h3><p>A combined case study project releasing this month.</p><div class="tags"><span>/projects/2026-10-sql-case-study</span></div></div></a>
@@ -238,14 +257,28 @@ setTimeout(c,1000)})();
 (function(){const cv=$('#life'),x=cv.getContext('2d'),W=200,H=100,G=[[1,0],[2,1],[0,2],[1,2],[2,2]];
 const F={S:'111100111001111',Q:'111101101111001',L:'100100100100111',P:'111101111100100',Y:'101101111010010',X:'101101010101101',B:'110101110101110',I:'111010010010111',N:'110101101101101',U:'101101101101111',R:'110101110101101',E:'111100110100111',A:'010101111101101','#':'101111101111101','0':'111101101101111','÷':'010000111000010','∑':'111100010100111'};
 const TOOLS=[['SQL','#3b82f6'],['PY','#d99a00'],['XL','#16a34a'],['BI','#a855f7'],['∑','#ff4d00']],BAD=['NULL','NAN','#REF','÷0'];
+const QB={
+NULL:[["NULL = NULL in SQL returns…",["NULL (unknown)","TRUE"]],["Correct way to find missing values in SQL?",["WHERE col IS NULL","WHERE col = NULL"]],["Does COUNT(col) count NULL values?",["No","Yes"]],["Does COUNT(*) count rows that contain NULLs?",["Yes","No"]],["Which function replaces NULL with a default value?",["COALESCE()","CONCAT()"]],["NULL + 5 in SQL gives…",["NULL","5"]],["AVG(col) treats NULLs how?",["Ignores them","Counts them as 0"]],["NULL means…",["Missing / unknown value","Zero"]],["In a LEFT JOIN, unmatched right-side columns become…",["NULL","0"]],["In pandas, df.isnull() returns…",["A True/False mask","The number of rows"]]],
+NAN:[["In Python, float('nan') == float('nan') is…",["False","True"]],["Pandas method to remove rows with NaN?",["dropna()","fillna()"]],["Pandas method to replace NaN with a value?",["fillna()","dropna()"]],["NaN stands for…",["Not a Number","Null and None"]],["What type is np.nan?",["float","int"]],["df.isna().sum() gives…",["NaN count per column","Total rows"]],["Does pandas .mean() skip NaN by default?",["Yes","No"]],["Correct way to test for NaN in NumPy?",["np.isnan(x)","x == np.nan"]],["np.float64(0)/0 gives…",["nan","0"]],["An int column with a NaN in pandas becomes…",["float64","int64"]]],
+'#REF':[["Excel #REF! means…",["Invalid cell reference","Wrong data type"]],["Most common cause of #REF!?",["Deleting a referenced row/column","Dividing by zero"]],["Which symbol locks a cell reference?",["$","#"]],["VLOOKUP with col_index larger than the table gives…",["#REF!","#N/A"]],["Function to catch any formula error?",["IFERROR()","IFS()"]],["=A1 copied one row down becomes…",["=A2","=A1"]],["Does $A$1 change when the formula is copied?",["No","Yes"]],["VLOOKUP value not found gives…",["#N/A","#REF!"]],["Quickest fix right after deleting a needed column?",["Ctrl+Z (undo)","Ctrl+S (save)"]],["INDIRECT(\"Sheet9!A1\") on a missing sheet returns…",["#REF!","#VALUE!"]]],
+'÷0':[["Excel's divide-by-zero error is…",["#DIV/0!","#NUM!"]],["Safe SQL division a / b?",["a / NULLIF(b, 0)","a / ISNULL(b)"]],["Python 5 / 0 raises…",["ZeroDivisionError","ValueError"]],["NumPy np.float64(1)/0 gives…",["inf","0"]],["Show 0 instead of #DIV/0! in Excel with…",["IFERROR(A1/B1, 0)","ROUND(A1/B1, 0)"]],["Excel AVERAGE() of an empty range gives…",["#DIV/0!","0"]],["Any number ÷ 0 is mathematically…",["Undefined","0"]],["0 ÷ 5 equals…",["0","Undefined"]],["PostgreSQL SELECT 1/0 gives…",["A division-by-zero error","NULL"]],["Mean = sum ÷ ?",["count","max"]]]};
+let lives=3;const heart=()=>'♥'.repeat(lives)+'♡'.repeat(3-lives);
+function ask(it){st=3;const pool=QB[it.t],[qq,op]=pool[Math.random()*pool.length|0],ans=op[0],sh=[...op].sort(()=>Math.random()-.5);
+ $('#qt').textContent='⚠ '+it.t+' ERROR · lives '+heart();$('#qq').textContent=qq;$('#qf').textContent='Answer correctly to keep going';
+ const qo=$('#qo');qo.innerHTML='';sh.forEach(o=>{const b=document.createElement('button');b.textContent=o;b.onclick=()=>{
+  [...qo.children].forEach(c=>{c.disabled=1;if(c.textContent===ans)c.className='ok'});const ok=o===ans;if(!ok){b.className='no';lives--}
+  $('#qt').textContent='⚠ '+it.t+' ERROR · lives '+heart();
+  $('#qf').textContent=ok?'✓ Correct! Error fixed.':lives>0?'✗ Wrong — '+lives+' chance'+(lives>1?'s':'')+' left':'✗ Out of chances — back to start';
+  setTimeout(()=>{$('#qz').classList.remove('on');if(lives<=0){end();lives=3}else{items=items.filter(z=>z!==it);v=-1.5;st=1;$('#hint').textContent='COLLECT TOOLS · AVOID ERRORS'}cv.focus({preventScroll:true})},1100)};qo.appendChild(b)});
+ $('#qz').classList.add('on')}
 const txt=(t,px,py,c)=>{x.fillStyle=c;[...t].forEach((ch,i)=>{const g=F[ch];if(g)for(let k=0;k<15;k++)if(g[k]==='1')x.fillRect(px+i*4+k%3,py+((k/3)|0),1,1)})};
 const sl=$('#slots');sl.innerHTML=TOOLS.map(t=>`<span>${t[0]}</span>`).join('');
 const css=n=>getComputedStyle(document.body).getPropertyValue(n).trim();
 let y,v,items,trail,sc,best=0,st=0,f,off=0,got=new Set();
 function slots(){[...sl.children].forEach((e,i)=>{const on=got.has(TOOLS[i][0]);e.className=on?'on':'';e.style.background=on?TOOLS[i][1]:''})}
-function reset(){y=40;v=0;items=[];trail=[];sc=0;f=0;got.clear();slots()}
-function flap(){if(st===2){reset();st=1}else if(st===0){reset();st=1}v=-2.3;if(st===1)$('#hint').textContent='COLLECT TOOLS · AVOID ERRORS'}
-function end(){st=2;best=Math.max(best,sc);$('#hint').textContent='RUNTIME ERROR · TAP TO RETRY'}
+function reset(){lives=3;y=40;v=0;items=[];trail=[];sc=0;f=0;got.clear();slots()}
+function flap(){if(st===3)return;if(st===2){reset();st=1}else if(st===0){reset();st=1}v=-2.3;if(st===1)$('#hint').textContent='COLLECT TOOLS · AVOID ERRORS'}
+function end(){st=2;best=Math.max(best,sc);$('#hint').textContent='3 WRONG ANSWERS · TAP TO RESTART'}
 function tick(){const sp=Math.min(2.2,1.1+sc*.025);off+=sp;
  if(st===1){f++;v+=.16;y+=v;if(y<0){y=0;v=0}if(y>H-9){y=H-9;v=0}
   if(f%50===1){const bad=Math.random()<.3+Math.min(sc,30)*.008;let it;
@@ -254,7 +287,7 @@ function tick(){const sp=Math.min(2.2,1.1+sc*.025);off+=sp;
    it.w=it.t.length*4+3;it.h=9;it.x=W;it.y=6+Math.random()*(H-21);items.push(it)}
   items.forEach(i=>i.x-=sp);items=items.filter(i=>i.x>-24&&!i.done);
   if(f%2===0)trail.push({x:32,y:y+4,a:.7});trail.forEach(t=>{t.x-=sp;t.a-=.03});trail=trail.filter(t=>t.a>0);
-  items.forEach(i=>{if(i.x<39&&i.x+i.w>31&&i.y<y+8&&i.y+i.h>y+1){if(i.bad)end();else{i.done=1;sc++;got.add(i.t);if(got.size===5){sc+=5;got.clear();$('#hint').textContent='★ ANALYST UNLOCKED +5 ★'}slots()}}})}
+  items.forEach(i=>{if(i.x<39&&i.x+i.w>31&&i.y<y+8&&i.y+i.h>y+1){if(i.bad){if(st===1)ask(i)}else{i.done=1;sc++;got.add(i.t);if(got.size===5){sc+=5;got.clear();$('#hint').textContent='★ ANALYST UNLOCKED +5 ★'}slots()}}})}
  else if(st===0)y=40+Math.sin(Date.now()/300)*5;
  const ink=css('--ink'),acc=css('--acc'),ln=css('--line');
  x.clearRect(0,0,W,H);
@@ -265,12 +298,14 @@ function tick(){const sp=Math.min(2.2,1.1+sc*.025);off+=sp;
  trail.forEach(t=>{x.globalAlpha=t.a;x.fillStyle=acc;x.fillRect(t.x|0,t.y|0,2,2)});x.globalAlpha=1;
  items.forEach(i=>{x.fillStyle=i.c;x.fillRect(i.x|0,i.y|0,i.w,i.h);if(i.bad){x.fillStyle=ink;x.fillRect(i.x|0,i.y|0,1,1);x.fillRect((i.x+i.w-1)|0,(i.y+i.h-1)|0,1,1)}txt(i.t,(i.x+2)|0,(i.y+2)|0,'#fff')});
  x.fillStyle=st===2?'#dc2626':acc;G.forEach(([a,b])=>x.fillRect(30+a*3,(y|0)+b*3,3,3));
- $('#score').textContent='score '+sc+' · best '+best}
+ $('#score').textContent='score '+sc+' · '+heart()+' · best '+best}
 cv.addEventListener('pointerdown',e=>{e.preventDefault();cv.focus({preventScroll:true});flap()});
 cv.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='ArrowUp'){e.preventDefault();flap()}});
 reset();setInterval(tick,16)})();
 // marquee
-$('#tk').innerHTML=Array(2).fill(['SQL','PYTHON','POWER BI','EXCEL','STATISTICS','DAX','POSTGRESQL','MACHINE LEARNING'].map(t=>`<span>${t}</span><span class="s">✦</span>`).join('')).join('');
+const rib=(id,arr)=>{$(id).innerHTML=Array(2).fill(arr.map(([w,c],k)=>`<span class="it"><span class="w${k%2?' o':''}">${w}</span><span class="c">${c}</span></span><span class="st">✦</span>`).join('')).join('')};
+rib('#tk',[['Excel','=XLOOKUP()'],['Statistics','μ · σ · p<0.05'],['DAX','CALCULATE()'],['SQL','GROUP BY'],['Power BI','.pbix'],['Python','df.groupby()']]);
+rib('#tk2',[['Pivot Tables','Σ values'],['Regression','ŷ = βx + ε'],['Time Intelligence','DATESYTD()'],['Probability','P(A|B)'],['PostgreSQL','WITH cte AS'],['Machine Learning','.fit()']]);
 // progress + card spotlight
 addEventListener('scroll',()=>$('#prog').style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%',{passive:true});
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.cell');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
