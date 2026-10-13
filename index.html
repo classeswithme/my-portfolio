@@ -5,7 +5,9 @@
 <base target="_blank">
 <style>
 :root{--bg:#f3f2ee;--ink:#0d0d0d;--mut:#6f6e68;--line:#d9d7cf;--card:#fbfaf7;--acc:#ff4d00;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Inter',system-ui,sans-serif}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e0e0d;--ink:#ecebe5;--mut:#8b8a83;--line:#2a2a27;--card:#151513}}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c0c0b;--ink:#eeede7;--mut:#8f8e87;--line:#262624;--card:#141412;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0c0c0b;--ink:#eeede7;--mut:#8f8e87;--line:#262624;--card:#141412;color-scheme:dark}
+:root{color-scheme:light;--r:14px}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -73,6 +75,36 @@ canvas#life{width:100%;aspect-ratio:2/1;display:block;image-rendering:pixelated;
 .sk .eq{font:500 clamp(.85rem,1.5vw,1.05rem)/2 var(--mono);color:var(--ink);border-left:2px solid var(--acc);padding-left:1rem}
 .sk .eq i{font-style:normal;color:var(--acc)}
 .sk .core .tag{display:inline-block;font:600 .66rem var(--mono);background:var(--acc);color:#fff;padding:.25rem .6rem;width:max-content;letter-spacing:.06em}
+ 
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.sk{perspective:1200px}
+.sk .t{transform-style:preserve-3d;will-change:transform;border-radius:14px}
+.sk .t:hover{transform:translateY(-6px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.sk .t .gl{position:absolute;inset:0;pointer-events:none;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),color-mix(in srgb,var(--c) 22%,transparent),transparent 60%);opacity:0;transition:opacity .3s}
+.sk .t:hover .gl{opacity:1}
+.sk .core{border:1.5px solid transparent;border-radius:18px;background:radial-gradient(circle at 85% 20%,color-mix(in srgb,var(--acc) 20%,transparent),transparent 55%) padding-box,linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),var(--acc),#a855f7,#3b82f6,#16a34a,#d99a00,var(--acc)) border-box;animation:spin 6s linear infinite}
+.sk .core:before{display:none}
+@keyframes spin{to{--ang:360deg}}
+.sk .core h3{background:linear-gradient(100deg,var(--ink) 30%,var(--acc) 50%,var(--ink) 70%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 5s ease-in-out infinite}
+@keyframes sh{50%{background-position:100% 0}}
+.sk .viz{display:flex;flex-direction:column;gap:.8rem}
+#bell{width:100%;height:150px;display:block}
+.sk .demo{margin:.3rem 0 .2rem;border:1px solid var(--line);border-radius:10px;padding:.65rem .7rem;font:.68rem/1.6 var(--mono);background:color-mix(in srgb,var(--bg) 70%,transparent);min-height:74px}
+.sk .demo .k{color:var(--c);font-weight:600}.sk .demo .m{color:var(--mut)}
+.sk .spark path{stroke:var(--c);stroke-width:2;fill:none;stroke-dasharray:260;stroke-dashoffset:260;animation:dr 3.2s ease-in-out infinite alternate}
+.sk .spark .ar{fill:color-mix(in srgb,var(--c) 18%,transparent);stroke:none;animation:none;stroke-dasharray:none}
+@keyframes dr{to{stroke-dashoffset:0}}
+.sk .bars{display:flex;align-items:flex-end;gap:5px;height:52px}
+.sk .bars i{flex:1;background:var(--c);border-radius:3px 3px 0 0;opacity:.85;animation:gr 2.4s ease-in-out infinite alternate;transform-origin:bottom}
+@keyframes gr{from{transform:scaleY(.35)}}
+.sk .xl{display:grid;grid-template-columns:18px repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);font-size:.62rem}
+.sk .xl b{background:var(--card);padding:.15rem .3rem;font-weight:400;text-align:right}
+.sk .xl b.h{background:color-mix(in srgb,var(--c) 12%,var(--card));color:var(--mut);text-align:center}
+.sk .xl b.s{outline:2px solid var(--c);outline-offset:-1px;color:var(--c);font-weight:600;animation:p 1.6s infinite}
+.sk .t{opacity:0;translate:0 30px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s,opacity .8s,translate .8s cubic-bezier(.2,.8,.2,1)}
+.sk.in .t{opacity:1;translate:0 0}
+.sk.in .t:nth-child(2){transition-delay:0s,0s,0s,.1s,.1s}.sk.in .t:nth-child(3){transition-delay:0s,0s,0s,.2s,.2s}.sk.in .t:nth-child(4){transition-delay:0s,0s,0s,.3s,.3s}.sk.in .t:nth-child(5){transition-delay:0s,0s,0s,.4s,.4s}
+@media(prefers-reduced-motion:reduce){.sk .t{opacity:1;translate:none}}
 @media(max-width:900px){.sk{grid-template-columns:1fr 1fr}.sk .core{grid-template-columns:1fr}}
 @media(max-width:520px){.sk{grid-template-columns:1fr}}
 /* big stats */
@@ -138,12 +170,42 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 @keyframes glow{50%{box-shadow:inset 0 0 0 2px var(--acc),0 0 50px color-mix(in srgb,var(--acc) 40%,transparent)}}
 .rv{opacity:0;transform:translateY(18px);transition:.7s}.rv.v{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ===== polish pass ===== */
+body,nav,.widget,.cell,.sk .t,.ribbons .rb,footer{transition:background-color .45s,color .45s,border-color .45s,transform .35s,box-shadow .35s}
+::selection{background:var(--acc);color:#fff}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;border:2px solid var(--bg)}::-webkit-scrollbar-thumb:hover{background:var(--acc)}
+nav{margin:.7rem auto 0;left:4vw;right:4vw;max-width:1280px;border:1px solid var(--line);border-radius:99px;padding:.6rem .7rem .6rem 1.3rem;box-shadow:0 10px 30px -18px rgba(0,0,0,.35)}
+nav .links a:not(.cta){position:relative}nav .links a:not(.cta):after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .3s}nav .links a:not(.cta):hover:after{transform:scaleX(1)}
+.cta{border-radius:99px}
+#theme{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:grid;place-items:center;font-size:.95rem;transition:.3s}
+#theme:hover{border-color:var(--acc);transform:rotate(25deg)}
+.nr{display:flex;align-items:center;gap:.6rem}
+@media(max-width:900px){nav{border-radius:18px}nav .links{border-radius:0 0 18px 18px}}
+h1 mark{background:none;color:transparent;background-image:linear-gradient(100deg,var(--acc),#ff9a3d 45%,#c026d3);-webkit-background-clip:text;background-clip:text}
+h2{background:linear-gradient(180deg,var(--ink) 55%,color-mix(in srgb,var(--ink) 55%,transparent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{border-radius:99px;padding:.8rem 1.35rem}.btn:after{content:'→';transition:transform .3s}.btn:hover:after{transform:translateX(4px)}
+.btn[href^="http"]:after{content:''}
+.widget{border-radius:var(--r);overflow:hidden}
+.grid{gap:1rem;border:0}
+.cell{border:1px solid var(--line);border-radius:var(--r)}
+.cell:hover{transform:translateY(-5px);box-shadow:0 24px 44px -26px color-mix(in srgb,var(--acc) 70%,transparent)}
+.sk .t{border-radius:var(--r)}
+.spec,.big{border-radius:var(--r)}
+.big{border:1px solid var(--line);background:var(--card)}.big div+div{border-left:1px solid var(--line)}
+.big .n{background:linear-gradient(135deg,var(--ink),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+#hm i{border-radius:3px}
+.badge{border-radius:8px}
+.tags span{border-radius:99px}
+footer{border-radius:28px 28px 0 0;margin-top:2rem}
+section h2+.lead{margin-bottom:.4rem}
+.label:after{content:'';flex:1;max-width:60px;height:1px;background:var(--line)}
 </style></head><body>
 <div id="loader"><span>classeswithme 1.1</span><span>Loading ...</span><div class="bar"><i id="lb"></i></div><span id="lp">0%</span></div>
 
 <canvas id="wave"></canvas><div id="prog"></div>
 <nav><a href="#home" target="_self" class="mono" style="font-weight:600">./classeswithme</a>
-<button id="menu">Menu</button>
+<div class="nr"><button id="theme" aria-label="Toggle light / dark mode" title="Toggle theme">☾</button><button id="menu">Menu</button></div>
 <div class="links" id="links"><a target="_self" href="#today">Today</a><a target="_self" href="#projects">Projects</a><a target="_self" href="#case-studies">Case studies</a><a target="_self" href="#courses">Courses</a><a target="_self" href="#videos">365</a><a target="_self" href="#membership">Membership</a><a target="_self" href="#live">Live</a><a class="cta" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">YouTube ↗</a></div></nav>
 
 <section class="hero" id="home">
@@ -163,12 +225,12 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 <div class="ribbons"><div class="rb b"><div class="tr" id="tk2"></div></div><div class="rb a"><div class="tr" id="tk"></div></div></div>
 <section class="rv"><div class="label">the stack</div><h2>Four tools. One core skill.</h2><p class="lead">Tools change, maths doesn't. We took the project-first direction: not slides, not theory dumps. You watch real queries and dashboards get built, with the maths explained underneath.</p>
 <div class="sk">
-<div class="t core" data-g="∑"><div style="display:flex;flex-direction:column;gap:.7rem"><span class="tag">THE CORE SKILL</span><div class="ic">∑</div><h3>Maths</h3><p>The thinking behind every query, chart and model: knowing what the numbers actually mean.</p><div class="ch"><span>Statistics</span><span>Probability</span><span>Linear Algebra</span><span>Calculus</span></div></div>
-<div class="eq">x̄ = <i>Σx</i> / n<br>σ = √( <i>Σ(x − x̄)²</i> / n )<br>P(A|B) = <i>P(B|A)·P(A)</i> / P(B)<br>ŷ = β₀ + <i>β₁x</i> + ε</div></div>
-<div class="t" data-g="⌕" style="--c:#3b82f6"><div class="n"><span>01 / tool</span><span>.sql</span></div><div class="ic">⌕</div><h3>SQL</h3><p>Ask any question of a database and get a clean answer back.</p><div class="ch"><span>Joins</span><span>CTEs</span><span>Window fns</span></div></div>
-<div class="t" data-g="λ" style="--c:#d99a00"><div class="n"><span>02 / tool</span><span>.py</span></div><div class="ic">λ</div><h3>Python</h3><p>Clean, explore and model data at any scale.</p><div class="ch"><span>pandas</span><span>Viz</span><span>ML</span></div></div>
-<div class="t" data-g="▥" style="--c:#a855f7"><div class="n"><span>03 / tool</span><span>.pbix</span></div><div class="ic">▥</div><h3>Power BI</h3><p>Turn models into interactive dashboards people use.</p><div class="ch"><span>DAX</span><span>Modeling</span><span>Reports</span></div></div>
-<div class="t" data-g="⊞" style="--c:#16a34a"><div class="n"><span>04 / tool</span><span>.xlsx</span></div><div class="ic">⊞</div><h3>Excel</h3><p>The fastest way to prototype an analysis.</p><div class="ch"><span>Pivots</span><span>XLOOKUP</span><span>Dashboards</span></div></div>
+<div class="t core" data-g="∑"><span class="gl"></span><div style="display:flex;flex-direction:column;gap:.7rem"><span class="tag">THE CORE SKILL</span><div class="ic">∑</div><h3>Maths</h3><p>The thinking behind every query, chart and model: knowing what the numbers actually mean.</p><div class="ch"><span>Statistics</span><span>Probability</span><span>Linear Algebra</span><span>Calculus</span></div></div>
+<div class="viz"><canvas id="bell"></canvas><div class="eq">x̄ = <i>Σx</i> / n<br>σ = √( <i>Σ(x − x̄)²</i> / n )<br>P(A|B) = <i>P(B|A)·P(A)</i> / P(B)<br>ŷ = β₀ + <i>β₁x</i> + ε</div></div></div>
+<div class="t" data-g="⌕" style="--c:#3b82f6"><span class="gl"></span><div class="n"><span>01 / tool</span><span>.sql</span></div><div class="ic">⌕</div><h3>SQL</h3><p>Ask any question of a database and get a clean answer back.</p><div class="demo"><span class="k">SELECT</span> region, <span class="k">SUM</span>(sales)<br><span class="k">FROM</span> orders<br><span class="k">GROUP BY</span> region <span class="m">-- 4 rows</span></div><div class="ch"><span>Joins</span><span>CTEs</span><span>Window fns</span></div></div>
+<div class="t" data-g="λ" style="--c:#d99a00"><span class="gl"></span><div class="n"><span>02 / tool</span><span>.py</span></div><div class="ic">λ</div><h3>Python</h3><p>Clean, explore and model data at any scale.</p><div class="demo"><span class="m">&gt;&gt;&gt;</span> df[<span class="k">"sales"</span>].plot()<svg class="spark" viewBox="0 0 200 40" width="100%" height="34" preserveAspectRatio="none"><path class="ar" d="M0 32 L25 26 L50 29 L75 18 L100 22 L125 12 L150 15 L175 6 L200 9 L200 40 L0 40Z"/><path d="M0 32 L25 26 L50 29 L75 18 L100 22 L125 12 L150 15 L175 6 L200 9"/></svg></div><div class="ch"><span>pandas</span><span>Viz</span><span>ML</span></div></div>
+<div class="t" data-g="▥" style="--c:#a855f7"><span class="gl"></span><div class="n"><span>03 / tool</span><span>.pbix</span></div><div class="ic">▥</div><h3>Power BI</h3><p>Turn models into interactive dashboards people use.</p><div class="demo"><div class="bars"><i style="height:45%"></i><i style="height:70%;animation-delay:.3s"></i><i style="height:55%;animation-delay:.6s"></i><i style="height:90%;animation-delay:.9s"></i><i style="height:65%;animation-delay:1.2s"></i><i style="height:100%;animation-delay:1.5s"></i></div></div><div class="ch"><span>DAX</span><span>Modeling</span><span>Reports</span></div></div>
+<div class="t" data-g="⊞" style="--c:#16a34a"><span class="gl"></span><div class="n"><span>04 / tool</span><span>.xlsx</span></div><div class="ic">⊞</div><h3>Excel</h3><p>The fastest way to prototype an analysis.</p><div class="demo" style="padding:.5rem"><div class="xl"><b class="h"></b><b class="h">A</b><b class="h">B</b><b class="h">C</b><b class="h">1</b><b>120</b><b>340</b><b>95</b><b class="h">2</b><b>210</b><b>180</b><b>60</b><b class="h">3</b><b>330</b><b class="s">=SUM()</b><b>155</b></div></div><div class="ch"><span>Pivots</span><span>XLOOKUP</span><span>Dashboards</span></div></div>
 </div>
 <div class="b64" id="b64">[b.64] </div></section>
 
@@ -214,6 +276,12 @@ mark{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--acc) 55%
 const $=s=>document.querySelector(s);
 // loader
 let p=0;const li=setInterval(()=>{p=Math.min(100,p+Math.ceil(Math.random()*14));$('#lp').textContent=p+'%';$('#lb').style.width=p+'%';if(p>=100){clearInterval(li);setTimeout(()=>$('#loader').classList.add('done'),200)}},70);
+// theme toggle
+(function(){const R=document.documentElement,b=$('#theme');let saved=null;try{saved=localStorage.getItem('cwm-theme')}catch(e){}
+const sys=()=>matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light',cur=()=>R.dataset.theme||sys();
+const set=t=>{R.dataset.theme=t;b.textContent=t==='dark'?'☀':'☾';try{localStorage.setItem('cwm-theme',t)}catch(e){}};
+if(saved)set(saved);else b.textContent=sys()==='dark'?'☀':'☾';
+b.onclick=()=>set(cur()==='dark'?'light':'dark')})();
 $('#menu').onclick=()=>$('#links').classList.toggle('open');
 document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>$('#links').classList.remove('open')));
 // data
@@ -302,6 +370,20 @@ function tick(){const sp=Math.min(2.2,1.1+sc*.025);off+=sp;
 cv.addEventListener('pointerdown',e=>{e.preventDefault();cv.focus({preventScroll:true});flap()});
 cv.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='ArrowUp'){e.preventDefault();flap()}});
 reset();setInterval(tick,16)})();
+// skills: tilt, reveal, bell curve
+(function(){const sk=$('.sk');new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){sk.classList.add('in');o.disconnect()}},{threshold:.15}).observe(sk);
+sk.querySelectorAll('.t').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height,k=c.classList.contains('core')?3:8;
+c.style.setProperty('--ry',(px-.5)*k+'deg');c.style.setProperty('--rx',(.5-py)*k+'deg');c.style.setProperty('--gx',px*100+'%');c.style.setProperty('--gy',py*100+'%')});
+c.addEventListener('pointerleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')})});
+const cv=$('#bell'),x=cv.getContext('2d');function draw(t){const d=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;if(cv.width!==w*d){cv.width=w*d;cv.height=h*d}x.setTransform(d,0,0,d,0,0);x.clearRect(0,0,w,h);
+const cs=getComputedStyle(document.body),acc=cs.getPropertyValue('--acc').trim(),ink=cs.getPropertyValue('--ink').trim(),mut=cs.getPropertyValue('--mut').trim(),f=u=>Math.exp(-u*u/2),X=u=>w/2+u*w/7.5,Y=v=>h-18-v*(h-34);
+const sw=Math.sin(t/1400)*1.6+0.3;
+x.beginPath();x.moveTo(X(-3.5),Y(0));for(let u=-3.5;u<=sw;u+=.04)x.lineTo(X(u),Y(f(u)));x.lineTo(X(sw),Y(0));x.closePath();const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,acc);g.addColorStop(1,'transparent');x.globalAlpha=.35;x.fillStyle=g;x.fill();x.globalAlpha=1;
+x.beginPath();for(let u=-3.5;u<=3.5;u+=.04)x[u===-3.5?'moveTo':'lineTo'](X(u),Y(f(u)));x.strokeStyle=ink;x.lineWidth=1.6;x.stroke();
+x.fillStyle=mut;x.font='10px IBM Plex Mono, monospace';x.textAlign='center';[-3,-2,-1,0,1,2,3].forEach(k=>{x.fillRect(X(k),Y(0),1,4);x.fillText(k?k+'σ':'μ',X(k),h-3)});x.fillRect(X(-3.5),Y(0),X(3.5)-X(-3.5),1);
+x.strokeStyle=acc;x.setLineDash([3,3]);x.beginPath();x.moveTo(X(sw),Y(0));x.lineTo(X(sw),Y(f(sw))-6);x.stroke();x.setLineDash([]);
+const cdf=u=>{let s=0;for(let z=-4;z<u;z+=.01)s+=f(z)*.01;return s/Math.sqrt(2*Math.PI)};x.fillStyle=acc;x.textAlign='left';x.font='600 11px IBM Plex Mono, monospace';x.fillText('P(Z < '+sw.toFixed(2)+') = '+(cdf(sw)*100).toFixed(1)+'%',8,14);
+requestAnimationFrame(draw)}requestAnimationFrame(draw)})();
 // marquee
 const rib=(id,arr)=>{$(id).innerHTML=Array(2).fill(arr.map(([w,c],k)=>`<span class="it"><span class="w${k%2?' o':''}">${w}</span><span class="c">${c}</span></span><span class="st">✦</span>`).join('')).join('')};
 rib('#tk',[['Excel','=XLOOKUP()'],['Statistics','μ · σ · p<0.05'],['DAX','CALCULATE()'],['SQL','GROUP BY'],['Power BI','.pbix'],['Python','df.groupby()']]);
