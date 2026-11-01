@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>classeswithme — Data Analytics, Live</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>classeswithme — Data Analytics, Live 🎃</title>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <base target="_blank">
 <style>
-:root{--bg:#f3f2ee;--ink:#0d0d0d;--mut:#6f6e68;--line:#d9d7cf;--card:#fbfaf7;--acc:#ff4d00;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Inter',system-ui,sans-serif}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c0c0b;--ink:#eeede7;--mut:#8f8e87;--line:#262624;--card:#141412;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#0c0c0b;--ink:#eeede7;--mut:#8f8e87;--line:#262624;--card:#141412;color-scheme:dark}
-:root{color-scheme:light;--r:14px}
+/* ===== halloween palette (dark = midnight, light = candlelight) ===== */
+:root{--bg:#0b0710;--ink:#f4ead8;--mut:#9d8fa9;--line:#2a2035;--card:#130c1a;--acc:#ff7518;--acc2:#9b5cff;--candle:#ffc94a;--bat:#040208;--fog:rgba(175,150,215,.17);--grave-o:.95;--moon-o:1;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Inter',system-ui,sans-serif;--hw:'Creepster',cursive;--r:14px;color-scheme:dark;
+--drip:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 30' preserveAspectRatio='none'%3E%3Cpath d='M0 0H120V4H99Q95.5 4 95.5 8V20A3.5 3.5 0 0 1 88.5 20V8Q88.5 4 85 4H63Q60 4 60 7V12A2 2 0 0 1 56 12V7Q56 4 53 4H26Q23 4 23 8V15A3 3 0 0 1 17 15V8Q17 4 14 4H0Z'/%3E%3C/svg%3E")}
+:root[data-theme=light]{--bg:#f7efe2;--ink:#1e1426;--mut:#76687f;--line:#e2d4c0;--card:#fffaf2;--acc:#e8590c;--acc2:#7c3aed;--candle:#f59f00;--bat:#1e1426;--fog:rgba(124,58,237,.08);--grave-o:.32;--moon-o:.8;color-scheme:light}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -200,37 +200,163 @@ h2{background:linear-gradient(180deg,var(--ink) 55%,color-mix(in srgb,var(--ink)
 footer{border-radius:28px 28px 0 0;margin-top:2rem}
 section h2+.lead{margin-bottom:.4rem}
 .label:after{content:'';flex:1;max-width:60px;height:1px;background:var(--line)}
-</style></head><body>
-<div id="loader"><span>classeswithme 1.1</span><span>Loading ...</span><div class="bar"><i id="lb"></i></div><span id="lp">0%</span></div>
 
-<canvas id="wave"></canvas><div id="prog"></div>
-<nav><a href="#home" target="_self" class="mono" style="font-weight:600">./classeswithme</a>
-<div class="nr"><button id="theme" aria-label="Toggle light / dark mode" title="Toggle theme">☾</button><button id="menu">Menu</button></div>
+/* ===================== 🎃 HALLOWEEN EDITION ===================== */
+.hw{font-family:var(--hw);font-weight:400;letter-spacing:.03em}
+body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:97;background:radial-gradient(ellipse at 50% 40%,transparent 58%,rgba(0,0,0,.42) 100%)}
+:root[data-theme=light] body:before{background:radial-gradient(ellipse at 50% 40%,transparent 62%,rgba(120,60,20,.12) 100%)}
+/* loader */
+#loader{gap:.75rem;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--acc) 16%,var(--bg)),var(--bg) 62%)}
+#loader svg{width:96px;height:86px;animation:candle 1.4s ease-in-out infinite}
+#loader .hw{font:400 2.1rem var(--hw);color:var(--acc);letter-spacing:.05em}
+#loader .bar i{background:linear-gradient(90deg,var(--acc2),var(--acc),var(--candle))}
+@keyframes candle{0%,100%{filter:drop-shadow(0 0 10px rgba(255,140,30,.55))}40%{filter:drop-shadow(0 0 24px rgba(255,170,40,.95))}62%{filter:drop-shadow(0 0 6px rgba(255,120,20,.45))}}
+/* night sky: moon, spider, bats, fog, graveyard */
+.sky{position:absolute;top:0;left:0;width:100%;height:max(100vh,720px);overflow:hidden;pointer-events:none;z-index:-1}
+.sky:before{content:'';position:absolute;left:0;right:0;bottom:0;height:62%;background:radial-gradient(ellipse 60% 70% at 50% 100%,color-mix(in srgb,var(--acc2) 24%,transparent),transparent 70%),radial-gradient(ellipse 32% 45% at 18% 100%,color-mix(in srgb,var(--acc) 16%,transparent),transparent 70%)}
+.moon{position:absolute;top:13vh;right:8vw;width:clamp(120px,17vw,250px);aspect-ratio:1;border-radius:50%;opacity:var(--moon-o);
+background:radial-gradient(circle at 64% 30%,rgba(150,100,40,.16) 0 8%,transparent 9%),radial-gradient(circle at 34% 60%,rgba(150,100,40,.13) 0 12%,transparent 13%),radial-gradient(circle at 70% 70%,rgba(150,100,40,.12) 0 6%,transparent 7%),radial-gradient(circle at 46% 22%,rgba(150,100,40,.1) 0 4%,transparent 5%),radial-gradient(circle at 38% 34%,#fffaf0,#f6dcae 55%,#e0a95e);
+box-shadow:0 0 60px 12px rgba(255,190,110,.26),0 0 200px 70px rgba(255,117,24,.13);animation:moon 9s ease-in-out infinite}
+@keyframes moon{50%{box-shadow:0 0 80px 18px rgba(255,190,110,.34),0 0 240px 90px rgba(255,117,24,.17)}}
+.spider{position:absolute;top:0;right:calc(8vw + clamp(60px,8.5vw,125px) - 14px);display:flex;flex-direction:column;align-items:center;color:var(--bat);transform-origin:50% 0;animation:sway 7s ease-in-out infinite alternate}
+.spider i{display:block;width:1px;background:linear-gradient(transparent,color-mix(in srgb,var(--ink) 55%,transparent));height:calc(13vh + 30px);animation:dangle 6s ease-in-out infinite alternate}
+.spider svg{width:28px;height:30px;margin-top:-3px;filter:drop-shadow(0 0 5px rgba(255,117,24,.35))}
+@keyframes dangle{to{height:calc(13vh + clamp(80px,11vw,170px))}}
+@keyframes sway{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.bat{position:absolute;left:0;top:var(--y);width:calc(48px * var(--s));opacity:0;animation:fly var(--d) linear var(--dl) infinite}
+.bat svg{display:block;width:100%;fill:var(--bat);filter:drop-shadow(0 0 6px color-mix(in srgb,var(--acc) 50%,transparent));transform-origin:50% 45%;animation:flap var(--f,.2s) ease-in-out infinite alternate}
+@keyframes flap{to{transform:scaleY(.22) translateY(6px)}}
+@keyframes fly{0%{transform:translate(-10vw,0) rotate(-6deg);opacity:0}6%{opacity:1}25%{transform:translate(20vw,-38px) rotate(5deg)}50%{transform:translate(50vw,24px) rotate(-5deg)}75%{transform:translate(80vw,-30px) rotate(6deg)}94%{opacity:1}100%{transform:translate(110vw,8px) rotate(-4deg);opacity:0}}
+.fog{position:absolute;left:-30%;width:160%;bottom:-6%;height:44%;background:radial-gradient(ellipse 28% 55% at 18% 72%,var(--fog),transparent 70%),radial-gradient(ellipse 24% 50% at 52% 82%,var(--fog),transparent 70%),radial-gradient(ellipse 34% 60% at 84% 76%,var(--fog),transparent 70%);filter:blur(14px);animation:fog 28s ease-in-out infinite alternate}
+.fog.b{bottom:-12%;height:36%;opacity:.85;animation-duration:37s;animation-direction:alternate-reverse}
+@keyframes fog{from{transform:translateX(-8%)}to{transform:translateX(8%)}}
+.grave{position:absolute;left:0;bottom:0;width:100%;height:clamp(90px,11vw,150px)}
+.grave .s{fill:var(--bat);opacity:var(--grave-o)}
+.grave .t{fill:none;stroke:var(--bat);stroke-linecap:round;opacity:var(--grave-o)}
+.grave .gd{fill:var(--bg)}
+#embers{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+/* nav */
+nav{background:color-mix(in srgb,var(--bg) 78%,transparent);border-color:color-mix(in srgb,var(--acc) 22%,var(--line));box-shadow:0 10px 40px -20px color-mix(in srgb,var(--acc) 55%,transparent)}
+nav .lpk{width:19px;height:17px;vertical-align:-4px;margin-right:.4rem;filter:drop-shadow(0 0 6px rgba(255,140,30,.6))}
+.cta{background:var(--acc)!important;color:#140a02!important;font-weight:600}
+/* type + buttons */
+.label b{animation:flick 2.6s infinite}
+@keyframes flick{0%,100%{opacity:1}42%{opacity:.35}45%{opacity:1}70%{opacity:.7}}
+h1 mark{background-image:linear-gradient(100deg,var(--acc),var(--candle) 30%,var(--acc) 55%,var(--acc2) 85%);background-size:220% 100%;animation:sh 7s ease-in-out infinite;filter:drop-shadow(0 0 22px color-mix(in srgb,var(--acc) 35%,transparent))}
+h2{background-image:linear-gradient(180deg,var(--ink) 48%,color-mix(in srgb,var(--acc2) 60%,var(--ink)))}
+.ooze{width:min(100%,30rem);height:26px;margin-top:.25rem;background:linear-gradient(90deg,var(--acc),var(--candle) 40%,var(--acc2) 80%,transparent);-webkit-mask:var(--drip) repeat-x 0 0/120px 100%;mask:var(--drip) repeat-x 0 0/120px 100%;transform-origin:top;animation:ooze 3.8s ease-in-out infinite alternate}
+@keyframes ooze{from{transform:scaleY(.62)}to{transform:scaleY(1.12)}}
+.btn{border-color:color-mix(in srgb,var(--ink) 65%,transparent)}
+.btn.p{background:var(--acc);border-color:var(--acc);color:#140a02;font-weight:600;box-shadow:0 12px 30px -12px var(--acc)}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#140a02}
+.btn.p:hover{background:var(--acc2);border-color:var(--acc2);color:#fff;box-shadow:0 12px 30px -10px var(--acc2)}
+.hwtag{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;padding:.4rem .95rem .4rem .45rem;border:1px solid color-mix(in srgb,var(--acc) 50%,var(--line));border-radius:99px;font:500 .74rem var(--mono);background:color-mix(in srgb,var(--card) 80%,transparent);backdrop-filter:blur(6px);transition:.3s}
+.hwtag .hw{background:var(--acc);color:#140a02;padding:.12rem .6rem;border-radius:99px;font-size:1rem}
+.hwtag:hover{border-color:var(--acc);box-shadow:0 0 24px -6px var(--acc)}
+/* widgets */
+.term{min-height:7em}.term .s{color:var(--candle)}
+.rrow i b{background:linear-gradient(90deg,var(--acc2),var(--acc))}
+.widget{border-color:color-mix(in srgb,var(--acc2) 18%,var(--line))}
+/* stack */
+.haunt{position:relative}
+.ghost{position:absolute;top:5.5rem;right:5vw;width:clamp(58px,7vw,92px);pointer-events:none;animation:float 5.5s ease-in-out infinite;filter:drop-shadow(0 0 20px color-mix(in srgb,var(--acc2) 65%,transparent))}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg);opacity:.95}50%{transform:translateY(-18px) rotate(5deg);opacity:.7}}
+.sk .core{background:radial-gradient(circle at 85% 20%,color-mix(in srgb,var(--acc) 22%,transparent),transparent 55%) padding-box,linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),var(--acc),var(--candle),var(--acc2),#5fd068,var(--acc)) border-box}
+.sk .core .tag{color:#140a02}
+/* ribbons: caution tape + witch purple */
+.rb.a{background:repeating-linear-gradient(-45deg,#140a02 0 10px,transparent 10px 20px) top/100% 6px no-repeat,repeating-linear-gradient(-45deg,#140a02 0 10px,transparent 10px 20px) bottom/100% 6px no-repeat,var(--acc);color:#140a02}
+.rb.b{background:linear-gradient(90deg,#1b0a28,#3b1559 50%,#1b0a28);color:#f4ead8}
+.rb .tr{animation-duration:52s}.rb.b .tr{animation-duration:60s}
+.rb .st{font-size:1.25rem;opacity:1}
+.sep{opacity:.8}
+/* cards */
+.cell:hover{background:color-mix(in srgb,var(--acc) 7%,var(--card));color:var(--ink);border-color:color-mix(in srgb,var(--acc) 55%,var(--line))}
+.cell:hover .mut,.cell:hover p{color:var(--mut);opacity:1}
+.cell:before{background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--acc) 24%,transparent),transparent 62%)}
+.cell>*{z-index:1}
+.cell>.web{position:absolute;z-index:0;top:0;right:0;width:96px;height:96px;fill:none;stroke:currentColor;stroke-width:.7;color:var(--mut);opacity:.28;pointer-events:none;transition:opacity .35s,color .35s}
+.cell:hover>.web{opacity:.8;color:var(--acc)}
+.web circle{fill:currentColor}
+.web .wsp{transform:translateY(-34px);opacity:0;transition:transform .6s cubic-bezier(.3,1.4,.5,1),opacity .3s}
+.cell:hover .web .wsp{transform:none;opacity:1}
+.cap .new{float:right;font:600 .6rem var(--mono);text-transform:uppercase;letter-spacing:.08em;background:var(--acc);color:#140a02;padding:.12rem .55rem;border-radius:99px;box-shadow:0 0 16px -2px var(--acc)}
+.cell.fresh{border-color:color-mix(in srgb,var(--acc) 70%,var(--line));box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 28%,transparent),0 18px 50px -24px var(--acc)}
+/* 365 heatmap */
+#hm i.on{background:var(--acc2);opacity:.85}#hm i.on.a{background:var(--acc);opacity:1;box-shadow:0 0 8px color-mix(in srgb,var(--acc) 70%,transparent)}#hm i.on.h{opacity:.4}
+.badge{color:#140a02;font-weight:700}
+/* footer with dripping goo */
+footer{position:relative;overflow:hidden;padding-top:6rem;color:#f4ead8;background:radial-gradient(color-mix(in srgb,var(--acc) 22%,transparent) 1px,transparent 1px) 0 0/18px 18px,linear-gradient(180deg,#140819,#050307)}
+footer:before{content:'';position:absolute;top:0;left:0;right:0;height:54px;background:linear-gradient(90deg,var(--acc),var(--candle) 30%,var(--acc2) 65%,var(--acc));-webkit-mask:var(--drip) repeat-x 0 0/170px 100%;mask:var(--drip) repeat-x 0 0/170px 100%;transform-origin:top;animation:ooze 4.6s ease-in-out infinite alternate}
+footer .logo{background-image:linear-gradient(90deg,#f4ead8,#ff7518 60%,#9b5cff)}
+footer .hwline{font:400 clamp(1.3rem,2.6vw,1.9rem) var(--hw);color:#ff7518;margin-top:1rem;letter-spacing:.04em}
+footer a:hover{color:#ff7518}
+/* trick-or-treat */
+#tot{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;border:1px solid color-mix(in srgb,var(--acc) 60%,transparent);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--acc) 22%,var(--card)),var(--card));cursor:pointer;display:grid;place-items:center;box-shadow:0 12px 30px -10px var(--acc);animation:bob 3.2s ease-in-out infinite;transition:scale .25s}
+#tot svg{width:38px;height:34px;animation:candle 1.6s ease-in-out infinite}
+#tot:hover{scale:1.1}
+#tot:after{content:'Trick or treat?';position:absolute;right:calc(100% + 10px);top:50%;translate:0 -50%;white-space:nowrap;font:400 1rem var(--hw);letter-spacing:.04em;color:var(--acc);background:var(--card);border:1px solid var(--line);padding:.3rem .8rem;border-radius:99px;opacity:0;transition:opacity .3s;pointer-events:none}
+#tot.hint:after,#tot:hover:after{opacity:1}
+@keyframes bob{50%{transform:translateY(-6px)}}
+#toast{position:fixed;right:18px;bottom:92px;z-index:60;max-width:min(330px,calc(100vw - 36px));background:var(--card);border:1px solid var(--acc);border-radius:14px;padding:.9rem 1.05rem;font:.8rem/1.55 var(--mono);color:var(--ink);box-shadow:0 22px 44px -20px rgba(0,0,0,.7),0 0 0 4px color-mix(in srgb,var(--acc) 14%,transparent);opacity:0;translate:0 12px;pointer-events:none;transition:opacity .3s,translate .3s}
+#toast.on{opacity:1;translate:0 0}
+#toast b{display:block;font:400 1.3rem var(--hw);letter-spacing:.05em;color:var(--acc);margin-bottom:.15rem}
+#toast b.tr{color:var(--acc2)}
+@media(max-width:900px){.sky .spider{display:none}.moon{top:50px;right:5vw;width:80px;opacity:calc(var(--moon-o) * .55)}.ghost{top:4.5rem;width:52px}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="pk" viewBox="0 0 100 90"><path d="M46 26c-1-10 2-17 10-21l3 4c-5 3-6 9-5 17z" fill="#4f7f2a"/><ellipse cx="50" cy="56" rx="45" ry="32" fill="#e8620c"/><ellipse cx="30" cy="56" rx="22" ry="31" fill="#f57418"/><ellipse cx="70" cy="56" rx="22" ry="31" fill="#f57418"/><ellipse cx="50" cy="56" rx="17" ry="33" fill="#ff8a2a"/><g fill="#ffd54a"><path d="M27 48l9-12 9 12z"/><path d="M55 48l9-12 9 12z"/><path d="M46 58l4-6 4 6z"/><path d="M24 64q26 22 52 0l-6 2-4 6-5-5-5 6-6-6-6 6-5-6-5 5-4-6z"/></g></symbol>
+<symbol id="batp" viewBox="0 0 64 32"><path d="M32 9L29 4l-.4 6Q22 5 13 6Q5 7 0 3Q4 11 3 17Q7 14 11 17Q14 14 18 18Q22 15 26 20Q28 21 30 24L32 27L34 24Q36 21 38 20Q42 15 46 18Q50 14 53 17Q57 14 61 17Q60 11 64 3Q59 7 51 6Q42 5 35.4 10L35 4Z"/></symbol>
+</defs></svg>
+<div id="loader"><svg viewBox="0 0 100 90" aria-hidden="true"><use href="#pk"/></svg><span class="hw">classeswithme</span><span>Summoning data …</span><div class="bar"><i id="lb"></i></div><span id="lp">0%</span></div>
+
+<canvas id="wave"></canvas>
+<div class="sky" aria-hidden="true">
+<div class="moon"></div>
+<div class="spider"><i></i><svg viewBox="0 0 40 42"><path d="M14 20 6 12 2 15M13 23 3 21 0 26M13 26 4 30 2 36M15 29 8 36 7 41M26 20 34 12 38 15M27 23 37 21 40 26M27 26 36 30 38 36M25 29 32 36 33 41" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="20" cy="25" rx="7" ry="8.5" fill="currentColor"/><circle cx="20" cy="14.5" r="4.6" fill="currentColor"/><circle cx="18.3" cy="13.8" r="1" fill="#ff7518"/><circle cx="21.7" cy="13.8" r="1" fill="#ff7518"/></svg></div>
+<div class="bat" style="--y:14%;--d:17s;--dl:-2s;--s:1;--f:.18s"><svg viewBox="0 0 64 32"><use href="#batp"/></svg></div>
+<div class="bat" style="--y:27%;--d:23s;--dl:-9s;--s:.7;--f:.15s"><svg viewBox="0 0 64 32"><use href="#batp"/></svg></div>
+<div class="bat" style="--y:8%;--d:29s;--dl:-16s;--s:.5;--f:.13s"><svg viewBox="0 0 64 32"><use href="#batp"/></svg></div>
+<div class="bat" style="--y:40%;--d:21s;--dl:-6s;--s:.85;--f:.17s"><svg viewBox="0 0 64 32"><use href="#batp"/></svg></div>
+<div class="bat" style="--y:21%;--d:35s;--dl:-24s;--s:.42;--f:.12s"><svg viewBox="0 0 64 32"><use href="#batp"/></svg></div>
+<div class="fog"></div><div class="fog b"></div>
+<svg class="grave" viewBox="0 0 1200 140" preserveAspectRatio="xMidYMax slice">
+<g class="s"><rect x="130" y="76" width="28" height="50" rx="14"/><rect x="176" y="90" width="20" height="36" rx="10"/><path d="M412 58h6v16h11v6h-11v40h-6V80h-11v-6h11z"/><path d="M520 114V82l3-6 3 6v32zM542 114V82l3-6 3 6v32zM564 114V82l3-6 3 6v32zM586 114V82l3-6 3 6v32zM608 114V82l3-6 3 6v32zM630 114V82l3-6 3 6v32zM652 114V82l3-6 3 6v32z"/><rect x="516" y="88" width="146" height="3"/><rect x="516" y="99" width="146" height="3"/><rect x="770" y="80" width="26" height="46" rx="13"/><path d="M872 66h5v13h9v5h-9v36h-5V84h-9v-5h9z"/><rect x="1000" y="70" width="34" height="60" rx="17"/><rect x="1046" y="92" width="18" height="38" rx="9"/></g>
+<g class="t"><path d="M300 118C298 88 304 70 296 50M1140 120C1139 96 1143 82 1136 68" stroke-width="7"/><path d="M296 50C290 40 280 36 270 30M298 62C310 54 322 52 334 44M296 50C302 38 310 32 318 24M300 82C288 76 278 72 268 64M270 30C266 26 262 26 256 24M334 44C340 38 344 34 352 32M1136 68C1130 60 1122 58 1114 52M1138 82C1148 76 1156 72 1166 64M1136 68C1140 58 1146 54 1152 48" stroke-width="3"/></g>
+<path class="gd" d="M0 140V112Q150 96 300 108T600 104T900 110T1200 102V140Z"/>
+</svg>
+</div>
+<canvas id="embers"></canvas>
+<div id="prog"></div>
+<nav><a href="#home" target="_self" class="mono" style="font-weight:600"><svg class="lpk" viewBox="0 0 100 90" aria-hidden="true"><use href="#pk"/></svg>./classeswithme</a>
+<div class="nr"><button id="theme" aria-label="Toggle light / dark mode" title="Toggle theme">☀</button><button id="menu">Menu</button></div>
 <div class="links" id="links"><a target="_self" href="#today">Today</a><a target="_self" href="#projects">Projects</a><a target="_self" href="#case-studies">Case studies</a><a target="_self" href="#courses">Courses</a><a target="_self" href="#videos">365</a><a target="_self" href="#membership">Membership</a><a target="_self" href="#live">Live</a><a class="cta" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">YouTube ↗</a></div></nav>
 
 <section class="hero" id="home">
-<div><div class="label"><b>●</b> streaming daily · live coding</div>
+<div><div class="label"><b>●</b> halloween edition · streaming daily</div>
 <h1>Learn analytics by <mark>watching queries</mark> run.</h1>
-<p class="lead" style="margin-top:1.4rem">SQL, Python, Power BI, Excel and the maths behind them — taught through free projects, full courses and a live stream every single day.</p>
-<div class="row"><a class="btn p" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Visit the channel ↗</a><a class="btn" target="_self" href="#live">Watch live</a></div></div>
+<div class="ooze" aria-hidden="true"></div>
+<p class="lead" style="margin-top:1.2rem">SQL, Python, Power BI, Excel and the maths behind them — taught through free projects, full courses and a live stream every single day.</p>
+<div class="row"><a class="btn p" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Visit the channel ↗</a><a class="btn" target="_self" href="#live">Watch live</a></div>
+<a class="hwtag" target="_self" href="#projects"><span class="hw">New</span> Excel Visualization Project just dropped ↓</a></div>
 <div class="side">
 <div class="widget"><div class="cap"><span>Query 1.1</span><span>classeswithme.sql</span></div><div class="bd"><div class="term" id="typed"></div><div id="res" style="opacity:0;transition:.4s">
 <div class="rrow"><span>SQL</span><i><b data-w="92"></b></i><span>92</span></div><div class="rrow"><span>Python</span><i><b data-w="85"></b></i><span>85</span></div><div class="rrow"><span>Power BI</span><i><b data-w="78"></b></i><span>78</span></div><div class="rrow"><span>Excel</span><i><b data-w="70"></b></i><span>70</span></div></div></div></div>
 <div class="stack"><div class="widget"><div class="cap"><span>Upload Timer 1.1</span><span>1st / month</span></div><div class="bd"><div class="mono" style="font-size:.7rem;color:var(--mut)">NEXT PROJECT DROPS IN</div><div class="clock" id="clock" style="font-size:1.7rem;margin:.3rem 0">--d --:--:--</div><div class="mono" style="font-size:.7rem;color:var(--mut)" id="date"></div></div></div>
-<div class="widget"><div class="cap"><span>Data Glider 1.1</span><span id="score">score 0 · best 0</span></div><div class="bd" style="padding:.5rem"><div class="gw"><canvas id="life" width="200" height="100" tabindex="0"></canvas><div id="qz"><div class="qt" id="qt"></div><div class="qq" id="qq"></div><div class="qo" id="qo"></div><div class="qf" id="qf"></div></div></div><div class="mono" id="hint" style="font-size:.65rem;color:var(--mut);margin-top:.4rem;text-align:center">COLLECT SQL · PY · XL · BI · ∑ — HIT AN ERROR = QUIZ · 3 LIVES</div><div id="slots"></div></div></div></div>
+<div class="widget"><div class="cap"><span>Pumpkin Glider 1.1</span><span id="score">score 0 · best 0</span></div><div class="bd" style="padding:.5rem"><div class="gw"><canvas id="life" width="200" height="100" tabindex="0"></canvas><div id="qz"><div class="qt" id="qt"></div><div class="qq" id="qq"></div><div class="qo" id="qo"></div><div class="qf" id="qf"></div></div></div><div class="mono" id="hint" style="font-size:.65rem;color:var(--mut);margin-top:.4rem;text-align:center">TAP TO FLY · COLLECT SQL · PY · XL · BI · ∑ · ERROR = QUIZ · 3 LIVES</div><div id="slots"></div></div></div></div>
 </div></section>
 
-<div class="sep">∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆</div>
+<div class="sep">🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦</div>
 
 <div class="ribbons"><div class="rb b"><div class="tr" id="tk2"></div></div><div class="rb a"><div class="tr" id="tk"></div></div></div>
-<section class="rv"><div class="label">the stack</div><h2>Four tools. One core skill.</h2><p class="lead">Tools change, maths doesn't. We took the project-first direction: not slides, not theory dumps. You watch real queries and dashboards get built, with the maths explained underneath.</p>
+<section class="rv haunt"><svg class="ghost" viewBox="0 0 80 90" aria-hidden="true"><path d="M8 44C8 20 22 6 40 6s32 14 32 38v40q-4-6-8 0t-8 0t-8 0t-8 0t-8 0t-8 0t-8 0t-8 0z" fill="#f7f1ff"/><ellipse cx="30" cy="40" rx="5" ry="7" fill="#1a1022"/><ellipse cx="50" cy="40" rx="5" ry="7" fill="#1a1022"/><ellipse cx="40" cy="56" rx="4.5" ry="6" fill="#1a1022"/><circle cx="21" cy="52" r="4" fill="#ff9aa2" opacity=".5"/><circle cx="59" cy="52" r="4" fill="#ff9aa2" opacity=".5"/></svg>
+<div class="label">the stack</div><h2>Four tools. One core skill.</h2><p class="lead">Tools change, maths doesn't. We took the project-first direction: not slides, not theory dumps. You watch real queries and dashboards get built, with the maths explained underneath.</p>
 <div class="sk">
 <div class="t core" data-g="∑"><span class="gl"></span><div style="display:flex;flex-direction:column;gap:.7rem"><span class="tag">THE CORE SKILL</span><div class="ic">∑</div><h3>Maths</h3><p>The thinking behind every query, chart and model: knowing what the numbers actually mean.</p><div class="ch"><span>Statistics</span><span>Probability</span><span>Linear Algebra</span><span>Calculus</span></div></div>
 <div class="viz"><canvas id="bell"></canvas><div class="eq">x̄ = <i>Σx</i> / n<br>σ = √( <i>Σ(x − x̄)²</i> / n )<br>P(A|B) = <i>P(B|A)·P(A)</i> / P(B)<br>ŷ = β₀ + <i>β₁x</i> + ε</div></div></div>
-<div class="t" data-g="⌕" style="--c:#3b82f6"><span class="gl"></span><div class="n"><span>01 / tool</span><span>.sql</span></div><div class="ic">⌕</div><h3>SQL</h3><p>Ask any question of a database and get a clean answer back.</p><div class="demo"><span class="k">SELECT</span> region, <span class="k">SUM</span>(sales)<br><span class="k">FROM</span> orders<br><span class="k">GROUP BY</span> region <span class="m">-- 4 rows</span></div><div class="ch"><span>Joins</span><span>CTEs</span><span>Window fns</span></div></div>
-<div class="t" data-g="λ" style="--c:#d99a00"><span class="gl"></span><div class="n"><span>02 / tool</span><span>.py</span></div><div class="ic">λ</div><h3>Python</h3><p>Clean, explore and model data at any scale.</p><div class="demo"><span class="m">&gt;&gt;&gt;</span> df[<span class="k">"sales"</span>].plot()<svg class="spark" viewBox="0 0 200 40" width="100%" height="34" preserveAspectRatio="none"><path class="ar" d="M0 32 L25 26 L50 29 L75 18 L100 22 L125 12 L150 15 L175 6 L200 9 L200 40 L0 40Z"/><path d="M0 32 L25 26 L50 29 L75 18 L100 22 L125 12 L150 15 L175 6 L200 9"/></svg></div><div class="ch"><span>pandas</span><span>Viz</span><span>ML</span></div></div>
-<div class="t" data-g="▥" style="--c:#a855f7"><span class="gl"></span><div class="n"><span>03 / tool</span><span>.pbix</span></div><div class="ic">▥</div><h3>Power BI</h3><p>Turn models into interactive dashboards people use.</p><div class="demo"><div class="bars"><i style="height:45%"></i><i style="height:70%;animation-delay:.3s"></i><i style="height:55%;animation-delay:.6s"></i><i style="height:90%;animation-delay:.9s"></i><i style="height:65%;animation-delay:1.2s"></i><i style="height:100%;animation-delay:1.5s"></i></div></div><div class="ch"><span>DAX</span><span>Modeling</span><span>Reports</span></div></div>
-<div class="t" data-g="⊞" style="--c:#16a34a"><span class="gl"></span><div class="n"><span>04 / tool</span><span>.xlsx</span></div><div class="ic">⊞</div><h3>Excel</h3><p>The fastest way to prototype an analysis.</p><div class="demo" style="padding:.5rem"><div class="xl"><b class="h"></b><b class="h">A</b><b class="h">B</b><b class="h">C</b><b class="h">1</b><b>120</b><b>340</b><b>95</b><b class="h">2</b><b>210</b><b>180</b><b>60</b><b class="h">3</b><b>330</b><b class="s">=SUM()</b><b>155</b></div></div><div class="ch"><span>Pivots</span><span>XLOOKUP</span><span>Dashboards</span></div></div>
+<div class="t" data-g="⌕" style="--c:#6ea8ff"><span class="gl"></span><div class="n"><span>01 / tool</span><span>.sql</span></div><div class="ic">⌕</div><h3>SQL</h3><p>Ask any question of a database and get a clean answer back.</p><div class="demo"><span class="k">SELECT</span> region, <span class="k">SUM</span>(sales)<br><span class="k">FROM</span> orders<br><span class="k">GROUP BY</span> region <span class="m">-- 4 rows</span></div><div class="ch"><span>Joins</span><span>CTEs</span><span>Window fns</span></div></div>
+<div class="t" data-g="λ" style="--c:#f5b301"><span class="gl"></span><div class="n"><span>02 / tool</span><span>.py</span></div><div class="ic">λ</div><h3>Python</h3><p>Clean, explore and model data at any scale.</p><div class="demo"><span class="m">&gt;&gt;&gt;</span> df[<span class="k">"sales"</span>].plot()<svg class="spark" viewBox="0 0 200 40" width="100%" height="34" preserveAspectRatio="none"><path class="ar" d="M0 32 L25 26 L50 29 L75 18 L100 22 L125 12 L150 15 L175 6 L200 9 L200 40 L0 40Z"/><path d="M0 32 L25 26 L50 29 L75 18 L100 22 L125 12 L150 15 L175 6 L200 9"/></svg></div><div class="ch"><span>pandas</span><span>Viz</span><span>ML</span></div></div>
+<div class="t" data-g="▥" style="--c:#a66bff"><span class="gl"></span><div class="n"><span>03 / tool</span><span>.pbix</span></div><div class="ic">▥</div><h3>Power BI</h3><p>Turn models into interactive dashboards people use.</p><div class="demo"><div class="bars"><i style="height:45%"></i><i style="height:70%;animation-delay:.3s"></i><i style="height:55%;animation-delay:.6s"></i><i style="height:90%;animation-delay:.9s"></i><i style="height:65%;animation-delay:1.2s"></i><i style="height:100%;animation-delay:1.5s"></i></div></div><div class="ch"><span>DAX</span><span>Modeling</span><span>Reports</span></div></div>
+<div class="t" data-g="⊞" style="--c:#5fd068"><span class="gl"></span><div class="n"><span>04 / tool</span><span>.xlsx</span></div><div class="ic">⊞</div><h3>Excel</h3><p>The fastest way to prototype an analysis.</p><div class="demo" style="padding:.5rem"><div class="xl"><b class="h"></b><b class="h">A</b><b class="h">B</b><b class="h">C</b><b class="h">1</b><b>120</b><b>340</b><b>95</b><b class="h">2</b><b>210</b><b>180</b><b>60</b><b class="h">3</b><b>330</b><b class="s">=SUM()</b><b>155</b></div></div><div class="ch"><span>Pivots</span><span>XLOOKUP</span><span>Dashboards</span></div></div>
 </div>
 <div class="b64" id="b64">[b.64] </div></section>
 
@@ -239,12 +365,12 @@ section h2+.lead{margin-bottom:.4rem}
 <section id="today" class="today rv"><div class="label">right now</div><h2>Today's topic &amp; this month's project</h2><p class="lead">Both sections are updated with the latest topic and project.</p>
 <div class="grid two">
 <!-- DAILY: edit href, title, description, date -->
-<a class="cell" href="https://youtu.be/-3xE-axN3Sg"><div class="cap"><span><i class="live-dot"></i>Today's topic</span> · 09 October 2026</div><div class="bd"><div class="mono mut" style="font-size:.7rem;margin-bottom:.6rem">UPDATED DAILY</div><h3>Mode Explained: When Most Common Value Matters</h3><p>Learn how math helps Data Analysts understand data, find patterns, and make better decisions.</p><div class="tags"><span>▶ Watch today's video</span></div></div></a>
+<a class="cell" href="https://youtu.be/SDv74fqgzKo"><div class="cap"><span><i class="live-dot"></i>Today's topic</span> · 01 November 2026</div><div class="bd"><div class="mono mut" style="font-size:.7rem;margin-bottom:.6rem">UPDATED DAILY</div><h3>Kurtosis: Understanding Peakedness and Tails</h3><p>Learn how math helps Data Analysts understand data, find patterns, and make better decisions.</p><div class="tags"><span>▶ Watch today's video</span></div></div></a>
 <!-- MONTHLY: edit href, title, description, month -->
-<a class="cell" href="https://youtu.be/MGD3GuuHbo4"><div class="cap"><span><i class="live-dot"></i>Monthly project</span> · October 2026</div><div class="bd"><div class="mono mut" style="font-size:.7rem;margin-bottom:.6rem">UPDATED MONTHLY</div><h3>SQL Case Study</h3><p>Analyze real-world data and solve business problems using SQL and Python.</p><div class="tags"><span>▶ Watch this month's project</span></div></div></a>
+<a class="cell" href="https://youtu.be/71LpIug01OA"><div class="cap"><span><i class="live-dot"></i>Monthly project</span> · 01 October 2026</div><div class="bd"><div class="mono mut" style="font-size:.7rem;margin-bottom:.6rem">UPDATED MONTHLY</div><h3>Excel Visualization Project</h3><p>Analyze real-world data and solve business problems using Excel.</p><div class="tags"><span>▶ Watch this month's project</span></div></div></a>
 </div></section>
 
-<section id="projects" class="rv"><div class="label">projects</div><h2>Free project playlists</h2><p class="lead">Eight hands-on builds across SQL, Python, Power BI and Excel — real datasets, real dashboards.</p><div class="grid" id="pg"></div></section>
+<section id="projects" class="rv"><div class="label">projects</div><h2>Free project playlists</h2><p class="lead">Nine hands-on builds across SQL, Python, Power BI and Excel — real datasets, real dashboards.</p><div class="grid" id="pg"></div></section>
 <section id="case-studies" class="rv"><div class="label">case studies</div><h2>Problem to solution, end to end.</h2><p class="lead">Real case studies — the full thought process.</p><div class="grid" id="cg"></div></section>
 <section id="courses" class="rv"><div class="label">courses</div><h2>Full-length courses</h2><p class="lead">Two deep, structured playlists from first query to production-ready skills.</p><div class="grid two" id="kg"></div></section>
 
@@ -254,7 +380,7 @@ section h2+.lead{margin-bottom:.4rem}
 <section id="membership" class="rv"><div class="label">membership</div><h2>Free is good. Pro is better.</h2><p class="lead">Enjoying the free projects? Get the premium builds, made for maximum learning value.</p>
 <div class="grid two">
 <div class="cell"><div class="cap">starter.plan</div><div class="bd mem"><h3>Starter</h3><p>Access to every basic project</p><div class="price" style="margin-top:1rem">Free</div><ul><li>All free projects</li><li>Community support</li><li>Basic source code</li><li>Weekly updates</li></ul><a class="btn" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Get started ↗</a></div></div>
-<div class="cell pro"><div class="cap">pro.plan · best value</div><div class="bd mem"><span class="badge">₹60/- only</span><h3>Pro Member</h3><p>The highest-quality projects, every difficulty</p><div class="price" style="margin-top:1rem">Membership</div><div class="tags"><span>Easy</span><span>Intermediate</span><span>Hard</span><span>11 projects · 4 case studies</span></div><ul><li>Everything in Starter</li><li>Premium project source</li><li>Step-by-step tutorials</li><li>Priority support</li><li>Downloadable resources</li><li>FAANG level case study</li></ul><a class="btn p" href="https://www.youtube.com/channel/UC23Ae14UR3bU9ywZ7Wm7f0A/join">Join Pro ↗</a></div></div>
+<div class="cell pro"><div class="cap">pro.plan · best value</div><div class="bd mem"><span class="badge">₹60/- only</span><h3>Pro Member</h3><p>The highest-quality projects, every difficulty</p><div class="price" style="margin-top:1rem">Membership</div><div class="tags"><span>Easy</span><span>Intermediate</span><span>Hard</span><span>12 projects · 4 case studies</span></div><ul><li>Everything in Starter</li><li>Premium project source</li><li>Step-by-step tutorials</li><li>Priority support</li><li>Downloadable resources</li><li>FAANG level case study</li></ul><a class="btn p" href="https://www.youtube.com/channel/UC23Ae14UR3bU9ywZ7Wm7f0A/join">Join Pro ↗</a></div></div>
 </div></section>
 
 <section id="live" class="rv"><div class="label"><b>●</b> live</div><h2>Live coding, daily.</h2><p class="lead">Two sessions a day — morning and evening — building real projects and answering your questions on YouTube.</p>
@@ -267,25 +393,28 @@ section h2+.lead{margin-bottom:.4rem}
 <a class="cell" href="https://youtu.be/MGD3GuuHbo4"><div class="cap">October 2026</div><div class="bd"><h3>SQL Case Study</h3><p>A combined case study project releasing this month.</p><div class="tags"><span>/projects/2026-10-sql-case-study</span></div></div></a>
 <a class="cell" href="https://www.youtube.com/@classeswithme_backup"><div class="cap">November 2026</div><div class="bd"><h3>New project — TBA</h3><p>Another data analytics project, releasing next month.</p><div class="tags"><span>/projects/2026-11-tba</span></div></div></a></div></section>
 
-<div class="sep">∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆ ∵ ⩆</div>
-<footer><div class="in"><div><div class="logo">classeswithme</div><p style="margin-top:1rem;opacity:.6">Building the future of data analytics education,<br>one project at a time.</p></div>
+<div class="sep">🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦ 🦇 ✦ 🕸 ✦ 🎃 ✦</div>
+<footer><div class="in"><div><div class="logo">classeswithme</div><p style="margin-top:1rem;opacity:.6">Building the future of data analytics education,<br>one project at a time.</p><p class="hwline">Happy Halloween — stay spooky, stay curious.</p></div>
 <div><a href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">YouTube</a><a href="https://www.linkedin.com/in/shubham-sarkar/">LinkedIn</a><a href="mailto:classeswithme@gmail.com">Email</a><a href="https://t.me/classeswithme_youtube">Telegram</a></div>
-<div style="width:100%;opacity:.5;border-top:1px solid #333;padding-top:1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem"><span>© 2026 classeswithme · all projects crafted with passion.</span><span>Version 0.01 · CWM.DA.001</span></div></div></footer>
+<div style="width:100%;opacity:.5;border-top:1px solid #2a1d33;padding-top:1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem"><span>© 2026 classeswithme · all projects crafted with passion.</span><span>Version 0.01 · CWM.DA.001 · 🎃 Halloween Edition</span></div></div></footer>
+
+<button id="tot" aria-label="Trick or treat — get a data tip"><svg viewBox="0 0 100 90" aria-hidden="true"><use href="#pk"/></svg></button>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const $=s=>document.querySelector(s);
 // loader
 let p=0;const li=setInterval(()=>{p=Math.min(100,p+Math.ceil(Math.random()*14));$('#lp').textContent=p+'%';$('#lb').style.width=p+'%';if(p>=100){clearInterval(li);setTimeout(()=>$('#loader').classList.add('done'),200)}},70);
-// theme toggle
-(function(){const R=document.documentElement,b=$('#theme');let saved=null;try{saved=localStorage.getItem('cwm-theme')}catch(e){}
-const sys=()=>matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light',cur=()=>R.dataset.theme||sys();
-const set=t=>{R.dataset.theme=t;b.textContent=t==='dark'?'☀':'☾';try{localStorage.setItem('cwm-theme',t)}catch(e){}};
-if(saved)set(saved);else b.textContent=sys()==='dark'?'☀':'☾';
-b.onclick=()=>set(cur()==='dark'?'light':'dark')})();
+// theme toggle — Halloween defaults to midnight (dark)
+(function(){const R=document.documentElement,b=$('#theme');let saved=null;try{saved=localStorage.getItem('cwm-hw-theme')}catch(e){}
+const show=t=>{R.dataset.theme=t;b.textContent=t==='dark'?'☀':'☾';b.title=t==='dark'?'Switch to candlelight (light) mode':'Switch to midnight (dark) mode'};
+show(saved==='light'?'light':'dark');
+b.onclick=()=>{const t=R.dataset.theme==='dark'?'light':'dark';show(t);try{localStorage.setItem('cwm-hw-theme',t)}catch(e){}}})();
 $('#menu').onclick=()=>$('#links').classList.toggle('open');
 document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>$('#links').classList.remove('open')));
-// data
+// data — newest project first (last field 1 = shows the NEW badge)
 const proj=[
+['https://youtu.be/71LpIug01OA','excel_viz_project.xlsx','Excel Visualization Project','Turn raw spreadsheet data into clear charts and a dashboard that tells the story — all inside Excel.',['Excel','Charts','Visualization'],1],
 ['https://youtu.be/kjTWeQfT6sk','power_bi_sql_project.pbix','Power BI + SQL Project','Combine Power BI visualization with SQL queries for powerful data analytics dashboards.',['Power BI','SQL','Dashboard']],
 ['https://youtu.be/eVQAooQ5u60','sql_project.sql','SQL Project','Hands-on SQL project covering queries, joins, subqueries and real-world database scenarios.',['SQL','MySQL','Queries']],
 ['https://youtu.be/pgIZVhz3oyk','python_project.py','Python Project','Complete Python project for data analytics with real datasets and practical use cases.',['Python','Pandas','Analytics']],
@@ -304,15 +433,20 @@ const co=[
 ['https://www.youtube.com/playlist?list=PLjx_MccGVovxi3zs9vNLAKemCPoPFb9YA','All levels','Maths for Data Domain','Essential mathematics for data analytics and data science — statistics, probability, linear algebra and calculus, made easy.',['Statistics','Probability','Linear Algebra','Calculus']]];
 const tg=a=>'<div class="tags">'+a.map(t=>`<span>${t}</span>`).join('')+'</div>';
 let ai=0;const art=()=>{const s=ai++,hs=[...Array(18)].map((_,k)=>10+((k*37+s*53+k*k*7)%38)),m=hs.indexOf(Math.max(...hs));return '<svg class="art" viewBox="0 0 180 56" preserveAspectRatio="none">'+hs.map((v,k)=>`<rect x="${k*10+1}" y="${56-v}" width="8" height="${v}" fill="${k===m?'var(--acc)':'currentColor'}" opacity="${k===m?1:.16+k*.012}"/>`).join('')+'</svg>'};
-const card=(h,c,t,d,tags)=>`<a class="cell" href="${h}"><div class="cap">${c}</div>${art()}<div class="bd"><h3>${t}</h3><p>${d}</p>${tg(tags)}</div></a>`;
-$('#pg').innerHTML=proj.map(x=>card(x[0],x[1],x[2],x[3],x[4])).join('');
+const card=(h,c,t,d,tags,n)=>`<a class="cell${n?' fresh':''}" href="${h}"><div class="cap">${c}${n?'<span class="new">🎃 new</span>':''}</div>${art()}<div class="bd"><h3>${t}</h3><p>${d}</p>${tg(tags)}</div></a>`;
+$('#pg').innerHTML=proj.map(x=>card(x[0],x[1],x[2],x[3],x[4],x[5])).join('');
 $('#cg').innerHTML=cs.map(x=>card(x[0],x[1],x[2],x[3],['Watch now'])).join('');
 $('#kg').innerHTML=co.map(x=>card(x[0],x[1],x[2],x[3],x[4])).join('');
 $('#big').innerHTML=[[9,'Project playlists'],[4,'Case studies'],[2,'Course playlists'],['365+','Video tutorials'],['24/7','Live streams']].map(s=>`<div><div class="n">${s[0]}</div><div class="t">${s[1]}</div></div>`).join('');
+// cobwebs on every card (a spider drops in on hover)
+const WEB=(()=>{const R=[[-100,0],[-92,40],[-70,78],[-36,100],[0,100]],T=[.22,.42,.62,.82,.98],f=n=>+n.toFixed(1);let d=R.map(([a,b])=>`M100 0L${100+a} ${b}`).join('');
+T.forEach(t=>{const P=R.map(([a,b])=>[100+a*t,b*t]);d+=`M${f(P[0][0])} ${f(P[0][1])}`;for(let k=1;k<P.length;k++){const[x0,y0]=P[k-1],[x1,y1]=P[k],mx=(x0+x1)/2,my=(y0+y1)/2;d+=`Q${f(mx+(100-mx)*.12)} ${f(my*.88)} ${f(x1)} ${f(y1)}`}});
+return `<svg class="web" viewBox="0 0 100 100" aria-hidden="true"><path d="${d}"/><g class="wsp"><path d="M74 0V46M71 48l-4-3M71 51l-4 1M71 54l-3 3M77 48l4-3M77 51l4 1M77 54l3 3"/><circle cx="74" cy="51" r="3.4"/></g></svg>`})();
+document.querySelectorAll('.cell').forEach(c=>c.insertAdjacentHTML('beforeend',WEB));
 // typing
-const q='SELECT skill, hours_practiced\nFROM classeswithme\nORDER BY growth DESC;';let i=0;
+const q="SELECT skill, hours_practiced\nFROM classeswithme\nWHERE season = 'halloween'\nORDER BY growth DESC;";let i=0;
 const esc=s=>s.replace(/</g,'&lt;');
-(function ty(){const s=esc(q.slice(0,i)).replace(/\b(SELECT|FROM|ORDER BY|DESC)\b/g,'<span class="k">$1</span>');$('#typed').innerHTML=s+'▌';if(i++<q.length)setTimeout(ty,28);else setTimeout(()=>{$('#res').style.opacity=1;document.querySelectorAll('.rrow b').forEach(b=>b.style.width=b.dataset.w+'%')},300)})();
+(function ty(){const s=esc(q.slice(0,i)).replace(/'[^']*'?/g,m=>'<span class="s">'+m+'</span>').replace(/\b(SELECT|FROM|WHERE|ORDER BY|DESC)\b/g,'<span class="k">$1</span>');$('#typed').innerHTML=s+'▌';if(i++<q.length)setTimeout(ty,28);else setTimeout(()=>{$('#res').style.opacity=1;document.querySelectorAll('.rrow b').forEach(b=>b.style.width=b.dataset.w+'%')},300)})();
 $('#b64').textContent+=btoa(q);
 // upload countdown: new project every 1st, 00:00 IST
 (function c(){const OFF=19800000,now=Date.now(),t=new Date(now+OFF);
@@ -321,10 +455,10 @@ const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),
 $('#clock').textContent=D+'d '+p(H)+':'+p(M)+':'+p(S);
 $('#date').textContent='→ '+new Date(tgt+OFF).toLocaleDateString('en-GB',{timeZone:'UTC',day:'2-digit',month:'short',year:'numeric'})+' · 12:00 AM IST';
 setTimeout(c,1000)})();
-// Data Glider: collect the 5 tools, dodge data errors
-(function(){const cv=$('#life'),x=cv.getContext('2d'),W=200,H=100,G=[[1,0],[2,1],[0,2],[1,2],[2,2]];
+// Pumpkin Glider: collect the 5 tools, dodge data errors
+(function(){const cv=$('#life'),x=cv.getContext('2d'),W=200,H=100,PK=['....g....','.ooooooo.','ooooooooo','ooyoooyoo','ooooooooo','oyyyyyyyo','ooyoyoyoo','.ooooooo.'];
 const F={S:'111100111001111',Q:'111101101111001',L:'100100100100111',P:'111101111100100',Y:'101101111010010',X:'101101010101101',B:'110101110101110',I:'111010010010111',N:'110101101101101',U:'101101101101111',R:'110101110101101',E:'111100110100111',A:'010101111101101','#':'101111101111101','0':'111101101101111','÷':'010000111000010','∑':'111100010100111'};
-const TOOLS=[['SQL','#3b82f6'],['PY','#d99a00'],['XL','#16a34a'],['BI','#a855f7'],['∑','#ff4d00']],BAD=['NULL','NAN','#REF','÷0'];
+const TOOLS=[['SQL','#6ea8ff'],['PY','#f5b301'],['XL','#5fd068'],['BI','#a66bff'],['∑','#ff7518']],BAD=['NULL','NAN','#REF','÷0'];
 const QB={
 NULL:[["NULL = NULL in SQL returns…",["NULL (unknown)","TRUE"]],["Correct way to find missing values in SQL?",["WHERE col IS NULL","WHERE col = NULL"]],["Does COUNT(col) count NULL values?",["No","Yes"]],["Does COUNT(*) count rows that contain NULLs?",["Yes","No"]],["Which function replaces NULL with a default value?",["COALESCE()","CONCAT()"]],["NULL + 5 in SQL gives…",["NULL","5"]],["AVG(col) treats NULLs how?",["Ignores them","Counts them as 0"]],["NULL means…",["Missing / unknown value","Zero"]],["In a LEFT JOIN, unmatched right-side columns become…",["NULL","0"]],["In pandas, df.isnull() returns…",["A True/False mask","The number of rows"]]],
 NAN:[["In Python, float('nan') == float('nan') is…",["False","True"]],["Pandas method to remove rows with NaN?",["dropna()","fillna()"]],["Pandas method to replace NaN with a value?",["fillna()","dropna()"]],["NaN stands for…",["Not a Number","Null and None"]],["What type is np.nan?",["float","int"]],["df.isna().sum() gives…",["NaN count per column","Total rows"]],["Does pandas .mean() skip NaN by default?",["Yes","No"]],["Correct way to test for NaN in NumPy?",["np.isnan(x)","x == np.nan"]],["np.float64(0)/0 gives…",["nan","0"]],["An int column with a NaN in pandas becomes…",["float64","int64"]]],
@@ -357,15 +491,17 @@ function tick(){const sp=Math.min(2.2,1.1+sc*.025);off+=sp;
   if(f%2===0)trail.push({x:32,y:y+4,a:.7});trail.forEach(t=>{t.x-=sp;t.a-=.03});trail=trail.filter(t=>t.a>0);
   items.forEach(i=>{if(i.x<39&&i.x+i.w>31&&i.y<y+8&&i.y+i.h>y+1){if(i.bad){if(st===1)ask(i)}else{i.done=1;sc++;got.add(i.t);if(got.size===5){sc+=5;got.clear();$('#hint').textContent='★ ANALYST UNLOCKED +5 ★'}slots()}}})}
  else if(st===0)y=40+Math.sin(Date.now()/300)*5;
- const ink=css('--ink'),acc=css('--acc'),ln=css('--line');
+ const ink=css('--ink'),acc=css('--acc'),ln=css('--line'),mu=css('--mut');
  x.clearRect(0,0,W,H);
- x.globalAlpha=.55;x.fillStyle=ln;const sh=off*.25,bi=Math.floor(sh/8);
- for(let k=0;k<28;k++)x.fillRect(k*8-sh%8,H-(10+((k+bi)*7919%23)*1.5),6,H);
- x.globalAlpha=.6;for(let g=-(off*.6%25);g<W;g+=25)x.fillRect(g|0,0,1,H);
+ x.fillStyle='#f6dcae';x.globalAlpha=.12;x.beginPath();x.arc(181,17,13,0,7);x.fill();x.globalAlpha=.6;x.beginPath();x.arc(181,17,8,0,7);x.fill();
+ x.globalAlpha=.5;x.fillStyle=ln;for(let g=-(off*.6%25);g<W;g+=25)x.fillRect(g|0,0,1,H);
+ x.globalAlpha=.45;x.fillStyle=mu;const sh=off*.25,bi=Math.floor(sh/16);
+ for(let k=0;k<15;k++){const px=Math.round(k*16-sh%16),r=(k+bi)*7919%11,hh=5+r;if(r%4===0){x.fillRect(px+2,H-hh-3,2,hh+3);x.fillRect(px,H-hh,6,2)}else{x.fillRect(px,H-hh+1,6,hh);x.fillRect(px+1,H-hh,4,1)}}
  x.globalAlpha=.35;x.fillStyle=ink;x.fillRect(0,H-1,W,1);
  trail.forEach(t=>{x.globalAlpha=t.a;x.fillStyle=acc;x.fillRect(t.x|0,t.y|0,2,2)});x.globalAlpha=1;
  items.forEach(i=>{x.fillStyle=i.c;x.fillRect(i.x|0,i.y|0,i.w,i.h);if(i.bad){x.fillStyle=ink;x.fillRect(i.x|0,i.y|0,1,1);x.fillRect((i.x+i.w-1)|0,(i.y+i.h-1)|0,1,1)}txt(i.t,(i.x+2)|0,(i.y+2)|0,'#fff')});
- x.fillStyle=st===2?'#dc2626':acc;G.forEach(([a,b])=>x.fillRect(30+a*3,(y|0)+b*3,3,3));
+ const fl=.7+Math.random()*.3,bd=st===2?'#dc2626':acc;
+ PK.forEach((r,ry)=>{for(let rx=0;rx<9;rx++){const ch=r[rx];if(ch==='.')continue;x.globalAlpha=ch==='y'?fl:1;x.fillStyle=ch==='o'?bd:ch==='g'?'#4f9a2a':'#ffd54a';x.fillRect(30+rx,(y|0)+ry,1,1)}});x.globalAlpha=1;
  $('#score').textContent='score '+sc+' · '+heart()+' · best '+best}
 cv.addEventListener('pointerdown',e=>{e.preventDefault();cv.focus({preventScroll:true});flap()});
 cv.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='ArrowUp'){e.preventDefault();flap()}});
@@ -385,21 +521,35 @@ x.strokeStyle=acc;x.setLineDash([3,3]);x.beginPath();x.moveTo(X(sw),Y(0));x.line
 const cdf=u=>{let s=0;for(let z=-4;z<u;z+=.01)s+=f(z)*.01;return s/Math.sqrt(2*Math.PI)};x.fillStyle=acc;x.textAlign='left';x.font='600 11px IBM Plex Mono, monospace';x.fillText('P(Z < '+sw.toFixed(2)+') = '+(cdf(sw)*100).toFixed(1)+'%',8,14);
 requestAnimationFrame(draw)}requestAnimationFrame(draw)})();
 // marquee
-const rib=(id,arr)=>{$(id).innerHTML=Array(2).fill(arr.map(([w,c],k)=>`<span class="it"><span class="w${k%2?' o':''}">${w}</span><span class="c">${c}</span></span><span class="st">✦</span>`).join('')).join('')};
-rib('#tk',[['Excel','=XLOOKUP()'],['Statistics','μ · σ · p<0.05'],['DAX','CALCULATE()'],['SQL','GROUP BY'],['Power BI','.pbix'],['Python','df.groupby()']]);
-rib('#tk2',[['Pivot Tables','Σ values'],['Regression','ŷ = βx + ε'],['Time Intelligence','DATESYTD()'],['Probability','P(A|B)'],['PostgreSQL','WITH cte AS'],['Machine Learning','.fit()']]);
+const rib=(id,arr)=>{$(id).innerHTML=Array(2).fill(arr.map(([w,c],k)=>`<span class="it"><span class="w${k%2?' o':''}">${w}</span><span class="c">${c}</span></span><span class="st">${k%2?'🦇':'🎃'}</span>`).join('')).join('')};
+rib('#tk',[['Excel','=XLOOKUP()'],['Boo-lean Logic','TRUE · FALSE'],['Statistics','μ · σ · p<0.05'],['DAX','CALCULATE()'],['Haunted Joins','LEFT JOIN'],['SQL','GROUP BY'],['Power BI','.pbix'],['Python','df.groupby()']]);
+rib('#tk2',[['Pivot Tables','Σ values'],['Regression','ŷ = βx + ε'],['Ghost Rows','IS NULL'],['Time Intelligence','DATESYTD()'],['Probability','P(A|B)'],['Witch Functions','OVER()'],['PostgreSQL','WITH cte AS'],['Machine Learning','.fit()']]);
 // progress + card spotlight
 addEventListener('scroll',()=>$('#prog').style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%',{passive:true});
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.cell');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
-// hero dot-matrix wave
+// hero dot-matrix wave (witch purple haze, pumpkin hotspots)
 (function(){const cv=$('#wave'),x=cv.getContext('2d'),d=Math.min(devicePixelRatio||1,2),S=16;let w,h,mx=-999,my=-999;
 function rs(){w=innerWidth;h=Math.max(innerHeight,720);cv.width=w*d;cv.height=h*d;cv.style.height=h+'px';x.setTransform(d,0,0,d,0,0)}
 rs();addEventListener('resize',rs);addEventListener('pointermove',e=>{mx=e.clientX+scrollX;my=e.clientY+scrollY});
-function fr(t){if(scrollY<h){const cs=getComputedStyle(document.body),ink=cs.getPropertyValue('--ink'),acc=cs.getPropertyValue('--acc');x.clearRect(0,0,w,h);
+function fr(t){if(scrollY<h){const cs=getComputedStyle(document.body),a2=cs.getPropertyValue('--acc2'),acc=cs.getPropertyValue('--acc');x.clearRect(0,0,w,h);
 for(let gx=S/2;gx<w;gx+=S)for(let gy=S/2;gy<h;gy+=S){const q=(Math.sin(gx*.012+t*.0007)+Math.sin(gy*.017-t*.0005)+Math.sin((gx+gy)*.008+t*.0004)+3)/6,dx=gx-mx,dy=gy-my,m=Math.max(0,1-Math.hypot(dx,dy)/170);
-const r=.6+q*q*4.2+m*4,hot=q>.8||m>.55;x.globalAlpha=hot?.9:.1+q*.3;x.fillStyle=hot?acc:ink;x.fillRect(gx-r/2,gy-r/2,r,r)}x.globalAlpha=1}
+const r=.6+q*q*4.2+m*4,hot=q>.8||m>.55;x.globalAlpha=hot?.85:.06+q*.24;x.fillStyle=hot?acc:a2;x.fillRect(gx-r/2,gy-r/2,r,r)}x.globalAlpha=1}
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(fr)}
 requestAnimationFrame(fr)})();
+// rising embers
+(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const c=$('#embers'),x=c.getContext('2d'),d=Math.min(devicePixelRatio||1,2),P=[];let w,h;
+function rs(){w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0)}rs();addEventListener('resize',rs);
+const mk=a=>({x:Math.random()*w,y:a?Math.random()*h:h+10,r:.6+Math.random()*1.6,vy:.2+Math.random()*.6,vx:(Math.random()-.5)*.25,ph:Math.random()*6.28,pu:Math.random()<.28});
+for(let k=0;k<(w<700?22:42);k++)P.push(mk(1));
+function fr(t){x.clearRect(0,0,w,h);const cs=getComputedStyle(document.documentElement),a=cs.getPropertyValue('--acc').trim(),b=cs.getPropertyValue('--acc2').trim();
+P.forEach((q,k)=>{q.y-=q.vy;q.x+=q.vx+Math.sin(t/900+q.ph)*.25;if(q.y<-10){P[k]=mk(0);return}const al=(.35+.65*Math.abs(Math.sin(t/320+q.ph)))*(q.pu?.5:.8);
+x.fillStyle=q.pu?b:a;x.globalAlpha=al*.18;x.beginPath();x.arc(q.x,q.y,q.r*4,0,7);x.fill();x.globalAlpha=al;x.beginPath();x.arc(q.x,q.y,q.r,0,7);x.fill()});x.globalAlpha=1;
+requestAnimationFrame(fr)}requestAnimationFrame(fr)})();
+// trick or treat: random data tips
+(function(){const T=[["Treat!","COALESCE(col, 0) turns a scary NULL into a friendly zero."],["Treat!","XLOOKUP can look left. VLOOKUP never could."],["Treat!","df.describe() shows a whole dataset's skeleton in one line."],["Treat!","CALCULATE() is the DAX spell that rewrites filter context."],["Treat!","ROW_NUMBER() OVER (PARTITION BY …) — window functions keep every row alive."],["Treat!","When outliers come haunting, trust the median over the mean."],["Treat!","Ctrl + T turns an Excel range into a Table — instant superpowers."],["Treat!","Use a CTE to break a monster query into small, friendly steps."],["Trick!","SELECT * on a 10-million-row table. Boo! 👻"],["Trick!","A JOIN with no ON clause — the cartesian curse strikes."],["Trick!","Merged cells in a dataset. Truly cursed."],["Trick!","Correlation ≠ causation. Don't let it haunt your report."],["Trick!","#DIV/0! — the ghost living in every empty denominator."]];
+const b=$('#tot'),t=$('#toast');let hd,last=-1;
+b.onclick=()=>{let k;do k=Math.random()*T.length|0;while(k===last);last=k;t.innerHTML='<b class="'+(T[k][0]==='Trick!'?'tr':'')+'">'+T[k][0]+'</b>'+T[k][1];t.classList.add('on');b.classList.remove('hint');clearTimeout(hd);hd=setTimeout(()=>t.classList.remove('on'),6500)};
+setTimeout(()=>b.classList.add('hint'),2800);setTimeout(()=>b.classList.remove('hint'),9000)})();
 // heatmap
 const hm=$('#hm');for(let n=0;n<365;n++){const e=document.createElement('i');const r=Math.random();if(r>.85)e.dataset.c='a';else if(r>.6)e.dataset.c='h';hm.appendChild(e)}
 let st=0;new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!st){st=1;let c=0;[...hm.children].forEach((e,k)=>setTimeout(()=>{e.className='on '+(e.dataset.c=='a'?'a':e.dataset.c=='h'?'h':'');$('#hmc').textContent=++c},k*4));o.disconnect()}},{threshold:.2}).observe($('#videos'));
