@@ -1,3 +1,7 @@
+Claude
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
 <title>classeswithme — Data Analytics, Live</title>
 <meta name="description" content="SQL, Python, Power BI, Excel and the maths behind them, taught through free projects, full courses and a live stream every single day.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a3bd6'/%3E%3Cpath d='M44 18H21l13 14-13 14h23' fill='none' stroke='%23ffe85a' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-
+ 
 <!--
 ############################################################################
 #                                                                          #
@@ -28,7 +32,7 @@
 -->
 <script>
 const SITE = {
-
+ 
   // ########################################################################
   // # 1   CHANGE EVERY DAY   ->   TODAY'S VIDEO
   // ########################################################################
@@ -39,8 +43,8 @@ const SITE = {
     date:  "auto",     // "auto" = always shows today's date.  Or type one yourself:  "12 November 2026"
   },
   // (the video thumbnail is picked up from the link automatically)
-
-
+ 
+ 
   // ########################################################################
   // # 2   CHANGE EVERY MONTH   ->   THIS MONTH'S PROJECT
   // ########################################################################
@@ -53,8 +57,8 @@ const SITE = {
   // Monthly reminder: also add the new project as the FIRST item of the
   // "projects" list in # 4 below. It gets the red "new!" mark by itself
   // when its link is the same as the link above.
-
-
+ 
+ 
   // ########################################################################
   // # 3   CHANGE EVERY DAY   ->   LIVE STREAM LINKS
   // ########################################################################
@@ -62,19 +66,19 @@ const SITE = {
     session1: "https://youtube.com/live/GKF7Cyg0c3A?feature=share",   // <- Session 01  (12:00 PM - 6:00 PM)
     session2: "https://youtube.com/live/sKqdcGioIUk?feature=share",   // <- Session 02  (7:00 PM - 10:00 PM)
   },
-
-
+ 
+ 
   // ########################################################################
   // # 4   CHANGE ONLY WHEN NEEDED
   // ########################################################################
-
+ 
   // Live timings in IST, 24-hour clock. The page shows "On air now" by
   // itself during these hours and a countdown the rest of the day.
   sessions: [
     { name: "Session 01", label: "Morning", start: "12:00", end: "18:00" },
     { name: "Session 02", label: "Evening", start: "19:00", end: "22:00" },
   ],
-
+ 
   // Channel links
   channel: {
     youtube:  "https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU",
@@ -84,10 +88,10 @@ const SITE = {
     telegram: "https://t.me/classeswithme_youtube",
     email:    "classeswithme@gmail.com",
   },
-
+ 
   // Membership price shown on the Pro card
   price: "₹60/- only",
-
+ 
   // Project playlists, newest first. Copy one { ... }, line and edit it to add a project.
   projects: [
     { link: "https://youtu.be/71LpIug01OA", file: "excel_viz_project.xlsx",      title: "Excel Visualization Project",   about: "Turn raw spreadsheet data into clear charts and a dashboard that tells the story — all inside Excel.", tags: ["Excel", "Charts", "Visualization"] },
@@ -100,7 +104,7 @@ const SITE = {
     { link: "https://youtu.be/1QIbzJfmerM", file: "healthcare_finance.pbix",     title: "Power BI: Healthcare + Finance", about: "Industry-specific Power BI project covering healthcare and finance domain analytics.",             tags: ["Power BI", "Healthcare", "Finance"] },
     { link: "https://www.youtube.com/playlist?list=PLjx_MccGVovyveQEDieLoctGRFRKplT-B", file: "data_science_project.ipynb", title: "Data Science Project", about: "Complete data science playlist with ML models, preprocessing and predictions.", tags: ["Data Science", "ML", "Python"] },
   ],
-
+ 
   // Case studies
   caseStudies: [
     { link: "https://www.youtube.com/playlist?list=PLjx_MccGVovzgomj2B1BD7y8WwsQvclXy", file: "case_study_01.sql.ipynb", title: "Case Study 1", about: "Profit/Loss Case Study: Full-Price vs. Discounted-Price Perspective" },
@@ -108,19 +112,41 @@ const SITE = {
     { link: "https://youtu.be/MGD3GuuHbo4",                                             file: "case_study_03.sql",       title: "Case Study 3", about: "Warehouse and supply-chain case study." },
     { link: "https://youtu.be/kVex_KlDhfk",                                             file: "case_study_04.sql",       title: "Case Study 4", about: "Island And Gaps (easy solution CS)." },
   ],
-
+ 
   // Full courses ("cover" is the big text on the blue block)
   courses: [
     { link: "https://www.youtube.com/playlist?list=PLjx_MccGVovxDDoj8-PufsaGp1RnQJuL0", cover: "SQL", level: "Beginner to advanced", title: "SQL Course 2026",       about: "Master SQL from scratch to advanced. MySQL, PostgreSQL, queries, joins, stored procedures and real database design.",                tags: ["SQL", "MySQL", "PostgreSQL", "Database Design"] },
     { link: "https://www.youtube.com/playlist?list=PLjx_MccGVovxi3zs9vNLAKemCPoPFb9YA", cover: "∑",   level: "All levels",           title: "Maths for Data Domain", about: "Essential mathematics for data analytics and data science — statistics, probability, linear algebra and calculus, made easy.", tags: ["Statistics", "Probability", "Linear Algebra", "Calculus"] },
   ],
-
+ 
   // "What's shipping next" section
   upcoming: [
     { link: "https://youtu.be/MGD3GuuHbo4",                 month: "October 2026",  title: "SQL Case Study",    about: "A combined case study project releasing this month.",   path: "/projects/2026-10-sql-case-study" },
     { link: "https://www.youtube.com/@classeswithme_backup", month: "November 2026", title: "New project — TBA", about: "Another data analytics project, releasing next month.", path: "/projects/2026-11-tba" },
   ],
-
+ 
+  // Globe in the Membership section. It draws a line from your home to every
+  // country where YouTube sells channel memberships (the page already knows that
+  // list, so Pakistan and the other countries YouTube leaves out get no line).
+  // Nothing here needs regular changes.
+  globe: {
+    home: "Chhattisgarh, India",              // the name written beside your dot on the globe
+    lat:  21.25,                              // where your dot sits. 21.25, 81.63 is Raipur
+    lon:  81.63,
+    line: "100+ new members every month",     // your own line. Keep it true, or type "" to hide it
+    skip: [],                                 // countries to leave off the globe, for example ["Ukraine"]
+  },
+ 
+  // Thank-you card (bottom-left corner of the page). It stays OFF while this list is empty.
+  // To switch it on, add your REAL new members: first name, plan, and when they joined (IST).
+  // The page hides the middle letters by itself (Amit -> A**T) and writes
+  // "25 minutes ago" / "1 day ago" by itself. Entries older than 2 days stop showing.
+  // Remove the  //  in front of a line to use it:
+  thanks: [
+    // { name: "Amit",  plan: "Hybrid", when: "2026-11-14 09:30" },
+    // { name: "Priya", plan: "Normal", when: "2026-11-13 18:05" },
+  ],
+ 
 };
 </script>
 <!--
@@ -128,20 +154,20 @@ const SITE = {
 #   END OF EDIT ZONE  -  everything below is design and code               #
 ############################################################################
 -->
-
+ 
 <script>
 /* the page opens on the galaxy (dark) sky; if a visitor switches to the light sky, that choice is remembered */
 (function(){var t;try{t=localStorage.getItem('cwm-sky')}catch(e){}
 document.documentElement.dataset.theme=t==='light'?'light':'dark'})();
 </script>
-
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 <base target="_blank">
-
+ 
 <style>
 /* =========================================================================
    The idea: a maths teacher's notes pinned to the night sky.
@@ -149,7 +175,7 @@ document.documentElement.dataset.theme=t==='light'?'light':'dark'})();
    blue ink, a red marking pen and a yellow highlighter on top.
    The light theme is the same sky by day: pale clouds and ink-blue stars.
    ========================================================================= */
-
+ 
 /* ---------- 1. colours and type ---------- */
 :root{
   --paper:#f3f5fd; --card:#ffffff; --ink:#151f63; --head:#1a3bd6; --pen:#1a3bd6; --pencil:#57638f;
@@ -194,7 +220,7 @@ document.documentElement.dataset.theme=t==='light'?'light':'dark'})();
   --sql:#6ea8ff; --py:#f5c53d; --bi:#b596ff; --xl:#62d37a;
   color-scheme:dark;
 }
-
+ 
 /* ---------- 2. base ---------- */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:5.5rem;-webkit-text-size-adjust:100%}
@@ -226,7 +252,7 @@ h3{font-size:1.3rem;font-weight:700;line-height:1.15;letter-spacing:-.02em}
 .dot.live{background:var(--red);animation:blink 1.6s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--red) 60%,transparent)}100%{box-shadow:0 0 0 9px color-mix(in srgb,var(--red) 0%,transparent)}}
-
+ 
 /* cards and buttons: ink outline, a hard "stacked paper" shadow on hover */
 .card{background:var(--card);border:1.5px solid var(--edge);border-radius:var(--r);transition:background-color .35s,border-color .35s,transform .2s,box-shadow .2s}
 a.card:hover,.lift:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--pen)}
@@ -237,16 +263,16 @@ a.card:hover,.lift:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var
 .btn.p:hover{background:var(--hl);border-color:var(--on-hl);color:var(--on-hl)}
 .tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .tags span{font:500 .8rem/1.5 var(--f);padding:.08rem .65rem;border:1.5px solid var(--line);border-radius:99px;color:var(--pencil);white-space:nowrap}
-
+ 
 /* red-pen marks that draw themselves when they scroll into view */
 .ink{overflow:visible}
 .ink path{fill:none;stroke:var(--red);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s cubic-bezier(.5,0,.2,1) .2s}
 .seen .ink path,.ink.seen path{stroke-dashoffset:0}
-
+ 
 /* the notebook's red margin line; it fills in as you scroll */
 .margin{position:fixed;top:0;bottom:0;z-index:0;pointer-events:none;width:2px;left:calc(max(var(--gut),(100vw - var(--max))/2) - min(1.1rem,var(--gut)*.5));background:color-mix(in srgb,var(--red) 26%,transparent)}
 .margin i{position:absolute;inset:0;background:var(--red);transform-origin:top;transform:scaleY(var(--p,0))}
-
+ 
 /* ---------- 3. loader ---------- */
 #loader{position:fixed;inset:0;z-index:99;display:grid;place-items:center;transition:opacity .45s,visibility .45s;animation:ldfail .4s 6s forwards}
 #loader.done{opacity:0;visibility:hidden;pointer-events:none}
@@ -256,7 +282,7 @@ a.card:hover,.lift:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var
 .ld svg{display:block;width:100%;height:16px;margin:.55rem 0 .5rem;overflow:visible;clip-path:inset(-60% 100% -60% -2%)}
 .ld path{fill:none;stroke:var(--red);stroke-width:3.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .ld-txt{display:flex;justify-content:space-between;font:400 1.2rem/1.2 var(--hand);color:var(--pencil)}
-
+ 
 /* ---------- 4. nav ---------- */
 .nav{position:fixed;top:.7rem;left:50%;translate:-50% 0;z-index:50;width:min(100% - 1.4rem,var(--max) + 2rem);display:flex;align-items:center;gap:.5rem;padding:.45rem .5rem .45rem 1rem;background:color-mix(in srgb,var(--card) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1.5px solid var(--edge);border-radius:10px;transition:background-color .35s,border-color .35s}
 .logo{font:600 .98rem var(--mono);color:var(--head);margin-right:auto;white-space:nowrap}
@@ -279,7 +305,7 @@ a.card:hover,.lift:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var
   .links a{padding:.8rem .8rem;font-size:1.02rem}
   .links a.cta{margin:.35rem 0 0;justify-content:center;padding:.9rem}
 }
-
+ 
 /* ---------- 5. hero ---------- */
 .hero{padding-top:clamp(6rem,10vw,7.6rem);padding-bottom:clamp(3rem,6vw,4.5rem)}
 #plot{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
@@ -366,7 +392,7 @@ body.ready .now{clip-path:inset(-10% -2% -25% -2%);transition:clip-path .85s cub
   .plotpad{min-height:190px;flex:none}
 }
 @media(max-width:520px){.timer .meta{text-align:left}}
-
+ 
 /* ---------- 6. ruler + ribbons ---------- */
 .ruler{height:20px;border-top:1.5px solid var(--edge);background:linear-gradient(90deg,var(--edge) 1.5px,transparent 1.5px) 0 0/120px 100% repeat-x,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/12px 45% repeat-x}
 .ribbons{position:relative;height:clamp(150px,20vw,230px);overflow:hidden;display:grid;place-items:center}
@@ -382,7 +408,7 @@ body.ready .now{clip-path:inset(-10% -2% -25% -2%);transition:clip-path .85s cub
 .rb .c{font:500 .78rem var(--mono);padding:.22rem .6rem;border:1.5px solid currentColor;border-radius:99px;transform:translateY(-.4em)}
 .rb .st{font:600 1.3rem var(--mono);opacity:.75}
 @keyframes tk{to{transform:translateX(-50%)}}
-
+ 
 /* ---------- 7. the stack ---------- */
 .sk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:2.6rem}
 .sk .t{--c:var(--pen);position:relative;background:var(--card);border:1.5px solid var(--edge);border-radius:var(--r);padding:1.15rem 1.1rem 1.25rem;display:flex;flex-direction:column;gap:.6rem;transition:transform .2s,box-shadow .2s,border-color .2s,background-color .35s}
@@ -420,7 +446,7 @@ body.ready .now{clip-path:inset(-10% -2% -25% -2%);transition:clip-path .85s cub
 .b64{font:.72rem/1.5 var(--mono);color:var(--pencil);word-break:break-all;max-width:64ch;margin-top:1.8rem;opacity:.8}
 @media(max-width:980px){.sk{grid-template-columns:repeat(2,minmax(0,1fr))}.sk .core{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:520px){.sk{grid-template-columns:minmax(0,1fr)}}
-
+ 
 /* ---------- 8. totals row ---------- */
 .totals{padding-top:0}
 .big{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:2px solid var(--head);border-bottom:2px solid var(--head)}
@@ -435,7 +461,7 @@ body.ready .now{clip-path:inset(-10% -2% -25% -2%);transition:clip-path .85s cub
   .big>div:nth-child(-n+2){border-top:0}
   .big>div:last-child{grid-column:1/-1}
 }
-
+ 
 /* ---------- 9. today + monthly project ---------- */
 .feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3.6rem clamp(2rem,5vw,4.2rem);margin-top:4.2rem}
 .fcard{display:flex;flex-direction:column;position:relative}
@@ -455,7 +481,7 @@ body.ready .now{clip-path:inset(-10% -2% -25% -2%);transition:clip-path .85s cub
 .go{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;font-weight:650;color:var(--head);align-self:flex-start;background:linear-gradient(var(--hl),var(--hl)) no-repeat 0 100%/0% 42%;transition:background-size .3s}
 a:hover>.go{background-size:100% 42%}
 @media(max-width:760px){.feat{grid-template-columns:minmax(0,1fr)}}
-
+ 
 /* ---------- 10. projects: a result table ---------- */
 .rs{margin-top:2.6rem;overflow:hidden}
 .rs-q{display:flex;justify-content:space-between;gap:.3rem 1rem;flex-wrap:wrap;padding:.7rem 1rem;border-bottom:1.5px solid var(--edge);font:500 .86rem var(--mono);color:var(--pencil)}
@@ -480,7 +506,7 @@ a:hover>.go{background-size:100% 42%}
 #peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:16/9;z-index:70;pointer-events:none;opacity:0;scale:.9;transition:opacity .2s,scale .25s;border:1.5px solid var(--on-hl);border-radius:var(--r);overflow:hidden;box-shadow:8px 8px 0 var(--pen);background:var(--solid)}
 #peek.on{opacity:1;scale:1}
 #peek img{width:100%;height:100%;object-fit:cover}
-
+ 
 /* ---------- 11. case studies + courses ---------- */
 .cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:2.6rem}
 .cs{display:flex;flex-direction:column;gap:.6rem;padding:1.1rem 1.1rem 1.2rem;position:relative;min-height:15.5rem}
@@ -501,7 +527,7 @@ a:hover>.go{background-size:100% 42%}
 .co p{color:var(--pencil);font-size:1rem;line-height:1.45}
 .co .tags{margin-top:.4rem}
 @media(max-width:860px){.kgrid{grid-template-columns:minmax(0,1fr)}}
-
+ 
 /* ---------- 12. the 365 register ---------- */
 #hm{--sq:clamp(11px,1.3vw,18px);display:grid;grid-template-columns:repeat(auto-fill,var(--sq));gap:clamp(3px,.36vw,5px);margin:2.4rem 0 1.8rem}
 #hm i{aspect-ratio:1;border-radius:3px;border:1.5px solid var(--line);transition:background-color .25s,border-color .25s}
@@ -512,7 +538,7 @@ a:hover>.go{background-size:100% 42%}
 .count .n{font:800 clamp(3rem,6vw,4.6rem)/1 var(--f);letter-spacing:-.05em;color:var(--head);position:relative}
 .count .n svg{position:absolute;left:-2%;bottom:-.34em;width:104%;height:.36em}
 .count .l{color:var(--pencil);margin-right:auto}
-
+ 
 /* ---------- 13. membership ---------- */
 .plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem;margin-top:3.2rem}
 .plan{padding:1.4rem 1.5rem 1.6rem;position:relative;display:flex;flex-direction:column;align-items:flex-start}
@@ -539,7 +565,52 @@ a:hover>.go{background-size:100% 42%}
 .badge .ink path{stroke:#d42a22}
 .best{font:700 1.2rem/1 var(--hand);color:var(--hl);margin-left:.6rem}
 @media(max-width:760px){.plans{grid-template-columns:minmax(0,1fr);gap:2.4rem}}
-
+ 
+/* ---------- 13b. membership globe ---------- */
+.reach{margin-top:2.8rem;overflow:hidden}
+.reach-bd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:1rem clamp(1.2rem,4vw,3rem);align-items:center;padding:clamp(1.2rem,3vw,2.2rem)}
+.reach-tx{display:flex;flex-direction:column;align-items:flex-start;gap:.85rem}
+.reach .tagc{font:700 1.2rem/1 var(--hand);color:var(--on-hl);background:var(--hl);padding:.35rem .7rem .15rem;rotate:-2deg}
+.reach h3{font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.035em;line-height:1.03;text-wrap:balance}
+.reach p{color:var(--pencil);max-width:44ch}
+.reach-n{display:flex;flex-wrap:wrap;gap:.9rem 2.4rem;margin-top:.3rem}
+.reach-n b{display:block;font:800 clamp(2.1rem,4.4vw,3.2rem)/1 var(--f);letter-spacing:-.05em;color:var(--head)}
+.reach-n span{display:block;color:var(--pencil);font-size:.95rem;line-height:1.3;margin-top:.35rem;max-width:17ch}
+.reach .reach-hint{font:400 1.15rem/1.3 var(--hand)}
+.globe-btn{position:relative;display:block;width:100%;max-width:440px;justify-self:center;aspect-ratio:1;background:none;border:0;padding:0;border-radius:50%;cursor:grab;touch-action:pan-y;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+.globe-btn canvas,.gm-stage canvas{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.globe-btn .open{position:absolute;right:3%;bottom:6%;font:700 1.15rem/1 var(--hand);color:var(--red);rotate:-5deg;pointer-events:none;transition:opacity .2s}
+.globe-btn.drag,.gm-stage.drag{cursor:grabbing}
+.globe-btn.away canvas,.globe-btn.away .open{opacity:0}
+@media(max-width:820px){.reach-bd{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.reach-n{flex-direction:column;gap:.55rem}.reach-n div{display:flex;align-items:center;gap:.9rem}.reach-n b{min-width:4.7rem}.reach-n span{margin-top:0;max-width:none}}
+/* the same globe, opened big over the page */
+#gm{position:fixed;inset:0;z-index:90;background-color:var(--paper);background-image:var(--nebula);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+#gm.on{opacity:1;visibility:visible}
+.gm-in{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,22.5rem);align-items:center;gap:clamp(1rem,3vw,3rem);padding:clamp(.8rem,3vw,2.6rem);overflow:hidden;overscroll-behavior:contain}
+.gm-stage{position:relative;justify-self:center;width:min(100%,calc(100vh - 3rem));aspect-ratio:1;cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none;transition:transform .7s cubic-bezier(.2,.85,.2,1)}
+.gm-side{max-height:100%;overflow:auto;translate:30px 0;opacity:0;transition:translate .5s cubic-bezier(.2,.8,.2,1) .15s,opacity .4s .15s,background-color .35s,border-color .35s}
+#gm.on .gm-side{translate:0 0;opacity:1}
+.gm-side .bd{padding:1.1rem 1.1rem 1.25rem;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.gm-side h3{font-size:1.75rem;letter-spacing:-.03em;line-height:1.05}
+.gm-side p{color:var(--pencil);font-size:.97rem;line-height:1.45}
+.gm-side .gm-note{font-size:.88rem}
+.gm-h{font:600 .8rem var(--mono);color:var(--pen);margin-top:.2rem}
+#gmFeed{list-style:none;width:100%;min-height:13.4rem}
+#gmFeed li{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0;border-bottom:1.5px dashed var(--line);font-weight:600}
+#gmFeed li i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--hl);border:1.5px solid var(--red)}
+#gmFeed li span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#gmFeed li em{font:500 .8rem var(--mono);font-style:normal;color:var(--pencil);white-space:nowrap}
+#gmFeed li.new{animation:feedin .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes feedin{from{opacity:0;transform:translateY(-8px)}}
+#gmX{position:absolute;top:.8rem;right:.8rem;z-index:2;background:var(--card)}
+@media(max-width:860px){
+  .gm-in{display:block;overflow-y:auto;padding:3.4rem .8rem 1.4rem}
+  .gm-stage{width:min(100%,54vh);margin:0 auto}
+  .gm-side{max-height:none;translate:0 20px;margin-top:.4rem}
+  #gmFeed{min-height:0}
+}
+ 
 /* ---------- 14. live ---------- */
 .tl{margin-top:3.6rem}
 .tl-track{position:relative;height:66px;border:1.5px solid var(--edge);border-radius:4px;background:var(--card) repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px calc(100%/24))}
@@ -568,7 +639,7 @@ a:hover>.go{background-size:100% 42%}
   .tl-b{padding:0;justify-content:center;font-size:.85rem}
   .tl-n{display:none}.tl-s{display:inline}
 }
-
+ 
 /* ---------- 15. upcoming ---------- */
 .up{margin-top:2.6rem;border-top:2px solid var(--head)}
 .up a{display:grid;grid-template-columns:11rem minmax(0,1fr) auto;gap:.4rem 1.5rem;align-items:baseline;padding:1.25rem 0;border-bottom:1.5px solid var(--line)}
@@ -578,7 +649,7 @@ a:hover>.go{background-size:100% 42%}
 .up p{color:var(--pencil);margin-top:.2rem}
 .up .path{font:500 .8rem var(--mono);color:var(--pencil);overflow-wrap:anywhere}
 @media(max-width:820px){.up a{grid-template-columns:minmax(0,1fr)}}
-
+ 
 /* ---------- 16. footer ---------- */
 footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid);color:#fff;padding:clamp(3.5rem,8vw,6rem) 0 1.8rem;background-image:var(--dots);background-size:370px 370px,250px 250px,510px 510px,310px 310px,430px 430px}
 .f-logo{font:800 clamp(2.6rem,11.5vw,10.5rem)/.9 var(--f);letter-spacing:-.05em}
@@ -590,7 +661,7 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
 .f-links a:hover{background-size:100% 2px;color:var(--hl)}
 .f-end{display:flex;justify-content:space-between;gap:.5rem 2rem;flex-wrap:wrap;margin-top:clamp(2rem,5vw,3.5rem);padding-top:1.1rem;border-top:1.5px solid rgba(255,255,255,.3);font-size:.9rem;color:rgba(255,255,255,.8)}
 .f-end span span{margin-left:1rem}
-
+ 
 /* ---------- 17. tip button + sticky note ---------- */
 #tip{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;border:1.5px solid var(--on-hl);background:var(--hl);color:var(--on-hl);display:grid;place-items:center;box-shadow:4px 4px 0 var(--pen);transition:transform .2s,box-shadow .2s}
 #tip:hover{transform:translate(-2px,-2px) rotate(-8deg);box-shadow:6px 6px 0 var(--pen)}
@@ -602,7 +673,15 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
 #note:before{content:'';position:absolute;top:-12px;left:50%;width:96px;height:24px;translate:-50% 0;rotate:2deg;background:rgba(255,255,255,.55);box-shadow:0 1px 0 rgba(10,20,80,.12)}
 #note b{display:block;font:700 1.5rem/1 var(--hand);color:#1a3bd6;margin-bottom:.35rem}
 #note b.bad{color:#d42a22}
-
+ 
+/* ---------- 17b. thank-you card (appears only when real members are listed in the EDIT ZONE) ---------- */
+#ty{position:fixed;left:18px;bottom:18px;z-index:60;width:min(300px,calc(100vw - 112px));background:var(--card);border:1.5px solid var(--edge);border-radius:var(--r);box-shadow:5px 5px 0 var(--pen);padding:.75rem 2.2rem .8rem .9rem;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .3s,translate .4s cubic-bezier(.3,1.5,.5,1),background-color .35s}
+#ty.on{opacity:1;translate:0 0;pointer-events:auto}
+#ty b{display:block;font:700 1.3rem/1 var(--hand);color:var(--red)}
+#ty span{display:block;font-weight:600;line-height:1.3;margin-top:.3rem}
+#ty small{display:block;font:500 .78rem var(--mono);color:var(--pencil);margin-top:.25rem}
+#ty button{position:absolute;top:.25rem;right:.3rem;width:28px;height:28px;border:0;background:none;color:var(--pencil);font-size:1.15rem;line-height:1}
+ 
 /* ---------- 18. misc ---------- */
 #cfgerr{position:fixed;inset:auto 0 0 0;z-index:200;background:#d42a22;color:#fff;font:600 1rem/1.4 system-ui,sans-serif;padding:1rem 1.2rem;text-align:center}
 @media(prefers-reduced-motion:reduce){
@@ -614,19 +693,19 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
 </style>
 <noscript><style>#loader{display:none}.now,.was svg{clip-path:none!important}</style></noscript>
 </head>
-
+ 
 <body>
-
+ 
 <!-- loader -->
 <div id="loader" role="status" aria-label="Loading"><div class="ld">
   <div class="ld-name">classeswithme</div>
   <svg id="ldl" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8C40 3 70 12 110 7S190 4 230 9s50-3 67-2"/></svg>
   <div class="ld-txt"><span>Opening the notebook</span><span id="lp">0%</span></div>
 </div></div>
-
+ 
 <div class="sky" aria-hidden="true"><div class="neb"></div><canvas id="stars"></canvas></div>
 <div class="margin" aria-hidden="true"><i id="prog"></i></div>
-
+ 
 <!-- nav -->
 <header class="nav">
   <a class="logo" href="#home" target="_self">./classeswithme</a>
@@ -640,9 +719,9 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
   </button>
   <button class="ibtn" id="menu" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </header>
-
+ 
 <main>
-
+ 
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="home">
   <div class="orbit-wrap" aria-hidden="true"><svg class="orbits" id="orbits" viewBox="0 0 800 560">
@@ -662,14 +741,14 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
       <span class="datestamp" id="datestamp" aria-hidden="true"></span>
     </div>
     <h1 aria-label="Learn analytics by watching queries run."><span aria-hidden="true">Learn analytics by <span class="was">reading slides<svg viewBox="0 0 300 60" preserveAspectRatio="none"><path d="M4 35C58 26 112 41 162 31S252 24 296 30"/></svg></span> <span class="now">watching queries run.</span></span></h1>
-
+ 
     <div class="hero-grid">
       <div class="h-copy">
         <p class="lead">SQL, Python, Power BI, Excel and the maths behind them — taught through free projects, full courses and a live stream every single day.</p>
         <div class="row"><a class="btn p" data-link="youtube" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Visit the channel</a><a class="btn" target="_self" href="#live">Watch live</a></div>
         <a class="newnote" target="_self" href="#projects" data-draw><b>New<svg class="ink" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M62 6C96 3 116 16 114 31C112 48 84 56 56 55C26 54 5 44 6 28C7 13 36 5 72 8"/></svg></b><span><u id="newTitle">Excel Visualization Project</u> just dropped</span></a>
       </div>
-
+ 
       <div class="card query h-query">
         <div class="cap"><span>classeswithme.sql</span><span>Query 1.1</span></div>
         <div class="bd"><div class="term" id="typed"></div>
@@ -681,7 +760,7 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
           </div>
         </div>
       </div>
-
+ 
       <div class="h-extra">
         <div class="timer">
           <div><small>Next project drops in</small><div class="clock" id="clock">--d --:--:--</div></div>
@@ -692,7 +771,7 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
         </div>
         <p class="plothint">Tap any empty patch of sky up here to add a star. I'll fit the line through them. <button id="plotClear" hidden>erase mine</button></p>
       </div>
-
+ 
       <div class="card game h-game">
         <div class="cap"><span>Rocket Glider 1.1</span><span id="score">Score 0</span></div>
         <div class="bd">
@@ -705,10 +784,10 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
     </div>
   </div>
 </section>
-
+ 
 <div class="ruler" aria-hidden="true"></div>
 <div class="ribbons" aria-hidden="true"><div class="rb b"><div class="tr" id="tk2"></div></div><div class="rb a"><div class="tr" id="tk"></div></div></div>
-
+ 
 <!-- ============================ THE STACK ============================ -->
 <section id="stack"><div class="wrap">
   <h2>Four tools. One core skill.</h2>
@@ -725,10 +804,10 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
   </div>
   <p class="b64" id="b64">[b.64] </p>
 </div></section>
-
+ 
 <!-- totals (the first three numbers count the lists in the EDIT ZONE) -->
 <section class="totals"><div class="wrap"><div class="big" id="big"></div></div></section>
-
+ 
 <!-- ============================ TODAY ============================ -->
 <!-- Both cards below are filled in from # 1 and # 2 of the EDIT ZONE at the top of this file -->
 <section id="today"><div class="wrap">
@@ -736,7 +815,7 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
   <p class="lead">Both sections are updated with the latest topic and project.</p>
   <div class="feat" id="feat"></div>
 </div></section>
-
+ 
 <!-- ============================ PROJECTS ============================ -->
 <section id="projects"><div class="wrap">
   <h2>Free project playlists</h2>
@@ -746,19 +825,19 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
     <div id="pg"></div>
   </div>
 </div></section>
-
+ 
 <section id="case-studies"><div class="wrap">
   <h2>Problem to solution, end to end.</h2>
   <p class="lead">Real case studies — the full thought process.</p>
   <div class="cgrid" id="cg"></div>
 </div></section>
-
+ 
 <section id="courses"><div class="wrap">
   <h2>Full-length courses</h2>
   <p class="lead" id="courseLead">Deep, structured playlists from first query to production-ready skills.</p>
   <div class="kgrid" id="kg"></div>
 </div></section>
-
+ 
 <!-- ============================ 365 ============================ -->
 <section id="videos"><div class="wrap">
   <h2>One video, every day, for a year.</h2>
@@ -770,7 +849,7 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
     <a class="btn p" data-link="daily365" href="https://www.youtube.com/playlist?list=PLjx_MccGVovxBinDN-JQAE3XUHfpYqr0V">Watch the playlist</a>
   </div>
 </div></section>
-
+ 
 <!-- ============================ MEMBERSHIP ============================ -->
 <section id="membership"><div class="wrap">
   <h2>Free is good. Pro is better.</h2>
@@ -791,8 +870,23 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
       <a class="btn" data-link="join" href="https://www.youtube.com/channel/UC23Ae14UR3bU9ywZ7Wm7f0A/join">Join Pro</a>
     </div>
   </div>
+ 
+  <!-- The globe. Its settings are under "globe" in # 4 of the EDIT ZONE. Every line goes from home to a country where YouTube sells memberships. -->
+  <div class="card reach" id="reach">
+    <div class="rs-q"><span><b>SELECT</b> country <b>FROM</b> youtube <b>WHERE</b> membership = 'open';</span><span id="reachRows"></span></div>
+    <div class="reach-bd">
+      <div class="reach-tx">
+        <span class="tagc" id="reachFrom">taught from Chhattisgarh, India</span>
+        <h3>Taught from one room. Open to the world.</h3>
+        <p>Every line on the globe runs from <span id="reachHome">Chhattisgarh</span> to a country where you can join the membership on YouTube.</p>
+        <div class="reach-n" id="reachN"></div>
+        <p class="reach-hint">Tap the globe to bring it up close, then drag to spin it.</p>
+      </div>
+      <button class="globe-btn" id="globeBtn" aria-label="Open the globe. It shows the countries where the membership can be bought."><canvas id="globe"></canvas><span class="open" aria-hidden="true">tap to open</span></button>
+    </div>
+  </div>
 </div></section>
-
+ 
 <!-- ============================ LIVE ============================ -->
 <!-- The two stream links come from # 3 of the EDIT ZONE at the top of this file -->
 <section id="live"><div class="wrap">
@@ -802,16 +896,16 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
   <div class="sched" id="sched"></div>
   <a class="btn p" data-link="youtube" href="https://youtube.com/@classeswithme_1?si=37my6EtoI4w0E1UU">Subscribe &amp; watch</a>
 </div></section>
-
+ 
 <!-- ============================ UPCOMING ============================ -->
 <section id="upcoming"><div class="wrap">
   <h2>What's shipping next.</h2>
   <p class="lead">New projects land every month.</p>
   <div class="up" id="ug"></div>
 </div></section>
-
+ 
 </main>
-
+ 
 <div class="ruler" aria-hidden="true" style="position:relative;z-index:2;margin-top:2rem"></div>
 <footer style="margin-top:0"><div class="wrap">
   <div class="f-logo">classeswithme</div>
@@ -821,11 +915,32 @@ footer{position:relative;z-index:2;margin-top:2rem;background-color:var(--solid)
   </div>
   <div class="f-end"><span>© 2026 classeswithme. All projects crafted with passion.</span><span>Version 0.01<span>CWM.DA.001</span></span></div>
 </div></footer>
-
+ 
 <button id="tip" aria-label="Get a data tip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2h5c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></button>
 <div id="note" role="status" aria-live="polite"></div>
 <div id="peek" aria-hidden="true"><img alt=""></div>
-
+ 
+<!-- the globe, opened big (tap the globe in the Membership section) -->
+<div id="gm" role="dialog" aria-modal="true" aria-labelledby="gmTitle">
+  <button class="ibtn" id="gmX" aria-label="Close the globe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="gm-in">
+  <div class="gm-stage" id="gmStage"><canvas id="gmCv" aria-hidden="true"></canvas></div>
+  <div class="card gm-side">
+    <div class="cap"><span>reach.log</span><span id="gmCount"></span></div>
+    <div class="bd">
+      <h3 id="gmTitle">Chhattisgarh to the world</h3>
+      <p>Every line runs from <span id="gmHome">Chhattisgarh</span> to a country where you can join the membership on YouTube. Drag the globe to look around.</p>
+      <div class="gm-h">lines landing now</div>
+      <ul id="gmFeed" aria-hidden="true"></ul>
+      <p class="gm-note">No line to your country? YouTube does not sell channel memberships everywhere yet. Pakistan, Bangladesh, Nepal, Sri Lanka and Russia are not on its list.</p>
+      <a class="btn p" data-link="join" href="https://www.youtube.com/channel/UC23Ae14UR3bU9ywZ7Wm7f0A/join">Join Pro</a>
+    </div>
+  </div>
+  </div>
+</div>
+<!-- thank-you card: filled in from "thanks" in the EDIT ZONE, hidden while that list is empty -->
+<div id="ty" aria-hidden="true"></div>
+ 
 <script>
 (function(){
 'use strict';
@@ -845,18 +960,18 @@ const PLAY='<svg class="ic" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5
 const ytId=u=>{const m=String(u).match(/(?:youtu\.be\/|\/live\/|\/shorts\/|\/embed\/|[?&]v=)([\w-]{11})/);return m?m[1]:''};
 const go=()=>{document.body.classList.add('ready');document.dispatchEvent(new Event('cwm-go'))};
 const whenGo=fn=>document.body.classList.contains('ready')?fn():document.addEventListener('cwm-go',fn,{once:true});
-
+ 
 // ---- if the EDIT ZONE has a typo, say so instead of showing a broken page
 let OK=true;try{OK=typeof SITE==='object'&&!!SITE.today}catch(e){OK=false}
 if(!OK){$('#loader').classList.add('done');go();
   document.body.insertAdjacentHTML('beforeend','<div id="cfgerr">There is a typo in the EDIT ZONE at the top of index.html. Check for a missing quote "  or a missing comma , on the line you changed last.</div>');
   return}
-
+ 
 // ---- YouTube thumbnail straight from a video link (no upload needed)
 function loadThumb(img,id,ok,fail){const q=['maxresdefault','hqdefault'];let k=0;
   const u=()=>'https://i.ytimg.com/vi/'+id+'/'+q[k]+'.jpg',next=()=>{if(++k<q.length)img.src=u();else fail&&fail()};
   img.onload=()=>{img.naturalWidth>121?ok&&ok():next()};img.onerror=next;img.src=u()}
-
+ 
 // ---- the galaxy: twinkling stars with a little depth, a denser band across the middle, the odd shooting star
 run('sky',()=>{const cv=$('#stars'),x=cv.getContext('2d'),R=Math.random,POOL=[];let W=0,H=0,d=1,pal=[],al=1,dark=true,mx=0,my=0,tx=0,ty=0,sh=null,nextSh=0;
 for(let i=0;i<460;i++){const band=i%10<3,big=!band&&R()<.065;let px=R(),py=R();
@@ -881,13 +996,13 @@ if(RM){draw(0);const o=$('#orbits');o&&o.pauseAnimations&&o.pauseAnimations();re
 addEventListener('pointermove',e=>{if(e.pointerType==='mouse'){tx=.5-e.clientX/innerWidth;ty=.5-e.clientY/innerHeight}},{passive:true});
 nextSh=performance.now()+3500;
 (function loop(t){requestAnimationFrame(loop);if(document.hidden)return;if(!W)size();draw(t)})(performance.now())});
-
+ 
 // ---- loader
 run('loader',()=>{const L=$('#loader'),lp=$('#lp'),ln=$('#ldl');let p=0;
   const done=()=>{L.classList.add('done');setTimeout(go,180)};
   if(RM){done();return}
   const li=setInterval(()=>{p=Math.min(100,p+Math.ceil(Math.random()*16));lp.textContent=p+'%';ln.style.clipPath='inset(-60% '+(100-p)+'% -60% -2%)';if(p>=100){clearInterval(li);setTimeout(done,220)}},65)});
-
+ 
 // ---- theme toggle + mobile menu
 run('theme',()=>{const R=document.documentElement,b=$('#theme');
   const show=t=>{R.dataset.theme=t;b.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');b.title=b.getAttribute('aria-label')};
@@ -895,14 +1010,14 @@ run('theme',()=>{const R=document.documentElement,b=$('#theme');
   b.onclick=()=>{const t=R.dataset.theme==='dark'?'light':'dark';show(t);try{localStorage.setItem('cwm-sky',t)}catch(e){}}});
 run('menu',()=>{const m=$('#menu'),l=$('#links');const set=o=>{l.classList.toggle('open',o);m.setAttribute('aria-expanded',o)};
   m.onclick=()=>set(!l.classList.contains('open'));$$('#links a').forEach(a=>a.addEventListener('click',()=>set(false)))});
-
+ 
 // ---- channel links
 run('links',()=>{const C=SITE.channel||{};$$('[data-link]').forEach(a=>{const k=a.dataset.link;if(k==='email'){if(C.email)a.href='mailto:'+C.email}else if(C[k])a.href=C[k]})});
 run('price',()=>{if(SITE.price)$('#price').textContent=SITE.price});
-
+ 
 // ---- handwritten date, top right of the page
 run('date',()=>{const t=ist();$('#datestamp').textContent=DAY[t.getUTCDay()]+', '+p2(t.getUTCDate())+' / '+p2(t.getUTCMonth()+1)+' / '+t.getUTCFullYear()});
-
+ 
 // ---- today's video + monthly project
 run('today',()=>{const t=SITE.today,pr=SITE.project,now=ist(),auto=d=>!d||/^auto$/i.test(String(d).trim());
   const d1=auto(t.date)?longDate(now):t.date,d2=auto(pr.date)?'01 '+MON[now.getUTCMonth()]+' '+now.getUTCFullYear():pr.date;
@@ -914,7 +1029,7 @@ run('today',()=>{const t=SITE.today,pr=SITE.project,now=ist(),auto=d=>!d||/^auto
   $('#feat').innerHTML=one(t,"Today's topic",d1,'updated daily',"Watch today's video",-1.2)+one(pr,'Monthly project',d2,'updated monthly',"Watch this month's project",1);
   $$('#feat img').forEach(i=>{const id=i.dataset.yt;if(id)loadThumb(i,id,()=>i.parentNode.classList.add('ok'))});
   $('#newTitle').textContent=pr.title});
-
+ 
 // ---- projects, case studies, courses, upcoming, totals
 run('lists',()=>{const P=SITE.projects||[],CS=SITE.caseStudies||[],CO=SITE.courses||[],UP=SITE.upcoming||[];
   const tg=a=>'<span class="tags">'+(a||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</span>';
@@ -927,7 +1042,7 @@ run('lists',()=>{const P=SITE.projects||[],CS=SITE.caseStudies||[],CO=SITE.cours
   $('#courseLead').textContent=word(CO.length)+' deep, structured playlists from first query to production-ready skills.';
   $('#ug').innerHTML=UP.map(x=>'<a href="'+esc(x.link)+'"><span class="m">'+esc(x.month)+'</span><span><h3>'+esc(x.title)+'</h3><p>'+esc(x.about)+'</p></span><span class="path">'+esc(x.path)+'</span></a>').join('');
   $('#big').innerHTML=[[P.length,'Project playlists'],[CS.length,'Case studies'],[CO.length,'Course playlists'],['365+','Video tutorials'],['24/7','Live streams']].map(s=>'<div><div class="n">'+s[0]+'</div><div class="l">'+s[1]+'</div></div>').join('')});
-
+ 
 // ---- hover a project row: its video thumbnail follows the cursor
 run('peek',()=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
   const pk=$('#peek'),im=pk.querySelector('img');let tx=0,ty=0,x=0,y=0,on=false,raf=0,cur='';
@@ -937,7 +1052,7 @@ run('peek',()=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)retur
     r.addEventListener('pointerenter',e=>{aim(e);if(!on){x=tx;y=ty}on=true;cur=id;loadThumb(im,id,()=>{if(on&&cur===id)pk.classList.add('on')},()=>pk.classList.remove('on'));if(!raf)loop()});
     r.addEventListener('pointermove',aim);
     r.addEventListener('pointerleave',()=>{on=false;cur='';pk.classList.remove('on')})})});
-
+ 
 // ---- typed query
 run('typing',()=>{const q="SELECT skill, hours_practiced\nFROM classeswithme\nWHERE practice = 'daily'\nORDER BY growth DESC;",el=$('#typed');let i=0;
   const paint=c=>{el.innerHTML=esc(q.slice(0,i)).replace(/'[^']*'?/g,m=>'<span class="s">'+m+'</span>').replace(/\b(SELECT|FROM|WHERE|ORDER BY|DESC)\b/g,'<span class="k">$1</span>')+(c?'<span class="caret">▌</span>':'')};
@@ -945,14 +1060,14 @@ run('typing',()=>{const q="SELECT skill, hours_practiced\nFROM classeswithme\nWH
   $('#b64').textContent='[b.64] '+btoa(q);
   if(RM){i=q.length;paint(false);done();return}
   paint(true);whenGo(()=>setTimeout(function ty(){paint(true);if(i++<q.length)setTimeout(ty,26);else setTimeout(done,300)},500))});
-
+ 
 // ---- upload countdown: a new project every 1st of the month, 00:00 IST
 run('countdown',()=>{(function c(){const now=Date.now(),t=new Date(now+OFF),tgt=Date.UTC(t.getUTCFullYear(),t.getUTCMonth()+1,1)-OFF,d=Math.max(0,tgt-now);
   const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
   $('#clock').textContent=D+'d '+p2(H)+':'+p2(M)+':'+p2(S);
   $('#date').textContent=new Date(tgt+OFF).toLocaleDateString('en-GB',{timeZone:'UTC',day:'2-digit',month:'short',year:'numeric'})+', 12:00 AM IST';
   setTimeout(c,1000)})()});
-
+ 
 // ---- live: status chip, day timeline, session cards (all from the timings in the EDIT ZONE)
 run('live',()=>{const mins=s=>{const a=String(s).split(':').map(Number);return a[0]*60+(a[1]||0)};
   const f12=m=>{m=((m%1440)+1440)%1440;const h=Math.floor(m/60);return ((h%12)||12)+':'+p2(m%60)+' '+(h<12?'AM':'PM')};
@@ -972,7 +1087,7 @@ run('live',()=>{const mins=s=>{const a=String(s).split(':').map(Number);return a
     if(on){stx.textContent='On air now: '+on.name+', until '+f12(on.b)+' IST';st.href=on.link;st.target='_blank'}
     else{stx.textContent=S.length?'Next live class in '+dur(best):'Streaming daily';st.href='#live';st.target='_self'}}
   upd();setInterval(upd,20000)});
-
+ 
 // ---- Rocket Glider: collect the 5 tools, dodge data errors, answer the quiz
 run('game',()=>{const cv=$('#life'),x=cv.getContext('2d'),W=200,H=100,RK=['ff........','fffbbbb...','.bbybbbbn.','.bbybbbbnn','.bbybbbbn.','fffbbbb...','ff........'];
 const F={S:'111100111001111',Q:'111101101111001',L:'100100100100111',P:'111101111100100',Y:'101101111010010',X:'101101010101101',B:'110101110101110',I:'111010010010111',N:'110101101101101',U:'101101101101111',R:'110101110101101',E:'111100110100111',A:'010101111101101',F:'111100110100100','#':'101111101111101','0':'111101101101111','÷':'010000111000010','∑':'111100010100111'};
@@ -1028,7 +1143,7 @@ cv.addEventListener('pointerdown',e=>{e.preventDefault();cv.focus({preventScroll
 cv.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='ArrowUp'){e.preventDefault();flap()}});
 if('IntersectionObserver' in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(cv);
 reset();setInterval(tick,16)});
-
+ 
 // ---- bell curve on the Maths card
 run('bell',()=>{const cv=$('#bell'),x=cv.getContext('2d');let vis=true;
 if('IntersectionObserver' in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(cv);
@@ -1041,17 +1156,17 @@ x.fillStyle=mut;x.font='10px IBM Plex Mono, monospace';x.textAlign='center';[-3,
 x.strokeStyle=acc;x.lineWidth=1.5;x.setLineDash([3,3]);x.beginPath();x.moveTo(X(sw),Y(0));x.lineTo(X(sw),Y(f(sw))-6);x.stroke();x.setLineDash([]);
 const cdf=u=>{let s=0;for(let z=-4;z<u;z+=.01)s+=f(z)*.01;return s/Math.sqrt(2*Math.PI)};x.fillStyle=acc;x.textAlign='left';x.font='600 12px IBM Plex Mono, monospace';x.fillText('P(Z < '+sw.toFixed(2)+') = '+(cdf(sw)*100).toFixed(1)+'%',4,14)}
 requestAnimationFrame(draw)});
-
+ 
 // ---- ribbons
 run('ribbons',()=>{const rib=(id,arr)=>{$(id).innerHTML=Array(2).fill(arr.map((a,k)=>'<span class="it"><span class="w'+(k%2?' o':'')+'">'+a[0]+'</span><span class="c">'+a[1]+'</span></span><span class="st">'+(k%2?'×':'+')+'</span>').join('')).join('')};
 rib('#tk',[['Excel','=XLOOKUP()'],['Light GBM','.fit()'],['Statistics','μ · σ · p&lt;0.05'],['DAX','CALCULATE()'],['Pie Charts','plt.pie()'],['SQL','GROUP BY'],['Power BI','.pbix'],['Python','df.groupby()']]);
 rib('#tk2',[['Pivot Tables','Σ values'],['Regression','ŷ = βx + ε'],['Deep Learning','layers.Dense()'],['Time Intelligence','DATESYTD()'],['Probability','P(A|B)'],['Window Functions','OVER()'],['PostgreSQL','WITH cte AS'],['Machine Learning','.fit()']])});
-
+ 
 // ---- the 365 register
 run('heatmap',()=>{const hm=$('#hm');for(let n=0;n<365;n++){const e=document.createElement('i'),r=Math.abs(Math.sin(n*12.9898)*43758.5453)%1;if(r>.85)e.dataset.c='a';else if(r>.6)e.dataset.c='h';hm.appendChild(e)}
 let started=0;const fill=()=>{if(started)return;started=1;let c=0;[...hm.children].forEach((e,k)=>setTimeout(()=>{e.className='on '+(e.dataset.c||'');$('#hmc').textContent=++c},RM?0:k*4))};
 if('IntersectionObserver' in window)new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){fill();o.disconnect()}},{threshold:.2}).observe($('#videos'));else fill()});
-
+ 
 // ---- tap the sky in the hero to add stars; the page fits a least-squares line through them
 run('plot',()=>{const hero=$('#home'),svg=$('#plot'),pad=$('#pad'),clr=$('#plotClear'),fo=$('#fitout'),G=24;let pts=[],touched=false;
 function draw(fresh){const W=hero.offsetWidth,H=hero.offsetHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H);let h='',out='';
@@ -1071,7 +1186,7 @@ hero.addEventListener('click',e=>{if(e.target.closest('a,button,canvas,input,.ca
 clr.onclick=()=>{touched=false;pts=[];draw();seed(true)};
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{touched?draw():seed(true)},150)});
 whenGo(()=>setTimeout(()=>seed(RM),RM?0:1900))});
-
+ 
 // ---- sticky-note data tips
 run('tips',()=>{const T=[[0,"COALESCE(col, 0) turns a dark NULL into a friendly zero."],[0,"XLOOKUP can look left. VLOOKUP never could."],[0,"df.describe() shows a whole dataset at a glance."],[0,"CALCULATE() is the DAX function that rewrites filter context."],[0,"ROW_NUMBER() OVER (PARTITION BY …) ranks rows without losing any of them."],[0,"When outliers show up, trust the median over the mean."],[0,"Ctrl + T turns an Excel range into a Table. Instant superpowers."],[0,"Use a CTE to break a monster query into small, friendly steps."],[0,"Clean your data before the stakeholders arrive, not after."],[1,"SELECT * on a 10-million-row table. Name your columns."],[1,"A JOIN with no ON clause. The rows multiply fast."],[1,"Merged cells in a dataset. Nobody can sort that."],[1,"Correlation ≠ causation. Keep it out of your report."],[1,"#DIV/0! hides in every empty denominator."]];
 const b=$('#tip'),n=$('#note');let hd,last=-1;
@@ -1079,7 +1194,206 @@ b.onclick=()=>{let k;do k=Math.random()*T.length|0;while(k===last);last=k;n.clas
  n.innerHTML='<b class="'+(T[k][0]?'bad':'')+'">'+(T[k][0]?'Careful!':'Pro tip')+'</b>'+esc(T[k][1]);n.style.rotate=(Math.random()*5-2.5).toFixed(1)+'deg';n.classList.add('on');b.classList.remove('hint');
  clearTimeout(hd);hd=setTimeout(()=>n.classList.remove('on'),6500)};
 setTimeout(()=>b.classList.add('hint'),3400);setTimeout(()=>b.classList.remove('hint'),9400)});
-
+ 
+// ---- the membership globe: a line from home to every country where YouTube sells channel memberships.
+//      Tap it to open it big, drag to spin it. Its settings are under "globe" in the EDIT ZONE.
+run('globe',()=>{
+const cfg=SITE.globe||{},D=Math.PI/180,TAU=Math.PI*2,rnd=Math.random;
+const num=(v,d)=>isFinite(parseFloat(v))?parseFloat(v):d,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const homeFull=String(cfg.home||'Chhattisgarh, India').trim(),homeName=homeFull.split(',')[0].trim()||'Home',hla=num(cfg.lat,21.25),hlo=num(cfg.lon,81.63);
+const vec=(la,lo)=>{const c=Math.cos(la*D);return [c*Math.sin(lo*D),Math.sin(la*D),c*Math.cos(lo*D)]},HV=vec(hla,hlo);
+ 
+// Countries and regions where viewers can buy a channel membership.
+// Source: YouTube Help, "Pricing for channel memberships" (support.google.com/youtube/answer/9355861), read on 14 November 2026.
+// Not on YouTube's list, so they get no line: Pakistan, Bangladesh, Nepal, Sri Lanka, Russia, China and others.
+// Each entry is  Country|latitude|longitude  and, for an extra city in the same country, |Label
+const ALIAS={usa:'united states',us:'united states',america:'united states',uk:'united kingdom',britain:'united kingdom',england:'united kingdom',uae:'united arab emirates',turkiye:'turkey','türkiye':'turkey',korea:'south korea',czechia:'czech republic',bosnia:'bosnia & herzegovina',macedonia:'north macedonia'};
+const skip=(cfg.skip||[]).map(s=>{s=String(s).trim().toLowerCase();return ALIAS[s]||s});
+const P=('Algeria|36.75|3.06;American Samoa|-14.28|-170.7;Argentina|-34.6|-58.38;Aruba|12.52|-70.03;Australia|-33.87|151.21|Sydney, Australia;Australia|-37.81|144.96|Melbourne, Australia;Australia|-31.95|115.86|Perth, Australia;'
+ +'Austria|48.21|16.37;Bahrain|26.22|50.58;Belarus|53.9|27.57;Belgium|50.85|4.35;Bermuda|32.3|-64.78;Bolivia|-16.5|-68.15;Bosnia & Herzegovina|43.86|18.41;Brazil|-23.55|-46.63|São Paulo, Brazil;Brazil|-22.91|-43.17|Rio de Janeiro, Brazil;'
+ +'Bulgaria|42.7|23.32;Canada|43.65|-79.38|Toronto, Canada;Canada|49.28|-123.12|Vancouver, Canada;Cayman Islands|19.3|-81.38;Chile|-33.45|-70.67;Colombia|4.71|-74.07;Costa Rica|9.93|-84.08;Croatia|45.81|15.98;Cyprus|35.17|33.36;'
+ +'Czech Republic|50.08|14.44;Denmark|55.68|12.57;Dominican Republic|18.47|-69.9;Ecuador|-0.18|-78.47;Egypt|30.04|31.24;El Salvador|13.69|-89.22;Estonia|59.44|24.75;Finland|60.17|24.94;France|48.86|2.35;French Guiana|4.92|-52.31;'
+ +'French Polynesia|-17.54|-149.57;Germany|52.52|13.4;Greece|37.98|23.73;Guadeloupe|16.24|-61.53;Guam|13.44|144.79;Guatemala|14.63|-90.51;Honduras|14.07|-87.19;Hong Kong|22.32|114.17;Hungary|47.5|19.04;Iceland|64.15|-21.94;'
+ +'India|28.61|77.21|Delhi, India;India|19.08|72.88|Mumbai, India;India|12.97|77.59|Bengaluru, India;India|17.39|78.49|Hyderabad, India;India|13.08|80.27|Chennai, India;India|22.57|88.36|Kolkata, India;India|18.52|73.86|Pune, India;'
+ +'India|23.02|72.57|Ahmedabad, India;India|26.91|75.79|Jaipur, India;India|26.85|80.95|Lucknow, India;India|25.59|85.14|Patna, India;India|23.26|77.41|Bhopal, India;India|26.14|91.74|Guwahati, India;India|9.93|76.27|Kochi, India;'
+ +'Indonesia|-6.21|106.85;Ireland|53.35|-6.26;Israel|32.09|34.78;Italy|41.9|12.5;Japan|35.68|139.69;Jordan|31.95|35.93;Kenya|-1.29|36.82;Kuwait|29.38|47.98;Latvia|56.95|24.11;Lebanon|33.89|35.5;Liechtenstein|47.14|9.52;'
+ +'Lithuania|54.69|25.28;Luxembourg|49.61|6.13;Malaysia|3.14|101.69;Malta|35.9|14.51;Mexico|19.43|-99.13;Morocco|33.57|-7.59;Netherlands|52.37|4.9;New Zealand|-36.85|174.76;Nicaragua|12.11|-86.24;Nigeria|6.52|3.38;'
+ +'North Macedonia|42|21.43;Northern Mariana Islands|15.18|145.75;Norway|59.91|10.75;Oman|23.59|58.41;Panama|8.98|-79.52;Papua New Guinea|-9.44|147.18;Paraguay|-25.26|-57.58;Peru|-12.05|-77.04;Philippines|14.6|120.98;'
+ +'Poland|52.23|21.01;Portugal|38.72|-9.14;Puerto Rico|18.47|-66.11;Qatar|25.29|51.53;Romania|44.43|26.1;Saudi Arabia|24.71|46.68;Senegal|14.72|-17.47;Serbia|44.79|20.45;Singapore|1.35|103.82;Slovakia|48.15|17.11;'
+ +'Slovenia|46.06|14.51;South Africa|-26.2|28.05;South Korea|37.57|126.98;Spain|40.42|-3.7;Sweden|59.33|18.07;Switzerland|47.38|8.54;Taiwan|25.03|121.57;Thailand|13.76|100.5;Turkey|41.01|28.98;'
+ +'Turks and Caicos Islands|21.69|-71.8;U.S. Virgin Islands|18.34|-64.93;Uganda|0.35|32.58;Ukraine|50.45|30.52;United Arab Emirates|25.2|55.27;United Kingdom|51.51|-0.13;United States|40.71|-74.01|New York, USA;'
+ +'United States|37.77|-122.42|San Francisco, USA;United States|41.88|-87.63|Chicago, USA;United States|29.76|-95.37|Houston, USA;Uruguay|-34.9|-56.16;Vietnam|10.82|106.63')
+ .split(';').map(s=>{const a=s.split('|'),v=vec(+a[1],+a[2]);return {c:a[0],l:a[3]||a[0],v,km:Math.round(Math.acos(clamp(v[0]*HV[0]+v[1]*HV[1]+v[2]*HV[2],-1,1))*637.1)*10}})
+ .filter(p=>skip.indexOf(p.c.toLowerCase())<0);
+const N=new Set(P.map(p=>p.c)).size,IN=P.filter(p=>p.c==='India'),OUT=P.filter(p=>p.c!=='India');
+ 
+// the words around the globe
+$('#reachRows').textContent=N+' rows';$('#reachFrom').textContent='taught from '+homeFull;$('#reachHome').textContent=homeName;
+$('#gmHome').textContent=homeName;$('#gmTitle').textContent=homeName+' to the world';$('#gmCount').textContent=N+' countries';
+const line=String(cfg.line==null?'':cfg.line).trim(),lm=line.match(/^(\S*\d\S*)\s+(.+)$/);
+$('#reachN').innerHTML=(line?'<div>'+(lm?'<b>'+esc(lm[1])+'</b><span>'+esc(lm[2])+'</span>':'<span style="font-size:1.15rem;font-weight:650;color:var(--head);max-width:22ch">'+esc(line)+'</span>')+'</div>':'')
+ +'<div><b>'+N+'</b><span>countries and regions where you can join</span></div>';
+ 
+// The land: a 360 x 180 grid (1 degree squares) stored as run lengths. It was drawn for this page, so no map file has to load.
+const LAND='_nCHvJZIfiJdCyB2IaC0BiBEqCFiFXFyBcPmCJhFUC2BdLsCGlFOE3BgBGzCDkEGDDJDEBELIzB0DPkEKDFFNTqBtCDbZYM4CDGDUKXmBrCDcbYK4CHQECGBMUkBrCCahBHGqDHBVCEBPTiBqCENECFCvBLG5CEDUCDERRhBqCFKGBIBvBBUwBNTCJQGEF'
+ +'TOgBsBJYBLGB2CjBcBRCPDIGDELPcpBQbEDGBpDBDKzBCEDCHJDFGIObqBXEDFDBSBvDK0CIJKXtBbDDBuEFrBDlBJLIURCccBBBxEDtBDhBBEFKCDJQNKaLCKFsEFCHuCBGDNNNQJZKDLCtETpCDGIIOKTEaMC9EQ2BBSOBICRIwBMD-EPzBDTPHWHvBM'
+ +'EpECPUQC1BQIYDwBNEJB8DGKaJCBKuBQJDClCOFjEFEkBGQsBQP6BCJDCGH2DQFnBDBCQrBPQ4BELBCFFBB0DRGlBCXvBLQ3BEKDCDF2DRHiBDaxBHS2BEKGH0DSIiCxBCWxBDCEIDBBD4DTHhCCBfBQDXuBECEGnEBBNEkCBCeBQDXuBEBHCrENDpCeBQ'
+ +'BXvBBEGCqEBBNCqClCBCzBECsEBC5C8BJE0BBBtEBC7C9BFGwBxECB8CjBFUGGyBuEDB9C8BDB6BnBBMD2CDC8ClBBCDV7BfDCCKG1CiDkBCDCOBD-BOCOFBDJE1CGC8CkBBEBMEB4BGBJDECNLID0CGF5ClBBGBJ-BMGBBEDKNHFuCJE8C2B9BMJEDKCF'
+ +'FIEtCKB_CyBhCKHCFDBFCYDkCBHLC-CyBhCJICGBDDDYDiCCCCDMC-CxBiCJQBEDDWFgCHEKD_CwBiCIODFCEXEkCEDJDhDuBmCCFKSCB6CEEGFiDuBlCRNCHBC0CGDEIjDsBlCSZ0CLGpDnBnCUX2CJEtDlBnCYFEL2CJCvDkBnCaEHEBC4CIBxDCBgBn'
+ +'CkE6DCBTBEFDnC6BCoC7DCBQNDkC9BCnC7DDBOODiCwBBODlC-DBCNPCiCwBCOEBC_BgEBCMQBhCyBCPDBC9BhECCLxCzBCPCDKzBCC_DBDJyC0BCVJxBDCkEIOG9B1BDVJuBFBmEIICHE7B2BCUKUDUuEJGEJD6B2BDTOOFPhDByBJFEOE1B1BERPNHND'
+ +'CxEJBGKBEECByB2BDQQLKMDBLBoEOoC3BDORKLNNCrELnC4BEKUJMOMCwEKjC5BDJWHRLLCyEJiC6BCHYGSLLDzEHiC7BBEbGSLLBBC1EDjC8BgBFSCBIlFCKF1B8BFCYFSCDGNE0EDHKCCvBiCZESBFELBCCBB1EDCBDEBKvBhCZDBBRBGCLBGB2EEBTv'
+ +'B_BbBCBRCRBFD5EBCTvB-BeCRCVF7EVuB8BfCSCOCGC8EYsBKFsBzBDMEkFarBBNqBwBCCDLEkFb9BlBxBDCDJFkFc8BkBzBEBCHHjFd8BjB2BDBBFKFBCC3Ee7BjB3BEGJDECC2EhB5BXCJ5BEFJhFkB2BXCI7BDGHCEIDxEmB1Bf8BEFHCDKDBFqEqBy'
+ +'Bd-BEFCBCDBBCFCCMnEsBwBd_BDNEMKGB_DuBvBbhCCgBIDD_DuBvBbiCDeKkEtBwBbiCIYKlEsBwBbpCKPGCClErBxBbrDDkEqByBatDBkEpBzBblDBsEnBzBcIBxCGFCrEnBzBcHCwCGFDsElBzBdHCrCDBHFDtEkBzBdFFqCMEEuEiBzBcEGqCODFuE'
+ +'hBzBaGGoCYfBvDgBzBZHFpCZvEe1BXIFoCbuEe1BWJFkCgBPB9Dd3BVIFjCjBPB8Dd3BVIFiClBqEa7BWIEiClBqEY-BUJDjCmBpEX_BSMBjCoBoEX_BSwCoBoEXgCRxCnBoEWhCQyCoBnEVjCPzCnBnEVjCO0CmBnEVlCM1CmBnEUmCL3CKISoETnCJ4C'
+ +'JLRoESpCD9CEQBBOoEQjGNWBxDQkGLYBvDRlGKYCuDQoGCBCbEsDMsHDtDMtHCtDJyGDYCBBuDKxGDXDwDJzGCVExDJpHExDIqHEyDIrHCyDK-KJ_KIgLIhLGID3KHjLFlLFkLDtlDEhLFiLFuDHfeGQ6EGqDTRhCyEGnDeEtCqEJ0CnEhEM3BpF6DOwB2'
+ +'FsDWsB6F3CrBpB8F9BlCnB9F1BwCjB_FvB5CdjGkBsDRoGOgnE';
+const AB='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_',M=new Uint8Array(64800);
+{let p=0,v=0,sh=0,on=0;for(let i=0;i<LAND.length;i++){const d=AB.indexOf(LAND[i]);v|=(d&31)<<sh;if(d&32)sh+=5;else{if(on)M.fill(1,p,p+v);p+=v;on^=1;v=0;sh=0}}}
+const dl=[];
+for(let la=-89.2,row=0;la<89.5;la+=1.55,row++){const n=Math.max(1,Math.round(360*Math.cos(la*D)/1.55));
+ for(let k=0;k<n;k++){const lo=-180+360*(k+(row&1?.5:0))/n;if(M[Math.min(179,Math.floor(90-la))*360+Math.min(359,Math.floor(lo+180))]){const v=vec(la,lo);dl.push(v[0],v[1],v[2])}}}
+const DOT=new Float32Array(dl),ND=DOT.length/3;
+ 
+const TH={dark:{glow:'96,126,255',ga:.5,s0:'#2437a6',s1:'#101b60',s2:'#070c30',dot:'#b9c8ff',arc:'255,228,92',head:'#fff',home:'#ff6b5e',core:'#ffe45c',txt:'#f3f6ff',halo:'rgba(6,10,34,.82)',rim:'rgba(143,167,255,.55)'},
+ light:{glow:'26,59,214',ga:.26,s0:'#ffffff',s1:'#eef1ff',s2:'#cdd6ff',dot:'#1a3bd6',arc:'220,47,38',head:'#1a3bd6',home:'#dc2f26',core:'#ffe85a',txt:'#151f63',halo:'rgba(255,255,255,.88)',rim:'rgba(26,59,214,.5)'}};
+let C=TH.dark;const theme=()=>{C=TH[document.documentElement.dataset.theme==='dark'?'dark':'light']};
+ 
+// view: centre longitude (ry) and latitude (rx) in radians, drag momentum, the animation clock, and what is on the globe right now
+let ry=(hlo-24)*D,rx=.33,vy=0,vx=0,drag=false,dragged=false,idle=0,T=0,last=0,next=200,open=false,closing=0,vis=false,back=null;
+const arcs=[],rips=[],labs=[],recent=[],feed=[];
+const small={cv:$('#globe'),big:false},large={cv:$('#gmCv'),big:true};small.x=small.cv.getContext('2d');large.x=large.cv.getContext('2d');
+const gm=$('#gm'),st=$('#gmStage'),btn=$('#globeBtn');
+ 
+const front=p=>{const z1=p.v[0]*Math.sin(ry)+p.v[2]*Math.cos(ry);return p.v[1]*Math.sin(rx)+z1*Math.cos(rx)>-.05};
+function pick(){let p;for(let k=0;k<12;k++){const pool=IN.length&&(rnd()<.22||!OUT.length)?IN:OUT;p=pool[rnd()*pool.length|0];if(recent.indexOf(p)<0&&(front(p)||rnd()<.3))break}
+ recent.push(p);if(recent.length>10)recent.shift();return p}
+// one line: a great-circle path from home to the place, lifted off the surface in the middle
+function mkArc(p,still){const d=Math.acos(clamp(HV[0]*p.v[0]+HV[1]*p.v[1]+HV[2]*p.v[2],-1,1));if(d<.02||d>3.1)return null;
+ const n=Math.max(10,Math.ceil(d/.045)),h=.045+.3*d/Math.PI,s=Math.sin(d),pts=new Float32Array((n+1)*3);
+ for(let i=0;i<=n;i++){const t=i/n,a=Math.sin((1-t)*d)/s,b=Math.sin(t*d)/s,r=1+h*Math.sin(Math.PI*t);
+  pts[i*3]=(a*HV[0]+b*p.v[0])*r;pts[i*3+1]=(a*HV[1]+b*p.v[1])*r;pts[i*3+2]=(a*HV[2]+b*p.v[2])*r}
+ return {p,pts,n,still:!!still,t0:T,dur:650+1500*d/Math.PI,hold:1400,out:500+800*d/Math.PI,hit:false}}
+function showFeed(fresh){const n=innerWidth<=860?4:6;$('#gmFeed').innerHTML=feed.slice(0,n).map((p,i)=>'<li'+(fresh&&!i?' class="new"':'')+'><i></i><span>'+esc(p.l)+'</span><em>'+p.km.toLocaleString('en-US')+' km</em></li>').join('')}
+function landed(a){a.hit=true;if(!a.still)rips.push({v:a.p.v,t0:T});if(a.p.km>=720){labs.push({p:a.p,t0:T,still:a.still});while(labs.length>(open?7:4))labs.shift()}   // places right next to home get a ring but no name
+ 
+ feed.unshift(a.p);if(feed.length>6)feed.pop();if(open)showFeed(!a.still)}
+ 
+function step(dt){
+ if(!drag){
+  if(vy||vx){ry+=vy*dt;rx+=vx*dt;const k=Math.pow(.92,dt/16);vy*=k;vx*=k;if(Math.abs(vy)+Math.abs(vx)<2e-6)vy=vx=0}
+  // turn slowly by itself, and a little faster while home is round the back, so home is in view most of the time
+  if(T>idle){ry-=6.2e-5*(1+2.6*(1-Math.cos(ry-hlo*D))/2)*dt;rx+=(.33-rx)*Math.min(1,dt*.0007)}}
+ rx=clamp(rx,-1.25,1.25);
+ if(P.length&&T>=next&&arcs.length<(open?13:8)){const a=mkArc(pick());if(a)arcs.push(a);next=T+220+rnd()*300}}
+ 
+function paint(v){const x=v.x,S=v.S,R=v.R,o=S/2,big=v.big,cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),lw=big?2:1.5;
+ x.setTransform(v.d,0,0,v.d,0,0);x.clearRect(0,0,S,S);
+ // glow round the edge, then the ball itself
+ let g=x.createRadialGradient(o,o,R*.86,o,o,R*1.28);g.addColorStop(0,'rgba('+C.glow+','+C.ga+')');g.addColorStop(.4,'rgba('+C.glow+','+(C.ga*.3).toFixed(3)+')');g.addColorStop(1,'rgba('+C.glow+',0)');
+ x.fillStyle=g;x.beginPath();x.arc(o,o,R*1.28,0,TAU);x.fill();
+ g=x.createRadialGradient(o-R*.42,o-R*.46,R*.04,o,o,R*1.03);g.addColorStop(0,C.s0);g.addColorStop(.55,C.s1);g.addColorStop(1,C.s2);
+ x.fillStyle=g;x.beginPath();x.arc(o,o,R,0,TAU);x.fill();
+ // land dots, lit from the top left, in five brightness steps
+ const B=[new Path2D,new Path2D,new Path2D,new Path2D,new Path2D],dr=R*.0078+.25;
+ for(let i=0;i<ND;i++){const X=DOT[i*3],Y=DOT[i*3+1],Z=DOT[i*3+2],z1=X*sy+Z*cy,z2=Y*sx+z1*cx;if(z2<=.02)continue;
+  const x1=X*cy-Z*sy,y2=Y*cx-z1*sx,f=(.3+.7*Math.max(0,-.45*x1+.55*y2+.7*z2))*Math.min(1,z2*5),b=B[Math.min(4,f*5|0)],px=o+R*x1,py=o-R*y2,r=dr*(.55+.45*z2);
+  b.moveTo(px+r,py);b.arc(px,py,r,0,TAU)}
+ x.fillStyle=C.dot;for(let k=0;k<5;k++){x.globalAlpha=[.2,.36,.56,.78,1][k];x.fill(B[k])}
+ x.globalAlpha=1;x.strokeStyle=C.rim;x.lineWidth=1;x.beginPath();x.arc(o,o,R,0,TAU);x.stroke();
+ // the lines
+ x.lineCap='round';x.lineJoin='round';
+ for(let k=arcs.length-1;k>=0;k--){const a=arcs[k],e=a.still?1:(T-a.t0)/a.dur,he=ease(clamp(e,0,1)),q=a.still?0:ease(clamp((T-a.t0-a.dur-a.hold)/a.out,0,1));
+  if(e>=1&&!a.hit)landed(a);
+  if(q>=1){arcs.splice(k,1);continue}
+  const i0=q*a.n,i1=he*a.n,pt=a.pts;let pen=false,any=false,fx=0,fy=0,lx=0,ly=0,hx=0,hy=0,hv=false;x.beginPath();
+  for(let i=Math.floor(i0);;i++){const t=clamp(i,i0,i1),j=Math.min(a.n-1,Math.floor(t)),f=t-j,X=pt[j*3]+(pt[j*3+3]-pt[j*3])*f,Y=pt[j*3+1]+(pt[j*3+4]-pt[j*3+1])*f,Z=pt[j*3+2]+(pt[j*3+5]-pt[j*3+2])*f,
+    z1=X*sy+Z*cy,x1=X*cy-Z*sy,y2=Y*cx-z1*sx,z2=Y*sx+z1*cx,px=o+R*x1,py=o-R*y2,ok=z2>0||x1*x1+y2*y2>1;
+   if(ok){if(pen)x.lineTo(px,py);else x.moveTo(px,py);if(!any){fx=px;fy=py;any=true}lx=px;ly=py}
+   pen=ok;if(t>=i1){hx=px;hy=py;hv=ok;break}}
+  if(any&&Math.abs(lx-fx)+Math.abs(ly-fy)>1){const gr=x.createLinearGradient(fx,fy,lx,ly);gr.addColorStop(0,'rgba('+C.arc+',.24)');gr.addColorStop(1,'rgba('+C.arc+',1)');
+   x.strokeStyle=gr;x.globalAlpha=.22*(1-q*.5);x.lineWidth=lw*3.6;x.stroke();x.globalAlpha=1-q*.35;x.lineWidth=lw;x.stroke()}
+  if(hv){if(he<1){x.globalAlpha=.3;x.fillStyle='rgb('+C.arc+')';x.beginPath();x.arc(hx,hy,lw*3.2,0,TAU);x.fill();x.globalAlpha=1;x.fillStyle=C.head;x.beginPath();x.arc(hx,hy,lw*1.3,0,TAU);x.fill()}
+   else{x.globalAlpha=1-q;x.fillStyle='rgb('+C.arc+')';x.beginPath();x.arc(hx,hy,lw*1.6,0,TAU);x.fill()}}
+  x.globalAlpha=1}
+ // a ring where each line lands
+ for(let k=rips.length-1;k>=0;k--){const r=rips[k],ag=(T-r.t0)/1100;if(ag>=1){rips.splice(k,1);continue}
+  const X=r.v[0],Y=r.v[1],Z=r.v[2],z1=X*sy+Z*cy,z2=Y*sx+z1*cx;if(z2<.05)continue;
+  x.strokeStyle='rgba('+C.arc+','+((1-ag)*.9).toFixed(3)+')';x.lineWidth=lw;x.beginPath();x.arc(o+R*(X*cy-Z*sy),o-R*(Y*cx-z1*sx),R*(.012+.075*ag),0,TAU);x.stroke()}
+ // names. Home's name is placed first, then the newest landings; a name that would cover another one is left out
+ const fsL=Math.round(clamp(R*.04,11,13)),fsH=Math.round(clamp(R*.058,14,19)),box=[],fL='600 '+fsL+'px "IBM Plex Mono", ui-monospace, Menlo, monospace',fH='700 '+fsH+'px Kalam, "Bradley Hand", "Segoe Print", cursive';
+ const hz1=HV[0]*sy+HV[2]*cy,hz=HV[1]*sx+hz1*cx,hpx=o+R*(HV[0]*cy-HV[2]*sy),hpy=o-R*(HV[1]*cx-hz1*sx),hleft=hpx>o+R*.3,htx=hpx+(hleft?-12:12),hty=hpy+fsH*.75+2;
+ x.textBaseline='middle';
+ if(hz>.03){x.font=fH;const w=x.measureText(homeName).width;box.push([(hleft?htx-w:htx)-4,hty-fsH*.7,(hleft?htx:htx+w)+4,hty+fsH*.7],[hpx-10,hpy-10,hpx+10,hpy+10])}
+ x.font=fL;x.lineWidth=3.5;x.strokeStyle=C.halo;x.fillStyle=C.txt;
+ for(let k=labs.length-1;k>=0;k--){const l=labs[k],ag=l.still?.5:(T-l.t0)/2600;if(ag>=1){labs.splice(k,1);continue}
+  const X=l.p.v[0],Y=l.p.v[1],Z=l.p.v[2],z1=X*sy+Z*cy,z2=Y*sx+z1*cx;if(z2<.12)continue;
+  const px=o+R*(X*cy-Z*sy),py=o-R*(Y*cx-z1*sx),left=px>o+R*.35,tx=px+(left?-9:9),ty=py-9,w=x.measureText(l.p.l).width,a=(left?tx-w:tx)-3,b=ty-fsL*.75,c=(left?tx:tx+w)+3,d=ty+fsL*.75;
+  if(box.some(r=>a<r[2]&&c>r[0]&&b<r[3]&&d>r[1]))continue;
+  box.push([a,b,c,d]);x.globalAlpha=l.still?1:Math.min(1,ag*7)*Math.min(1,(1-ag)*4);x.textAlign=left?'right':'left';x.strokeText(l.p.l,tx,ty);x.fillText(l.p.l,tx,ty)}
+ x.globalAlpha=1;
+ // home: two pulsing rings, the dot, the name
+ if(hz>.03){
+  if(!RM)for(let k=0;k<2;k++){const ph=(T/1700+k*.5)%1;x.strokeStyle=C.home;x.globalAlpha=(1-ph)*.85;x.lineWidth=lw;x.beginPath();x.arc(hpx,hpy,R*(.02+.085*ph),0,TAU);x.stroke()}
+  x.globalAlpha=1;x.fillStyle=C.core;x.strokeStyle=C.home;x.lineWidth=big?2.5:2;x.beginPath();x.arc(hpx,hpy,R*.016+2.2,0,TAU);x.fill();x.stroke();
+  x.font=fH;x.textAlign=hleft?'right':'left';x.lineWidth=4;x.strokeStyle=C.halo;x.fillStyle=C.txt;x.strokeText(homeName,htx,hty);x.fillText(homeName,htx,hty)}}
+ 
+const fit=v=>{const s=v.cv.clientWidth;if(!s)return false;const d=Math.min(devicePixelRatio||1,2);if(v.S!==s||v.d!==d){v.S=s;v.d=d;v.cv.width=v.cv.height=Math.round(s*d);v.R=s*.39}return true};
+const cur=()=>open?large:vis?small:null;
+const still=()=>{const v=cur();if(v&&fit(v))paint(v)};          // draw one frame (used when motion is switched off on the device)
+function frame(t){requestAnimationFrame(frame);const v=cur();if(document.hidden||!v){last=0;return}
+ const dt=last?Math.min(50,t-last):16;last=t;T+=dt;step(dt);if(fit(v))paint(v)}
+ 
+// drag to spin (a tap that does not move is left alone, so it can open the globe)
+function grab(el,v){let id=null,x0=0,y0=0,px=0,py=0,pt=0,mv=false;
+ el.addEventListener('pointerdown',e=>{if(e.button)return;id=e.pointerId;x0=px=e.clientX;y0=py=e.clientY;pt=performance.now();mv=false});
+ el.addEventListener('pointermove',e=>{if(e.pointerId!==id)return;
+  if(!mv){if(Math.hypot(e.clientX-x0,e.clientY-y0)<6)return;mv=drag=true;vy=vx=0;el.classList.add('drag');try{el.setPointerCapture(id)}catch(_){}}
+  const now=performance.now(),k=1/(v.R||150),dt=Math.max(4,now-pt),dx=e.clientX-px,dy=e.clientY-py;pt=now;px=e.clientX;py=e.clientY;
+  ry-=dx*k;rx=clamp(rx+dy*k,-1.25,1.25);vy=clamp(-dx*k/dt,-.0035,.0035);vx=clamp(dy*k/dt,-.0035,.0035);if(RM)still()});
+ const end=e=>{if(e.pointerId!==id)return;id=null;el.classList.remove('drag');if(!mv)return;drag=false;idle=T+2600;if(performance.now()-pt>80)vy=vx=0;dragged=true;setTimeout(()=>{dragged=false},0)};
+ el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end)}
+grab(btn,small);grab(st,large);
+ 
+// tap: the globe grows out of its place on the page and comes to the front. Esc, the cross, or a tap outside sends it back.
+const fly=()=>{const r=btn.getBoundingClientRect(),m=st.getBoundingClientRect();return 'translate('+(r.left+r.width/2-m.left-m.width/2).toFixed(1)+'px,'+(r.top+r.height/2-m.top-m.height/2).toFixed(1)+'px) scale('+(r.width/m.width).toFixed(4)+')'};
+function openG(){if(open)return;back=document.activeElement;open=true;last=0;gm.classList.add('on');showFeed(false);
+ if(!RM){st.style.transition='none';st.style.transform='none';st.style.transform=fly();void st.offsetWidth;st.style.transition='';st.style.transform=''}
+ btn.classList.add('away');document.documentElement.style.overflow='hidden';setTimeout(()=>$('#gmX').focus({preventScroll:true}),80);if(RM)still()}
+function closeG(){if(!open||closing)return;document.documentElement.style.overflow='';gm.classList.remove('on');if(!RM)st.style.transform=fly();
+ closing=setTimeout(()=>{closing=0;open=false;last=0;btn.classList.remove('away');st.style.transition='none';st.style.transform='';void st.offsetWidth;st.style.transition='';while(labs.length>3)labs.shift();if(RM)still()},RM?0:430);
+ if(back&&back.focus)back.focus({preventScroll:true})}
+btn.addEventListener('click',e=>{if(dragged){e.preventDefault();return}openG()});
+$('#gmX').addEventListener('click',closeG);
+gm.addEventListener('click',e=>{if(e.target===gm||e.target.classList.contains('gm-in'))closeG()});
+addEventListener('keydown',e=>{if(!open)return;
+ if(e.key==='Escape'){e.preventDefault();closeG()}
+ else if(e.key==='Tab'){const f=[...gm.querySelectorAll('button,a[href]')],i=f.indexOf(document.activeElement);if(e.shiftKey?i<=0:i<0||i===f.length-1){e.preventDefault();f[e.shiftKey?f.length-1:0].focus()}}});
+ 
+theme();
+new MutationObserver(()=>{theme();if(RM)still()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if('IntersectionObserver' in window)new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(RM)still()},{rootMargin:'150px'}).observe(btn);else vis=true;
+if(RM){ // no movement wanted: show a handful of finished lines instead, still draggable
+ ['United States','United Kingdom','Germany','United Arab Emirates','Australia','Japan','South Africa'].forEach(c=>{const p=P.find(q=>q.c===c),a=p&&mkArc(p,true);if(a)arcs.push(a)});
+ addEventListener('resize',still);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(still);still()}
+else requestAnimationFrame(frame)});
+ 
+// ---- thank-you card. It only ever shows the real members listed under "thanks" in the EDIT ZONE;
+//      an empty list means no card. Names are masked here (Amit -> A**T) and the "... ago" text is worked out from the time given.
+run('thanks',()=>{const el=$('#ty'),list=Array.isArray(SITE.thanks)?SITE.thanks:[];if(!list.length)return;
+const mask=n=>{const a=Array.from((String(n==null?'':n).trim().split(/\s+/)[0])||'');return a.length<2?'':(a[0]+'*'.repeat(Math.max(1,a.length-2))+(a.length>2?a[a.length-1]:'')).toUpperCase()};
+const when=s=>{const m=String(s==null?'':s).match(/(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T]+(\d{1,2}):(\d{2}))?/);if(!m)return null;
+ return {t:Date.UTC(+m[1],m[2]-1,+m[3],m[4]==null?0:+m[4],m[4]==null?0:+m[5])-OFF,day:m[4]==null}};   // the time is read as IST
+const ago=o=>{const ms=Date.now()-o.t;if(o.day)return ms<864e5?'today':'yesterday';const m=Math.floor(ms/6e4);if(m<2)return 'just now';if(m<60)return m+' minutes ago';
+ const h=Math.floor(m/60);return h<24?h+(h===1?' hour ago':' hours ago'):'1 day ago'};
+const fresh=()=>list.map(o=>{const w=when(o&&o.when);return w&&{n:mask(o.name),p:String(o.plan==null?'':o.plan).trim(),t:w.t,day:w.day}}).filter(o=>o&&o.n&&Date.now()>=o.t&&Date.now()-o.t<1728e5).sort((a,b)=>b.t-a.t);
+let i=0,off=false,tm;
+const hide=()=>{el.classList.remove('on')};
+function show(){if(off)return;const L=fresh();if(!L.length)return;const o=L[i++%L.length];
+ el.innerHTML='<b>Thank you for joining!</b><span>'+esc(o.n)+' joined the '+(o.p?esc(o.p)+' ':'')+'membership</span><small>'+ago(o)+'</small><button aria-label="Hide this card">×</button>';
+ el.querySelector('button').onclick=()=>{off=true;clearTimeout(tm);hide()};
+ el.classList.add('on');tm=setTimeout(()=>{hide();tm=setTimeout(show,i%L.length?9000:22000)},6500)}
+whenGo(()=>{tm=setTimeout(show,5000)})});
+ 
 // ---- scrolling: margin-line progress, current section in the nav, red-pen marks
 run('scroll',()=>{const m=$('#prog'),f=()=>m.style.setProperty('--p',Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)).toFixed(4));
 addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()});
@@ -1092,3 +1406,5 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 </script>
 </body>
 </html>
+ 
+Claude finished the response
